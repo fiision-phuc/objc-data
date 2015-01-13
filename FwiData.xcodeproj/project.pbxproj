@@ -73,7 +73,22 @@
 		BEEA43141A02B0F2006F169C /* FwiSOAPService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE6541E319F99A38004572CF /* FwiSOAPService.h */; };
 		BEF2DFD017046E9D0006DD71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF2DFCF17046E9D0006DD71 /* CoreData.framework */; };
 		BEF2DFD217046EA40006DD71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF2DFD117046EA40006DD71 /* CoreLocation.framework */; };
+		BEF95CD41A650AE600183E43 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF95CD31A650AE600183E43 /* XCTest.framework */; };
+		BEF95CD51A650AE600183E43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208B7A16E9B0A9004E0F54 /* Foundation.framework */; };
+		BEF95CD61A650AE600183E43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDD16EA469400C29A10 /* UIKit.framework */; };
+		BEF95CDC1A650AE600183E43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEF95CDA1A650AE600183E43 /* InfoPlist.strings */; };
+		BEF95CDE1A650AE600183E43 /* FwiDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF95CDD1A650AE600183E43 /* FwiDataTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEF95CE01A650AE600183E43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE208B6F16E9B0A9004E0F54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE208B7616E9B0A9004E0F54;
+			remoteInfo = FwiData;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		BE208B7516E9B0A9004E0F54 /* CopyFiles */ = {
@@ -184,6 +199,12 @@
 		BEEFA4CE18A79623002BCF21 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BEF2DFCF17046E9D0006DD71 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BEF2DFD117046EA40006DD71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BEF95CD21A650AE600183E43 /* FwiDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FwiDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEF95CD31A650AE600183E43 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BEF95CD91A650AE600183E43 /* FwiDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FwiDataTests-Info.plist"; sourceTree = "<group>"; };
+		BEF95CDB1A650AE600183E43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BEF95CDD1A650AE600183E43 /* FwiDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FwiDataTests.m; sourceTree = "<group>"; };
+		BEF95CDF1A650AE600183E43 /* FwiDataTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FwiDataTests-Prefix.pch"; sourceTree = "<group>"; };
 		BEFA8A03191DC1D900696262 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -200,6 +221,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEF95CCF1A650AE600183E43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF95CD41A650AE600183E43 /* XCTest.framework in Frameworks */,
+				BEF95CD61A650AE600183E43 /* UIKit.framework in Frameworks */,
+				BEF95CD51A650AE600183E43 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -209,6 +240,7 @@
 				BE208B7C16E9B0A9004E0F54 /* FwiData */,
 				BE208B7816E9B0A9004E0F54 /* Products */,
 				BE208B7916E9B0A9004E0F54 /* Frameworks */,
+				BEF95CD71A650AE600183E43 /* FwiDataTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				BE208B7716E9B0A9004E0F54 /* libFwiData.a */,
+				BEF95CD21A650AE600183E43 /* FwiDataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +264,7 @@
 				BEEFA4C818A795ED002BCF21 /* Accelerate.framework */,
 				BEFA8A03191DC1D900696262 /* libz.1.2.5.dylib */,
 				BEEFA4C018A795C1002BCF21 /* libFwiCore.a */,
+				BEF95CD31A650AE600183E43 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -475,6 +509,25 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		BEF95CD71A650AE600183E43 /* FwiDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEF95CDD1A650AE600183E43 /* FwiDataTests.m */,
+				BEF95CD81A650AE600183E43 /* Supporting Files */,
+			);
+			path = FwiDataTests;
+			sourceTree = "<group>";
+		};
+		BEF95CD81A650AE600183E43 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BEF95CD91A650AE600183E43 /* FwiDataTests-Info.plist */,
+				BEF95CDA1A650AE600183E43 /* InfoPlist.strings */,
+				BEF95CDF1A650AE600183E43 /* FwiDataTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -495,6 +548,24 @@
 			productReference = BE208B7716E9B0A9004E0F54 /* libFwiData.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		BEF95CD11A650AE600183E43 /* FwiDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEF95CE21A650AE600183E43 /* Build configuration list for PBXNativeTarget "FwiDataTests" */;
+			buildPhases = (
+				BEF95CCE1A650AE600183E43 /* Sources */,
+				BEF95CCF1A650AE600183E43 /* Frameworks */,
+				BEF95CD01A650AE600183E43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEF95CE11A650AE600183E43 /* PBXTargetDependency */,
+			);
+			name = FwiDataTests;
+			productName = FwiDataTests;
+			productReference = BEF95CD21A650AE600183E43 /* FwiDataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -503,6 +574,11 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "FWI Group";
+				TargetAttributes = {
+					BEF95CD11A650AE600183E43 = {
+						TestTargetID = BE208B7616E9B0A9004E0F54;
+					};
+				};
 			};
 			buildConfigurationList = BE208B7216E9B0A9004E0F54 /* Build configuration list for PBXProject "FwiData" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -517,10 +593,22 @@
 			projectRoot = "";
 			targets = (
 				BE208B7616E9B0A9004E0F54 /* FwiData */,
+				BEF95CD11A650AE600183E43 /* FwiDataTests */,
 				BE208BE216E9B52C004E0F54 /* FwiData.framework */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEF95CD01A650AE600183E43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF95CDC1A650AE600183E43 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		BE208BFF16E9B964004E0F54 /* Build universal binary */ = {
@@ -571,7 +659,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEF95CCE1A650AE600183E43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF95CDE1A650AE600183E43 /* FwiDataTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEF95CE11A650AE600183E43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE208B7616E9B0A9004E0F54 /* FwiData */;
+			targetProxy = BEF95CE01A650AE600183E43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BEF95CDA1A650AE600183E43 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEF95CDB1A650AE600183E43 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BE208B8316E9B0A9004E0F54 /* Debug */ = {
@@ -599,7 +714,6 @@
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -616,8 +730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LINK_WITH_STANDARD_LIBRARIES = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
@@ -653,7 +766,6 @@
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FwiData/FwiData-Prefix.pch";
@@ -663,8 +775,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LINK_WITH_STANDARD_LIBRARIES = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
@@ -714,6 +825,58 @@
 			};
 			name = Release;
 		};
+		BEF95CE31A650AE600183E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FwiDataTests/FwiDataTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "FwiDataTests/FwiDataTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BEF95CE41A650AE600183E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FwiDataTests/FwiDataTests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "FwiDataTests/FwiDataTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -743,6 +906,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BEF95CE21A650AE600183E43 /* Build configuration list for PBXNativeTarget "FwiDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF95CE31A650AE600183E43 /* Debug */,
+				BEF95CE41A650AE600183E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
