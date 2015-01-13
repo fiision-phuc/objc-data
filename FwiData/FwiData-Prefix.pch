@@ -1,0 +1,14 @@
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import <CoreGraphics/CoreGraphics.h>
+    #import <CoreLocation/CoreLocation.h>
+
+    // FwiCore Framework
+    #import "FwiCore.h"
+
+    // Project Framework
+    #import "FwiData_Private.h"
+    #import "FwiData.h"
+#endif
