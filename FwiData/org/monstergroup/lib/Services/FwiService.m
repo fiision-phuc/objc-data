@@ -287,7 +287,7 @@
 }
 + (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestMessage:(FwiJson *)requestMessage {
     __autoreleasing FwiRequest *request = [FwiRequest requestWithURL:url methodType:method];
-    [request setDataParameter:[FwiDataParameter parameterWithJson:requestMessage]];
+    [request setDataParameter:[FwiDataParam parameterWithJson:requestMessage]];
     return [FwiService serviceWithRequest:request];
 }
 + (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestDictionary:(NSDictionary *)requestDictionary {
@@ -295,7 +295,7 @@
     
     // Insert parameters
     [requestDictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
-        __autoreleasing FwiFormParameter *parameter = [FwiFormParameter parameterWithKey:key andValue:value];
+        __autoreleasing FwiFormParam *parameter = [FwiFormParam paramWithKey:key andValue:value];
         [request addFormParameters:parameter, nil];
     }];
     return [FwiService serviceWithRequest:request];

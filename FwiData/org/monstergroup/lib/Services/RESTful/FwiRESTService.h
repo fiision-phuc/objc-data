@@ -1,11 +1,11 @@
 //  Project name: FwiData
-//  File name   : FwiDataParameter.h
+//  File name   : FwiRESTService.h
 //
 //  Author      : Phuc, Tran Huu
 //  Created date: 8/11/13
 //  Version     : 1.20
 //  --------------------------------------------------------------
-//  Copyright (C) 2012, 2014 Monster Group.
+//  Copyright (C) 2012, 2015 Monster Group.
 //  All Rights Reserved.
 //  --------------------------------------------------------------
 //
@@ -36,26 +36,26 @@
 //  person or entity with respect to any loss or damage caused, or alleged  to  be
 //  caused, directly or indirectly, by the use of this software.
 
-#import <Foundation/Foundation.h>
+#import "FwiService.h"
 
 
-@interface FwiDataParameter : NSObject <NSCoding> {
+@interface FwiRESTService : FwiService {
 }
 
-@property (nonatomic, readonly) NSData *data;
-@property (nonatomic, readonly) NSString *contentType;
+
+- (void)executeWithCompletion:(void(^)(FwiJson *responseMessage, NSError *error, NSInteger statusCode))completion;
 
 @end
 
 
-@interface FwiDataParameter (FwiDataParameterCreation)
+@interface FwiRESTService (FwiRESTServiceCreation)
 
 // Class's static constructors
-+ (__autoreleasing FwiDataParameter *)parameterWithJson:(FwiJson *)json;
-+ (__autoreleasing FwiDataParameter *)parameterWithString:(NSString *)string;
-+ (__autoreleasing FwiDataParameter *)parameterWithData:(NSData *)data contentType:(NSString *)contentType;
++ (__autoreleasing FwiRESTService *)serviceWithRequest:(FwiRequest *)request;
 
-// Class's constructors
-- (id)initWithData:(NSData *)data contentType:(NSString *)contentType;
++ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url;
++ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method;
++ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestMessage:(FwiJson *)requestMessage;
++ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestDictionary:(NSDictionary *)requestDictionary;
 
 @end

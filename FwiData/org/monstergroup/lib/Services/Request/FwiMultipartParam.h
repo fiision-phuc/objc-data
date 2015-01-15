@@ -1,11 +1,12 @@
 //  Project name: FwiData
-//  File name   : FwiMultipartParameter.h
+//  File name   : FwiMultipartParam.h
 //
 //  Author      : Phuc, Tran Huu
 //  Created date: 5/11/14
 //  Version     : 1.20
 //  --------------------------------------------------------------
-//  Copyright (C) 2014 Monster Group. All rights reserved.
+//  Copyright (C) 2012, 2015 Monster Group.
+//  All Rights Reserved.
 //  --------------------------------------------------------------
 //
 //  Permission is hereby granted, free of charge, to any person obtaining  a  copy
@@ -38,28 +39,28 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FwiMultipartParameter : NSObject<NSCoding> {
+@interface FwiMultipartParam : NSObject<NSCoding> {
 }
 
 @property (nonatomic, readonly) NSString *name;
-@property (nonatomic, readonly) NSString *filename;
+@property (nonatomic, readonly) NSString *fileName;
 
-@property (nonatomic, readonly) NSData   *data;
+@property (nonatomic, readonly) NSData *data;
 @property (nonatomic, readonly) NSString *contentType;
 
 
 /** Comparison. */
-- (NSComparisonResult)compare:(FwiMultipartParameter *)parameter;
+- (NSComparisonResult)compare:(FwiMultipartParam *)parameter;
 
 @end
 
 
-@interface FwiMultipartParameter (FwiMultipartParameterCreation)
+@interface FwiMultipartParam (FwiMultipartParamCreation)
 
 // Class's static constructors
-+ (__autoreleasing FwiMultipartParameter *)parameterWithName:(NSString *)name filename:(NSString *)filename data:(NSData *)data contentType:(NSString *)contentType;
++ (__autoreleasing FwiMultipartParam *)paramWithName:(NSString *)name fileName:(NSString *)fileName data:(NSData *)data contentType:(NSString *)contentType;
 
 // Class's constructors
-- (id)initWithName:(NSString *)name filename:(NSString *)filename data:(NSData *)data contentType:(NSString *)contentType;
+- (id)initWithName:(NSString *)name fileName:(NSString *)fileName data:(NSData *)data contentType:(NSString *)contentType;
 
 @end

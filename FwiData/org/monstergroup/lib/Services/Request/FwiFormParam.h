@@ -1,11 +1,11 @@
 //  Project name: FwiData
-//  File name   : FwiFormParameter.h
+//  File name   : FwiFormParam.h
 //
 //  Author      : Phuc, Tran Huu
 //  Created date: 9/23/12
 //  Version     : 1.20
 //  --------------------------------------------------------------
-//  Copyright (C) 2012, 2014 Monster Group.
+//  Copyright (C) 2012, 2015 Monster Group.
 //  All Rights Reserved.
 //  --------------------------------------------------------------
 //
@@ -39,7 +39,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FwiFormParameter : NSObject <NSCoding> {
+@interface FwiFormParam : NSObject <NSCoding> {
 }
 
 @property (nonatomic, strong) NSString *key;
@@ -47,16 +47,15 @@
 
 
 /** Comparison. */
-- (NSComparisonResult)compare:(FwiFormParameter *)parameter;
+- (NSComparisonResult)compare:(FwiFormParam *)parameter;
 
 @end
 
 
-@interface FwiFormParameter (FwiRequestParameterCreation)
+@interface FwiFormParam (FwiFormParamCreation)
 
 // Class's static constructors
-+ (__autoreleasing FwiFormParameter *)decode:(NSString *)info;
-+ (__autoreleasing FwiFormParameter *)parameterWithKey:(NSString *)key andValue:(NSString *)value;
++ (__autoreleasing FwiFormParam *)paramWithKey:(NSString *)key andValue:(NSString *)value;
 
 // Class's constructors
 - (id)initWithKey:(NSString *)key andValue:(NSString *)value;

@@ -5,7 +5,7 @@
 //  Created date: 3/8/13
 //  Version     : 1.20
 //  --------------------------------------------------------------
-//  Copyright (C) 2012, 2014 Monster Group.
+//  Copyright (C) 2012, 2015 Monster Group.
 //  All Rights Reserved.
 //  --------------------------------------------------------------
 //
@@ -127,12 +127,11 @@ static inline BOOL FwiNetworkStatusIsSuccces(FwiNetworkStatus statusCode) {
 #import "NSString+FwiJson.h"
 // Network
 #import "FwiRequest.h"
-#import "FwiDataParameter.h"
-#import "FwiFormParameter.h"
-#import "FwiMultipartParameter.h"
+#import "FwiDataParam.h"
+#import "FwiFormParam.h"
+#import "FwiMultipartParam.h"
 #import "FwiService.h"
 #import "FwiRESTService.h"
-#import "FwiSOAPService.h"
 // Parser
 #import "FwiCsvParser.h"
 

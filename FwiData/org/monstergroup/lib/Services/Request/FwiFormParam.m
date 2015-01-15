@@ -1,13 +1,13 @@
-#import "FwiFormParameter.h"
+#import "FwiFormParam.h"
 
 
-@interface FwiFormParameter () {
+@interface FwiFormParam () {
 }
 
 @end
 
 
-@implementation FwiFormParameter
+@implementation FwiFormParam
 
 
 #pragma mark - Class's constructors
@@ -34,8 +34,8 @@
 
 #pragma mark - Class's override methods
 - (BOOL)isEqual:(id)object {
-	if (object && [object isKindOfClass:[FwiFormParameter class]]) {
-        FwiFormParameter *other = (FwiFormParameter *)object;
+	if (object && [object isKindOfClass:[FwiFormParam class]]) {
+        FwiFormParam *other = (FwiFormParam *)object;
         return ([_key isEqualToString:other.key] && [_value isEqualToString:other.value]);
 	}
 	return NO;
@@ -47,7 +47,7 @@
 
 
 #pragma mark - Class's public methods
-- (NSComparisonResult)compare:(FwiFormParameter *)parameter {
+- (NSComparisonResult)compare:(FwiFormParam *)parameter {
     /* Condition validation */
     if (!parameter) return NSOrderedDescending;
     else return [_key compare:parameter.key];
@@ -73,25 +73,14 @@
 @end
 
 
-@implementation FwiFormParameter (FwiRequestParameterCreation)
+@implementation FwiFormParam (FwiFormParamCreation)
 
 
 #pragma mark - Class's static constructors
-+ (__autoreleasing FwiFormParameter *)decode:(NSString *)info {
-    /* Condition validation */
-    if (!info || info.length == 0) return nil;
-
-    /* Condition validation: Invalid format */
-    NSRange range = [info rangeOfString:@"="];
-    if (range.location == NSNotFound) return nil;
-
-    __autoreleasing NSArray *tokens = [[info trim] componentsSeparatedByString:@"="];
-    return [FwiFormParameter parameterWithKey:tokens[0] andValue:[tokens[1] decodeHTML]];
-}
-+ (__autoreleasing FwiFormParameter *)parameterWithKey:(NSString *)key andValue:(NSString *)value {
++ (__autoreleasing FwiFormParam *)paramWithKey:(NSString *)key andValue:(NSString *)value {
     /* Condition validation */
     if (!key || key.length == 0 || !value || value.length == 0) return nil;
-    else return FwiAutoRelease([[FwiFormParameter alloc] initWithKey:key andValue:value]);
+    else return FwiAutoRelease([[FwiFormParam alloc] initWithKey:key andValue:value]);
 }
 
 

@@ -1,13 +1,13 @@
-#import "FwiDataParameter.h"
+#import "FwiDataParam.h"
 
 
-@interface FwiDataParameter () {
+@interface FwiDataParam () {
 }
 
 @end
 
 
-@implementation FwiDataParameter
+@implementation FwiDataParam
 
 
 @synthesize data=_data, contentType=_contentType;
@@ -54,24 +54,24 @@
 @end
 
 
-@implementation FwiDataParameter (FwiDataParameterCreation)
+@implementation FwiDataParam (FwiDataParamCreation)
 
 
 #pragma mark - Class's static constructors
-+ (__autoreleasing FwiDataParameter *)parameterWithJson:(FwiJson *)json {
++ (__autoreleasing FwiDataParam *)parameterWithJson:(FwiJson *)json {
     /* Condition validation */
     if (!json) return nil;
-    else return [FwiDataParameter parameterWithData:[json encode] contentType:@"application/json; charset=UTF-8"];
+    else return [FwiDataParam parameterWithData:[json encode] contentType:@"application/json; charset=UTF-8"];
 }
-+ (__autoreleasing FwiDataParameter *)parameterWithString:(NSString *)string {
++ (__autoreleasing FwiDataParam *)parameterWithString:(NSString *)string {
     /* Condition validation */
     if (!string || string.length == 0) return nil;
-    else return [FwiDataParameter parameterWithData:[string toData] contentType:@"text/plain; charset=UTF-8"];
+    else return [FwiDataParam parameterWithData:[string toData] contentType:@"text/plain; charset=UTF-8"];
 }
-+ (__autoreleasing FwiDataParameter *)parameterWithData:(NSData *)data contentType:(NSString *)contentType {
++ (__autoreleasing FwiDataParam *)parameterWithData:(NSData *)data contentType:(NSString *)contentType {
     /* Condition validation */
     if (!data || data.length == 0 || !contentType || contentType.length == 0) return nil;
-    return FwiAutoRelease([[FwiDataParameter alloc] initWithData:data contentType:contentType]);
+    return FwiAutoRelease([[FwiDataParam alloc] initWithData:data contentType:contentType]);
 }
 
 

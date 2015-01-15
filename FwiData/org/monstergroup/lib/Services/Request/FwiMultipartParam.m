@@ -1,16 +1,16 @@
-#import "FwiMultipartParameter.h"
+#import "FwiMultipartParam.h"
 
 
-@interface FwiMultipartParameter () {
+@interface FwiMultipartParam () {
 }
 
 @end
 
 
-@implementation FwiMultipartParameter
+@implementation FwiMultipartParam
 
 
-@synthesize name=_name, filename=_filename, data=_data, contentType=_contentType;
+@synthesize name=_name, fileName=_fileName, data=_data, contentType=_contentType;
 
 
 #pragma mark - Class's constructors
@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         _name = nil;
-        _filename = nil;
+        _fileName = nil;
 
         _data = nil;
         _contentType = nil;
@@ -30,7 +30,7 @@
 #pragma mark - Cleanup memory
 - (void)dealloc {
     FwiRelease(_name);
-    FwiRelease(_filename);
+    FwiRelease(_fileName);
     FwiRelease(_data);
     FwiRelease(_contentType);
 
@@ -45,14 +45,14 @@
     NSUInteger hash = 0;
 
     hash += [_name hash];
-    hash += [_filename hash];
+    hash += [_fileName hash];
     hash += [_data hash];
     hash += [_contentType hash];
 
     return hash;
 }
 
-- (NSComparisonResult)compare:(FwiMultipartParameter *)parameter {
+- (NSComparisonResult)compare:(FwiMultipartParam *)parameter {
     /* Condition validation */
     if (!parameter) return NSOrderedDescending;
 
@@ -67,7 +67,7 @@
     self = [self init];
     if (self && aDecoder) {
         _name        = FwiRetain([aDecoder decodeObjectForKey:@"_name"]);
-        _filename    = FwiRetain([aDecoder decodeObjectForKey:@"_filename"]);
+        _fileName    = FwiRetain([aDecoder decodeObjectForKey:@"_filename"]);
         _data        = FwiRetain([aDecoder decodeObjectForKey:@"_data"]);
         _contentType = FwiRetain([aDecoder decodeObjectForKey:@"_contentType"]);
     }
@@ -76,7 +76,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     if (!aCoder) return;
     [aCoder encodeObject:_name forKey:@"_name"];
-    [aCoder encodeObject:_filename forKey:@"_filename"];
+    [aCoder encodeObject:_fileName forKey:@"_filename"];
     [aCoder encodeObject:_data forKey:@"_data"];
     [aCoder encodeObject:_contentType forKey:@"_contentType"];
 }
@@ -85,21 +85,21 @@
 @end
 
 
-@implementation FwiMultipartParameter (FwiMultipartParameterCreation)
+@implementation FwiMultipartParam (FwiMultipartParamCreation)
 
 
 #pragma mark - Class's static constructors
-+ (__autoreleasing FwiMultipartParameter*)parameterWithName:(NSString *)name filename:(NSString *)filename data:(NSData *)data contentType:(NSString *)contentType {
-    return FwiAutoRelease([[FwiMultipartParameter alloc] initWithName:name filename:filename data:data contentType:contentType]);
++ (__autoreleasing FwiMultipartParam*)paramWithName:(NSString *)name fileName:(NSString *)fileName data:(NSData *)data contentType:(NSString *)contentType {
+    return FwiAutoRelease([[FwiMultipartParam alloc] initWithName:name fileName:fileName data:data contentType:contentType]);
 }
 
 
 #pragma mark - Class's constructors
-- (id)initWithName:(NSString *)name filename:(NSString *)filename data:(NSData *)data contentType:(NSString *)contentType {
+- (id)initWithName:(NSString *)name fileName:(NSString *)fileName data:(NSData *)data contentType:(NSString *)contentType {
     self = [self init];
     if (self) {
         _name = FwiRetain(name);
-        _filename = FwiRetain(filename);
+        _fileName = FwiRetain(fileName);
         _data = FwiRetain(data);
         _contentType = FwiRetain(contentType);
     }

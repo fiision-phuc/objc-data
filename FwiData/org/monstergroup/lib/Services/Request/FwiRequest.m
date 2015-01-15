@@ -1,7 +1,7 @@
 #import "FwiRequest.h"
-#import "FwiDataParameter.h"
-#import "FwiFormParameter.h"
-#import "FwiMultipartParameter.h"
+#import "FwiDataParam.h"
+#import "FwiFormParam.h"
+#import "FwiMultipartParam.h"
 
 
 #define kHTTP_Copy      @"COPY";
@@ -23,13 +23,13 @@
     FwiMethodType    _type;
 
     // Raw request
-    FwiDataParameter *_raw;
+    FwiDataParam *_raw;
     // Form request
     NSMutableArray   *_form;
     NSMutableArray   *_upload;
 }
 
-@property (nonatomic, strong) FwiDataParameter *raw;
+@property (nonatomic, strong) FwiDataParam *raw;
 @property (nonatomic, strong) NSMutableArray   *form;
 @property (nonatomic, strong) NSMutableArray   *upload;
 
@@ -39,10 +39,10 @@
 - (void)_initializeUpload;
 
 /** Add form parameter. */
-- (void)_addFormParameter:(FwiDataParameter *)parameter;
+- (void)_addFormParameter:(FwiDataParam *)parameter;
 
 /** Add multipart parameter. */
-- (void)_addMultipartParameter:(FwiMultipartParameter *)parameter;
+- (void)_addMultipartParameter:(FwiMultipartParam *)parameter;
 
 @end
 
@@ -126,14 +126,14 @@
                     __unsafe_unretained __block NSString *weakBoundary = boundary;
                     __unsafe_unretained __block NSMutableData *body    = [NSMutableData data];
 
-                    [_upload enumerateObjectsUsingBlock:^(FwiMultipartParameter *part, NSUInteger idx, BOOL *stop) {
+                    [_upload enumerateObjectsUsingBlock:^(FwiMultipartParam *part, NSUInteger idx, BOOL *stop) {
                         [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", weakBoundary] toData]];
-                        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", part.name, part.filename] toData]];
+                        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", part.name, part.fileName] toData]];
                         [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", part.contentType] toData]];
                         [body appendData:part.data];
                     }];
 
-                    [_form enumerateObjectsUsingBlock:^(FwiFormParameter *pair, NSUInteger idx, BOOL *stop) {
+                    [_form enumerateObjectsUsingBlock:^(FwiFormParam *pair, NSUInteger idx, BOOL *stop) {
                         [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", weakBoundary] toData]];
                         [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", pair.key] toData]];
                         [body appendData:[pair.value toData]];
@@ -173,15 +173,15 @@
     _upload = [[NSMutableArray alloc] initWithCapacity:1];
 }
 
-- (void)_addFormParameter:(FwiDataParameter *)parameter {
+- (void)_addFormParameter:(FwiDataParam *)parameter {
     /* Condition validation */
-    if (![parameter isMemberOfClass:[FwiFormParameter class]] || [_form containsObject:parameter]) return;
+    if (![parameter isMemberOfClass:[FwiFormParam class]] || [_form containsObject:parameter]) return;
     [_form addObject:parameter];
 }
 
-- (void)_addMultipartParameter:(FwiMultipartParameter *)parameter {
+- (void)_addMultipartParameter:(FwiMultipartParam *)parameter {
     /* Condition validation */
-    if (![parameter isMemberOfClass:[FwiMultipartParameter class]] || [_upload containsObject:parameter]) return;
+    if (![parameter isMemberOfClass:[FwiMultipartParam class]] || [_upload containsObject:parameter]) return;
     [_upload addObject:parameter];
 }
 
@@ -361,7 +361,7 @@
     if (!(_type == kMethodType_Post || _type == kMethodType_Patch || _type == kMethodType_Put)) return;
 
     /* Condition validation: Validate parameter type */
-    if (!parameter || ![parameter isMemberOfClass:[FwiDataParameter class]]) return;
+    if (!parameter || ![parameter isMemberOfClass:[FwiDataParam class]]) return;
 
     // Release form
     FwiRelease(_form);
