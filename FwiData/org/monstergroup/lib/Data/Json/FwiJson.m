@@ -136,8 +136,9 @@
 
 #pragma mark - Cleanup memory
 - (void)dealloc {
-    self.array      = nil;
     self.dictionary = nil;
+    self.array = nil;
+
     FwiRelease(_number);
     FwiRelease(_string);
 
@@ -270,12 +271,6 @@
 	
     return isLike;
 }
-
-
-#pragma mark - Class's private methods
-
-
-#pragma mark - Class's notification handlers
 
 
 #pragma mark - NSCoding's members
@@ -411,27 +406,6 @@
 + (__autoreleasing FwiJson *)objectWithDictionary:(NSDictionary *)dictionary {
 	return [FwiJson _JsonFromObject:dictionary];
 }
-
-+ (__autoreleasing FwiJson *)objectWithJSONString:(NSString *)string {
-	return [FwiJson objectWithJSONData:[string toData]];
-}
-
-+ (__autoreleasing FwiJson *)objectWithJSONData:(NSData *)data {
-    /* Condition validation */
-    if (!data || data.length == 0) return nil;
-    
-    __autoreleasing NSError *error = nil;
-    __autoreleasing id obj = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingAllowFragments
-                                                               error:&error];
-    return (error ? nil : [FwiJson _JsonFromObject:obj]);
-}
-+ (__autoreleasing FwiJson *)objectWithData:(NSData *)data {
-    return [FwiJson _JsonFromObject:[data toString]];
-}
-
-
-#pragma mark - Class's constructors
 
 
 @end
@@ -739,23 +713,24 @@
 
 
 - (__autoreleasing NSData *)encode {
-	return [[self encodeJson] toData];
-}
-- (__autoreleasing NSString *)encodeJson {
     __autoreleasing id object = [FwiJson _objectFromJson:self];
-    
+
     __autoreleasing NSError *error = nil;
     __autoreleasing NSData *data = [NSJSONSerialization dataWithJSONObject:object
                                                                    options:kNilOptions
                                                                      error:&error];
-	
-	if (!error) {
-        return [data toString];
+
+    if (!error) {
+        return data;
     }
-	else {
+    else {
         return nil;
     }
 }
+- (__autoreleasing NSString *)encodeJson {
+    return [[self encode] toString];
+}
+
 - (__autoreleasing NSData *)encodeBase64Data {
     return [[self encode] encodeBase64Data];
 }

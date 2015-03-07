@@ -11,9 +11,6 @@
     // File Handler
     NSString *_path;
     NSFileHandle *_output;
-    
-    // Completion Block
-    void(^_completion)(NSURL *locationPath, NSError *error, FwiNetworkStatus statusCode);
 }
 
 
@@ -36,7 +33,6 @@
         
         _path   = nil;
         _output = nil;
-        _completion = nil;
         
         _error = nil;
         _timer = nil;
@@ -54,7 +50,6 @@
     
     FwiRelease(_path);
     FwiRelease(_output);
-    FwiRelease(_completion);
     
     FwiRelease(_error);
     _timer = nil;
@@ -66,7 +61,7 @@
 
 
 #pragma mark - Class's public methods
-- (void)executeBusiness {
+- (void)businessLogic {
     // Prepare data buffer
     __autoreleasing NSString *path = [NSString stringWithFormat:@"%@%@", NSTemporaryDirectory(), [NSString randomIdentifier]];
     _path = FwiRetain(path);
@@ -97,27 +92,14 @@
         _error      = FwiRetain([NSError errorWithDomain:ex.name code:_statusCode userInfo:ex.userInfo]);
     }
     @finally {
-        __autoreleasing NSURL *locationPath = [NSURL fileURLWithPath:_path];
-        
-        // Print out error if there is any
         if (_state == kOPState_Error) {
             __autoreleasing NSMutableString *errorMessage = [NSMutableString stringWithCapacity:1000];
             [errorMessage appendFormat:@"HTTP Url   : %@\n", _req.URL];
             [errorMessage appendFormat:@"HTTP Method: %@\n", _req.HTTPMethod];
             [errorMessage appendFormat:@"HTTP Status: %li (%@)\n", (unsigned long) _statusCode, _error.localizedDescription];
-            [errorMessage appendFormat:@"%@", [NSString stringWithContentsOfURL:locationPath encoding:NSUTF8StringEncoding error:nil]];
-            
+            [errorMessage appendFormat:@"%@", [NSString stringWithContentsOfFile:_path encoding:NSUTF8StringEncoding error:nil]];
+
             NSLog(@"\n\n%@\n\n", errorMessage);
-        }
-        
-        // Return result to client
-        if (_completion) _completion(locationPath, _error, _statusCode);
-        FwiRelease(_completion);
-        
-        // Delete buffer data
-        NSFileManager *manager = [NSFileManager defaultManager];
-        if ([manager fileExistsAtPath:_path]) {
-            [manager removeItemAtPath:_path error:nil];
         }
     }
 }
@@ -164,7 +146,7 @@
     if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
         SecTrustRef       serverTrust = challenge.protectionSpace.serverTrust;
         SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrust, 0);
-
+        
         // Verify certificate
         __autoreleasing NSData   *crtData = (NSData *)CFBridgingRelease(SecCertificateCopyData(certificate));
         __autoreleasing NSBundle *bundle  = [NSBundle bundleForClass:[self class]];
@@ -227,7 +209,14 @@
 
 #pragma mark - NSURLConnectionDataDelegate's members
 - (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    if (totalBytesWritten == totalBytesExpectedToWrite) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }
+    else {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    }
+    
+    // FIX FIX FIX: Should return delegate here to implement upload progress bar
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -319,8 +308,16 @@
 
 
 - (void)executeWithCompletion:(void(^)(NSURL *locationPath, NSError *error, NSInteger statusCode))completion {
-    if (completion) _completion = [completion copy];
-    [self execute];
+    [super executeWithCompletion:^{
+        __autoreleasing NSURL *locationPath = [NSURL fileURLWithPath:_path];
+        if (completion) completion(locationPath, _error, _statusCode);
+
+        // Delete buffer data
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if ([manager fileExistsAtPath:_path]) {
+            [manager removeItemAtPath:_path error:nil];
+        }
+    }];
 }
 
 

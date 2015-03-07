@@ -30,8 +30,8 @@
 }
 
 @property (nonatomic, strong) FwiDataParam *raw;
-@property (nonatomic, strong) NSMutableArray   *form;
-@property (nonatomic, strong) NSMutableArray   *upload;
+@property (nonatomic, strong) NSMutableArray *form;
+@property (nonatomic, strong) NSMutableArray *upload;
 
 
 /** Initialize form & upload. */

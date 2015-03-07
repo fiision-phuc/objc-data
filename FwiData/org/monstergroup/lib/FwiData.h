@@ -40,6 +40,47 @@
 #define __FWI_DATA__
 
 
+typedef NS_ENUM(NSInteger, FwiECLevel) {
+    kECLevel_L = 0,     //  ~7% correction
+    kECLevel_M = 1,     // ~15% correction
+    kECLevel_Q = 2,     // ~25% correction
+    kECLevel_H = 3      // ~30% correction
+};
+
+typedef NS_ENUM(NSInteger, FwiQRMode) {
+    kMode_Numeric      = 0x1,
+    kMode_Alphanumeric = 0x2,
+    kMode_Bytes        = 0x4,
+    kMode_Kanji        = 0x8
+};
+
+typedef NS_ENUM(NSInteger, FwiQRVersion) {
+    kVersion_1	= 1,	kVersion_2	= 2,	kVersion_3	= 3,    kVersion_4  = 4,
+    kVersion_5	= 5,	kVersion_6	= 6,    kVersion_7	= 7,	kVersion_8	= 8,
+    kVersion_9	= 9,    kVersion_10 = 10,	kVersion_11 = 11,	kVersion_12 = 12,
+    kVersion_13 = 13,	kVersion_14 = 14,	kVersion_15 = 15,   kVersion_16 = 16,
+    kVersion_17 = 17,	kVersion_18 = 18,   kVersion_19 = 19,	kVersion_20 = 20,
+    kVersion_21 = 21,   kVersion_22 = 22,	kVersion_23 = 23,	kVersion_24 = 24,
+    kVersion_25 = 25,	kVersion_26 = 26,	kVersion_27 = 27,   kVersion_28 = 28,
+    kVersion_29 = 29,	kVersion_30 = 30,   kVersion_31 = 31,	kVersion_32 = 32,
+    kVersion_33 = 33,   kVersion_34 = 34,	kVersion_35 = 35,	kVersion_36 = 36,
+    kVersion_37 = 37,	kVersion_38 = 38,	kVersion_39 = 39,   kVersion_40 = 40
+};
+
+typedef NS_ENUM(NSInteger, FwiMethodType) {
+    kMethodType_Copy    = 0x00,
+    kMethodType_Delete  = 0x01,
+    kMethodType_Get     = 0x02,
+    kMethodType_Head    = 0x03,
+    kMethodType_Link    = 0x04,
+    kMethodType_Options = 0x05,
+    kMethodType_Patch   = 0x06,
+    kMethodType_Post    = 0x07,
+    kMethodType_Purge   = 0x08,
+    kMethodType_Put     = 0x09,
+    kMethodType_Unlink  = 0x0a
+};
+
 typedef NS_ENUM(NSInteger, FwiNetworkStatus) {
     kNetworkStatus_None                              = -1,
     kNetworkStatus_Unknown                           = NSURLErrorUnknown,
@@ -91,20 +132,6 @@ typedef NS_ENUM(NSInteger, FwiNetworkStatus) {
     kNetworkStatus_RequestBodyStreamExhausted        = NSURLErrorRequestBodyStreamExhausted,
 };
 
-typedef NS_ENUM(NSInteger, FwiMethodType) {
-	kMethodType_Copy    = 0x00,
-	kMethodType_Delete  = 0x01,
-    kMethodType_Get     = 0x02,
-    kMethodType_Head    = 0x03,
-    kMethodType_Link    = 0x04,
-    kMethodType_Options = 0x05,
-    kMethodType_Patch   = 0x06,
-    kMethodType_Post    = 0x07,
-    kMethodType_Purge   = 0x08,
-    kMethodType_Put     = 0x09,
-    kMethodType_Unlink  = 0x0a
-};
-
 
 // Validate network status
 static inline BOOL FwiNetworkStatusIsSuccces(FwiNetworkStatus statusCode) {
@@ -119,8 +146,10 @@ static inline BOOL FwiNetworkStatusIsSuccces(FwiNetworkStatus statusCode) {
 #import "FwiBitMatrix.h"
 #import "FwiDer.h"
 #import "FwiJson.h"
-// Codec
+#import "FwiJsonMapper.h"
+#import "FwiProperty.h"
 #import "FwiQRCode.h"
+// Codec
 #import "NSData+FwiDer.h"
 #import "NSString+FwiDer.h"
 #import "NSData+FwiJson.h"

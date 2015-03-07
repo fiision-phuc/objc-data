@@ -24,6 +24,12 @@
 /* Begin PBXBuildFile section */
 		BE208B7B16E9B0A9004E0F54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208B7A16E9B0A9004E0F54 /* Foundation.framework */; };
 		BE261ED51A667A8B008521C2 /* FwiRESTService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE261ED41A667A8B008521C2 /* FwiRESTService.m */; };
+		BE2DEEC31A93155200AF5F93 /* FwiProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2DEEC21A93155200AF5F93 /* FwiProperty.m */; };
+		BE2DEEC61A93242C00AF5F93 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFA8A03191DC1D900696262 /* libz.1.2.5.dylib */; };
+		BE3DB33D1A946701000F44D8 /* libFwiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3DB33C1A946701000F44D8 /* libFwiCore.a */; };
+		BE4EA2CC1A9325F500538870 /* libFwiData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208B7716E9B0A9004E0F54 /* libFwiData.a */; };
+		BE4EA2CE1A93260600538870 /* FwiPropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */; };
+		BE619C531A95D12D00014F78 /* FwiJsonMapperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */; };
 		BE6541E519F99A38004572CF /* NSData+FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65419D19F99A38004572CF /* NSData+FwiDer.m */; };
 		BE6541E619F99A38004572CF /* NSData+FwiJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65419F19F99A38004572CF /* NSData+FwiJson.m */; };
 		BE6541E719F99A38004572CF /* NSString+FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6541A119F99A38004572CF /* NSString+FwiDer.m */; };
@@ -48,6 +54,7 @@
 		BE6541FC19F99A38004572CF /* FwiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6541DE19F99A38004572CF /* FwiRequest.m */; };
 		BE9FECDE16EA469400C29A10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDD16EA469400C29A10 /* UIKit.framework */; };
 		BE9FECE016EA469E00C29A10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDF16EA469E00C29A10 /* CoreGraphics.framework */; };
+		BEC2C8231A94FD0400A2446C /* FwiJsonMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC2C8221A94FD0400A2446C /* FwiJsonMapper.m */; };
 		BEEA42FF1A02B0F2006F169C /* FwiData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE6541C519F99A38004572CF /* FwiData.h */; };
 		BEEA43001A02B0F2006F169C /* NSData+FwiDer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE65419C19F99A38004572CF /* NSData+FwiDer.h */; };
 		BEEA43011A02B0F2006F169C /* NSData+FwiJson.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE65419E19F99A38004572CF /* NSData+FwiJson.h */; };
@@ -74,7 +81,6 @@
 		BEF95CD51A650AE600183E43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208B7A16E9B0A9004E0F54 /* Foundation.framework */; };
 		BEF95CD61A650AE600183E43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDD16EA469400C29A10 /* UIKit.framework */; };
 		BEF95CDC1A650AE600183E43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEF95CDA1A650AE600183E43 /* InfoPlist.strings */; };
-		BEF95CDE1A650AE600183E43 /* FwiDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF95CDD1A650AE600183E43 /* FwiDataTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +140,11 @@
 		BE208B7E16E9B0A9004E0F54 /* FwiData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FwiData-Prefix.pch"; sourceTree = "<group>"; };
 		BE261ED31A667A8B008521C2 /* FwiRESTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRESTService.h; sourceTree = "<group>"; };
 		BE261ED41A667A8B008521C2 /* FwiRESTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRESTService.m; sourceTree = "<group>"; };
+		BE2DEEC11A93155200AF5F93 /* FwiProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiProperty.h; sourceTree = "<group>"; };
+		BE2DEEC21A93155200AF5F93 /* FwiProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiProperty.m; sourceTree = "<group>"; };
+		BE3DB33C1A946701000F44D8 /* libFwiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFwiCore.a; path = "../FwiCore/build/Debug-iphoneos/libFwiCore.a"; sourceTree = "<group>"; };
+		BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiPropertyTest.m; sourceTree = "<group>"; };
+		BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJsonMapperTest.m; sourceTree = "<group>"; };
 		BE65419C19F99A38004572CF /* NSData+FwiDer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FwiDer.h"; sourceTree = "<group>"; };
 		BE65419D19F99A38004572CF /* NSData+FwiDer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FwiDer.m"; sourceTree = "<group>"; };
 		BE65419E19F99A38004572CF /* NSData+FwiJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FwiJson.h"; sourceTree = "<group>"; };
@@ -184,7 +195,8 @@
 		BE6541DE19F99A38004572CF /* FwiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRequest.m; sourceTree = "<group>"; };
 		BE9FECDD16EA469400C29A10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE9FECDF16EA469E00C29A10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BEEFA4C018A795C1002BCF21 /* libFwiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFwiCore.a; path = "../../../../Applications/Xcode/DerivedData/Monster_Group-dculyewfddwmdgbfdncbwrmlaguu/Build/Products/Debug-iphoneos/libFwiCore.a"; sourceTree = "<group>"; };
+		BEC2C8211A94FD0400A2446C /* FwiJsonMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiJsonMapper.h; sourceTree = "<group>"; };
+		BEC2C8221A94FD0400A2446C /* FwiJsonMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJsonMapper.m; sourceTree = "<group>"; };
 		BEEFA4C618A795E6002BCF21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BEEFA4C818A795ED002BCF21 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		BEEFA4CC18A7961A002BCF21 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -195,7 +207,6 @@
 		BEF95CD31A650AE600183E43 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BEF95CD91A650AE600183E43 /* FwiDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FwiDataTests-Info.plist"; sourceTree = "<group>"; };
 		BEF95CDB1A650AE600183E43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BEF95CDD1A650AE600183E43 /* FwiDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FwiDataTests.m; sourceTree = "<group>"; };
 		BEF95CDF1A650AE600183E43 /* FwiDataTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FwiDataTests-Prefix.pch"; sourceTree = "<group>"; };
 		BEFA8A03191DC1D900696262 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -218,6 +229,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF95CD41A650AE600183E43 /* XCTest.framework in Frameworks */,
+				BE2DEEC61A93242C00AF5F93 /* libz.1.2.5.dylib in Frameworks */,
+				BE3DB33D1A946701000F44D8 /* libFwiCore.a in Frameworks */,
+				BE4EA2CC1A9325F500538870 /* libFwiData.a in Frameworks */,
 				BEF95CD61A650AE600183E43 /* UIKit.framework in Frameworks */,
 				BEF95CD51A650AE600183E43 /* Foundation.framework in Frameworks */,
 			);
@@ -255,7 +269,7 @@
 				BE208B7A16E9B0A9004E0F54 /* Foundation.framework */,
 				BEEFA4C818A795ED002BCF21 /* Accelerate.framework */,
 				BEFA8A03191DC1D900696262 /* libz.1.2.5.dylib */,
-				BEEFA4C018A795C1002BCF21 /* libFwiCore.a */,
+				BE3DB33C1A946701000F44D8 /* libFwiCore.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,6 +298,15 @@
 				BE261ED41A667A8B008521C2 /* FwiRESTService.m */,
 			);
 			path = RESTful;
+			sourceTree = "<group>";
+		};
+		BE2DEEC01A93155200AF5F93 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				BE2DEEC11A93155200AF5F93 /* FwiProperty.h */,
+				BE2DEEC21A93155200AF5F93 /* FwiProperty.m */,
+			);
+			path = Property;
 			sourceTree = "<group>";
 		};
 		BE65419819F99A38004572CF /* org */ = {
@@ -340,6 +363,8 @@
 				BE6541B019F99A38004572CF /* Csv */,
 				BE6541B319F99A38004572CF /* Der */,
 				BE6541B719F99A38004572CF /* Json */,
+				BE6823FE1A946BCF0025FDD1 /* JsonMapper */,
+				BE2DEEC01A93155200AF5F93 /* Property */,
 				BE6541BB19F99A38004572CF /* QRCode */,
 			);
 			path = Data;
@@ -462,6 +487,15 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		BE6823FE1A946BCF0025FDD1 /* JsonMapper */ = {
+			isa = PBXGroup;
+			children = (
+				BEC2C8211A94FD0400A2446C /* FwiJsonMapper.h */,
+				BEC2C8221A94FD0400A2446C /* FwiJsonMapper.m */,
+			);
+			path = JsonMapper;
+			sourceTree = "<group>";
+		};
 		BE9FECE116EA46AD00C29A10 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,8 +527,9 @@
 		BEF95CD71A650AE600183E43 /* FwiDataTests */ = {
 			isa = PBXGroup;
 			children = (
-				BEF95CDD1A650AE600183E43 /* FwiDataTests.m */,
 				BEF95CD81A650AE600183E43 /* Supporting Files */,
+				BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */,
+				BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */,
 			);
 			path = FwiDataTests;
 			sourceTree = "<group>";
@@ -622,8 +657,10 @@
 				BE6541ED19F99A38004572CF /* FwiCsvParser.m in Sources */,
 				BE6541FA19F99A38004572CF /* FwiFormParam.m in Sources */,
 				BE6541F219F99A38004572CF /* NSArray+FwiExtension_Private.m in Sources */,
+				BEC2C8231A94FD0400A2446C /* FwiJsonMapper.m in Sources */,
 				BE6541F519F99A38004572CF /* FwiPersistent.m in Sources */,
 				BE6541F419F99A38004572CF /* FwiLocation.m in Sources */,
+				BE2DEEC31A93155200AF5F93 /* FwiProperty.m in Sources */,
 				BE6541EE19F99A38004572CF /* FwiDer.m in Sources */,
 				BE6541EC19F99A38004572CF /* FwiBitMatrix.m in Sources */,
 				BE6541EF19F99A38004572CF /* FwiJson.m in Sources */,
@@ -643,7 +680,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF95CDE1A650AE600183E43 /* FwiDataTests.m in Sources */,
+				BE4EA2CE1A93260600538870 /* FwiPropertyTest.m in Sources */,
+				BE619C531A95D12D00014F78 /* FwiJsonMapperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +710,6 @@
 		BE208B8316E9B0A9004E0F54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
 					armv7s,
@@ -712,7 +749,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -724,7 +760,6 @@
 		BE208B8416E9B0A9004E0F54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
 					armv7s,
@@ -757,7 +792,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -826,9 +860,12 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "FwiDataTests/FwiDataTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../FwiCore/FwiCore/org/monstergroup/lib/** ../FwiData/FwiData/org/monstergroup/lib/**";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -851,8 +888,12 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "FwiDataTests/FwiDataTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../FwiCore/FwiCore/org/monstergroup/lib/** ../FwiData/FwiData/org/monstergroup/lib/**";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

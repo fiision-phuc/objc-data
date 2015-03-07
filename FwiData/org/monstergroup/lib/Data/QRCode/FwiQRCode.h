@@ -39,34 +39,6 @@
 #import <Foundation/Foundation.h>
 
 
-typedef NS_ENUM(NSInteger, FwiECLevel) {
-	kECLevel_L = 0,     //  ~7% correction
-	kECLevel_M = 1,     // ~15% correction
-	kECLevel_Q = 2,     // ~25% correction
-	kECLevel_H = 3      // ~30% correction
-};
-
-typedef NS_ENUM(NSInteger, FwiQRMode) {
-	kMode_Numeric      = 0x1,
-	kMode_Alphanumeric = 0x2,
-	kMode_Bytes        = 0x4,
-	kMode_Kanji        = 0x8
-};
-
-typedef NS_ENUM(NSInteger, FwiQRVersion) {
-	kVersion_1	= 1,	kVersion_2	= 2,	kVersion_3	= 3,    kVersion_4  = 4,
-    kVersion_5	= 5,	kVersion_6	= 6,    kVersion_7	= 7,	kVersion_8	= 8,
-    kVersion_9	= 9,    kVersion_10 = 10,	kVersion_11 = 11,	kVersion_12 = 12,
-	kVersion_13 = 13,	kVersion_14 = 14,	kVersion_15 = 15,   kVersion_16 = 16,
-    kVersion_17 = 17,	kVersion_18 = 18,   kVersion_19 = 19,	kVersion_20 = 20,
-    kVersion_21 = 21,   kVersion_22 = 22,	kVersion_23 = 23,	kVersion_24 = 24,
-    kVersion_25 = 25,	kVersion_26 = 26,	kVersion_27 = 27,   kVersion_28 = 28,
-    kVersion_29 = 29,	kVersion_30 = 30,   kVersion_31 = 31,	kVersion_32 = 32,
-    kVersion_33 = 33,   kVersion_34 = 34,	kVersion_35 = 35,	kVersion_36 = 36,
-	kVersion_37 = 37,	kVersion_38 = 38,	kVersion_39 = 39,   kVersion_40 = 40
-};
-
-
 @interface FwiQRCode : NSObject {
 
 @private

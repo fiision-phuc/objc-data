@@ -2,8 +2,6 @@
 
 
 @interface FwiRESTService () {
-    
-    void(^_completion)(FwiJson *responseMessage, NSError *error, FwiNetworkStatus statusCode);
 }
 
 @end
@@ -22,14 +20,11 @@
 
 #pragma mark - Class's public methods
 - (void)executeWithCompletion:(void(^)(FwiJson *responseMessage, NSError *error, NSInteger statusCode))completion {
-    if (completion) _completion = [completion copy];
-    
     [super executeWithCompletion:^(NSURL *locationPath, NSError *error, FwiNetworkStatus statusCode) {
         __autoreleasing NSData *data = [NSData dataWithContentsOfURL:locationPath];
-        __autoreleasing FwiJson *responseMessage = [FwiJson objectWithJSONData:data];
+        __autoreleasing FwiJson *responseMessage = [data decodeJson];
 
-        if (_completion) _completion(responseMessage, error, statusCode);
-        FwiRelease(_completion);
+        if (completion) completion(responseMessage, error, statusCode);
     }];
 }
 

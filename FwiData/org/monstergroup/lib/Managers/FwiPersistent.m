@@ -124,10 +124,11 @@
 #pragma mark - Class's public methods
 - (__autoreleasing NSManagedObjectContext *)importContext {
     __autoreleasing NSManagedObjectContext *saveContext = FwiAutoRelease([[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType]);
+    
     [saveContext setPersistentStoreCoordinator:[self persistentCoordinator]];
     [saveContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
-    
     [saveContext setUndoManager:nil];
+    
     return saveContext;
 }
 - (__autoreleasing NSError *)saveContext {

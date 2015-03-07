@@ -59,7 +59,6 @@
 
 @interface FwiJson (FwiJsonCreation)
 
-// Class's static constructors
 + (__autoreleasing FwiJson *)null;
 
 + (__autoreleasing FwiJson *)boolean;
@@ -86,10 +85,6 @@
 + (__autoreleasing FwiJson *)object;
 + (__autoreleasing FwiJson *)object:(id)key, ... NS_REQUIRES_NIL_TERMINATION;
 + (__autoreleasing FwiJson *)objectWithDictionary:(NSDictionary *)dictionary;
-
-+ (__autoreleasing FwiJson *)objectWithJSONString:(NSString *)string;
-+ (__autoreleasing FwiJson *)objectWithJSONData:(NSData *)data;
-+ (__autoreleasing FwiJson *)objectWithData:(NSData *)data;
 
 @end
 

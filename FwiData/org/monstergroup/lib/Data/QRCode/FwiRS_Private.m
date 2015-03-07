@@ -1,8 +1,8 @@
 #import "FwiRS_Private.h"
 
 
-#define RSPrimitive                         0x011d
-#define RSSize                              0x100
+#define RSPrimitive     0x011d
+#define RSSize          0x100
 
 
 @interface FwiRS_Private () {
