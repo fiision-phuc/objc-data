@@ -170,28 +170,28 @@
             [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
         }
         else {
-            __autoreleasing FwiDer *cert  = [crtData decodeDer];
-            __autoreleasing NSDate *today = [NSDate date];
-
-            FwiDer *issuer     = [cert derWithPath:@"0/3"];
-            FwiDer *subject    = [cert derWithPath:@"0/5"];
-            NSUInteger version = [[cert derWithPath:@"0/0/0"] getInt];
-            NSDate *notBefor   = [[cert derWithPath:@"0/4/0"] getTime];
-            NSDate *notAfter   = [[cert derWithPath:@"0/4/1"] getTime];
-
-            /* Condition validation */
-            if (version != 2) {
-                [[challenge sender] cancelAuthenticationChallenge:challenge];
-                return;
-            }
-            if (!issuer || !subject) {
-                [[challenge sender] cancelAuthenticationChallenge:challenge];
-                return;
-            }
-            if (!notBefor || !notAfter || !(([today compare:notBefor] >= 0 && [today compare:notAfter] < 0))) {
-                [[challenge sender] cancelAuthenticationChallenge:challenge];
-                return;
-            }
+//            __autoreleasing FwiDer *cert  = [crtData decodeDer];
+//            __autoreleasing NSDate *today = [NSDate date];
+//
+//            FwiDer *issuer     = [cert derWithPath:@"0/3"];
+//            FwiDer *subject    = [cert derWithPath:@"0/5"];
+//            NSUInteger version = [[cert derWithPath:@"0/0/0"] getInt];
+//            NSDate *notBefor   = [[cert derWithPath:@"0/4/0"] getTime];
+//            NSDate *notAfter   = [[cert derWithPath:@"0/4/1"] getTime];
+//
+//            /* Condition validation */
+//            if (version != 2) {
+//                [[challenge sender] cancelAuthenticationChallenge:challenge];
+//                return;
+//            }
+//            if (!issuer || !subject) {
+//                [[challenge sender] cancelAuthenticationChallenge:challenge];
+//                return;
+//            }
+//            if (!notBefor || !notAfter || !(([today compare:notBefor] >= 0 && [today compare:notAfter] < 0))) {
+//                [[challenge sender] cancelAuthenticationChallenge:challenge];
+//                return;
+//            }
 
             BOOL shouldAllow = NO;
             if (self.delegate && [self.delegate respondsToSelector:@selector(service:authenticationChallenge:)])
