@@ -72,7 +72,7 @@ static inline id FwiObjectFromJson(FwiJson *json) {
         case kJson_Object: {
             __block NSMutableDictionary *d = FwiAutoRelease([[NSMutableDictionary alloc] initWithCapacity:[json count]]);
             [[json dictionary] enumerateKeysAndObjectsUsingBlock:^(NSString *key, id value, BOOL *stop) {
-                d[key] = FwiJsonFromObject(value);
+                d[key] = FwiObjectFromJson(value);
             }];
             return d;
         }

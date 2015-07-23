@@ -116,7 +116,7 @@
                 }
                 else {
                     // Define boundary
-                    __autoreleasing NSString *boundary    = [NSString stringWithFormat:@"----------%li", (unsigned long) [[NSDate date] timeIntervalSince1970]];
+                    __autoreleasing NSString *boundary    = [NSString stringWithFormat:@"--------%li", (unsigned long) [[NSDate date] timeIntervalSince1970]];
                     __autoreleasing NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
 
                     // Define content type header
