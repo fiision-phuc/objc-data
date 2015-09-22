@@ -1,7 +1,7 @@
-#import "FwiPersistent.h"
+#import "FwiPersistentManager.h"
 
 
-@interface FwiPersistent () {
+@interface FwiPersistentManager () {
     
     NSString *_dataModel;
 }
@@ -13,7 +13,10 @@
 @end
 
 
-@implementation FwiPersistent
+@implementation FwiPersistentManager
+
+
+@synthesize managedModel=_managedModel, managedContext=_managedContext, persistentCoordinator=_persistentCoordinator;
 
 
 #pragma mark - Class's constructors
@@ -163,15 +166,15 @@
 @end
 
 
-@implementation FwiPersistent (FwiPersistentCreation)
+@implementation FwiPersistentManager (FwiPersistentManagerCreation)
 
 
 #pragma mark - Class's static constructors
-+ (__autoreleasing FwiPersistent *)persistentWithDataModel:(NSString *)dataModel {
++ (__autoreleasing FwiPersistentManager *)persistentWithDataModel:(NSString *)dataModel {
     /* Condition validation */
 	if (!dataModel || [dataModel length] == 0) return nil;
 
-    __autoreleasing FwiPersistent *persistentManager = FwiAutoRelease([[FwiPersistent alloc] initWithDataModel:dataModel]);
+    __autoreleasing FwiPersistentManager *persistentManager = FwiAutoRelease([[FwiPersistentManager alloc] initWithDataModel:dataModel]);
 	return persistentManager;
 }
 

@@ -1,4 +1,4 @@
-#import "FwiLocation.h"
+#import "FwiLocationManager.h"
 
 
 NSString * const kNotification_AddressUpdated  = @"kNotification_AddressUpdated";
@@ -24,7 +24,7 @@ CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLL
 };
 
 
-@interface FwiLocation () <FwiServiceDelegate> {
+@interface FwiLocationManager () <FwiServiceDelegate> {
 }
 
 @property (atomic, assign) BOOL isLookup;
@@ -41,7 +41,7 @@ CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLL
 @end
 
 
-@implementation FwiLocation
+@implementation FwiLocationManager
 
 
 #pragma mark - Class's constructors
@@ -304,10 +304,10 @@ CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLL
 @end
 
 
-@implementation FwiLocation (FwiLocationSingleton)
+@implementation FwiLocationManager (FwiLocationManagerSingleton)
 
 
-static FwiLocation *_LocationManager;
+static FwiLocationManager *_LocationManager;
 
 
 #pragma mark - Environment initialize
@@ -317,11 +317,11 @@ static FwiLocation *_LocationManager;
 
 
 #pragma mark - Class's static constructors
-+ (__autoreleasing FwiLocation *)sharedInstance {
++ (_weak FwiLocationManager *)sharedInstance {
     if (_LocationManager) return _LocationManager;
 
     @synchronized (self) {
-        if (!_LocationManager) _LocationManager = [[FwiLocation alloc] init];
+        if (!_LocationManager) _LocationManager = [[FwiLocationManager alloc] init];
     }
     return _LocationManager;
 }

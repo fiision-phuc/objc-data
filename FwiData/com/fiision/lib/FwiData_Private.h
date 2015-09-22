@@ -40,11 +40,6 @@
 #define __FWI_DATA_PRIVATE__
 
 
-// Private Foundation
-#import "NSArray+FwiExtension_Private.h"
-#import "NSDictionary+FwiExtension_Private.h"
-
-
 #define Kanji_DefaultEncoding				NSShiftJISStringEncoding
 #define Bytes_DefaultEncoding				NSUTF8StringEncoding
 

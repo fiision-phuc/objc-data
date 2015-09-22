@@ -137,26 +137,20 @@
 + (__autoreleasing FwiDer *)generalizedTimeWithDate:(NSDate *)time;
 
 + (__autoreleasing FwiDer *)bitStringWithDer:(FwiDer *)der;
-+ (__autoreleasing FwiDer *)bitStringWithDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION;
 + (__autoreleasing FwiDer *)bitStringWithArray:(NSArray *)array;
 
 + (__autoreleasing FwiDer *)octetStringWithDer:(FwiDer *)der;
-+ (__autoreleasing FwiDer *)octetStringWithDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION;
 + (__autoreleasing FwiDer *)octetStringWithArray:(NSArray *)array;
 
 + (__autoreleasing FwiDer *)sequence;
-+ (__autoreleasing FwiDer *)sequence:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION;
 + (__autoreleasing FwiDer *)sequenceWithArray:(NSArray *)array;
 
 + (__autoreleasing FwiDer *)set;
-+ (__autoreleasing FwiDer *)set:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION;
 + (__autoreleasing FwiDer *)setWithArray:(NSArray *)array;
 
 + (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier;
-+ (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier content:(NSData *)content;
-
-+ (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier Ders:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION;
 + (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier array:(NSArray *)array;
++ (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier content:(NSData *)content;
 
 @end
 
@@ -169,10 +163,10 @@
 - (__autoreleasing FwiDer *)derWithPath:(NSString *)path;
 
 /** Set new DER collection. The collection will be reset. */
-- (void)setDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION;
+- (void)setDer:(FwiDer *)der;
 - (void)setDersWithArray:(NSArray *)array;
 /** Add new DER to current collection. */
-- (void)addDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION;
+- (void)addDer:(FwiDer *)der;
 - (void)addDersWithArray:(NSArray *)array;
 
 /** Insert new DER. */

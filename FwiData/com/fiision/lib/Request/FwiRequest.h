@@ -1,8 +1,8 @@
 //  Project name: FwiData
-//  File name   : FwiLocation.h
+//  File name   : FwiRequest.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 4/13/12
+//  Created date: 8/4/13
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -37,47 +37,51 @@
 //  caused, directly or indirectly, by the use of this software.
 
 #import <Foundation/Foundation.h>
+@class FwiDataParam;
+@class FwiFormParam;
+@class FwiMultipartParam;
 
 
-FOUNDATION_EXPORT NSString *const kNotification_AddressUpdated;
-FOUNDATION_EXPORT NSString *const kNotification_GMTUpdated;
-FOUNDATION_EXPORT NSString *const kNotification_LocationUpdated;
-
-
-/**
- * Calculate new location base on input location and distance
- * @Input: location (Input location)
- * @Input: bearing  (Clockwise, in degree)
- * @Input: distance (How far from location, in meter)
- */
-FOUNDATION_EXPORT CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLLocationCoordinate2D location, double distance);
-
-
-@interface FwiLocation : NSObject <CLLocationManagerDelegate> {
-
-@private
-    CLLocationManager *_locationManager;
+@interface FwiRequest : NSMutableURLRequest {
 }
 
-@property (nonatomic, readonly) CLLocation *currentLocation;
-@property (nonatomic, readonly) CLAuthorizationStatus locationStatus;
 
-@property (nonatomic, readonly) NSNumber *gmt;
-@property (nonatomic, readonly) NSString *address;
-@property (nonatomic, readonly) NSString *countryISO2;
-
-
-/** Stop location service. */
-- (void)stopLocation;
-/** Start location service. */
-- (void)startLocation;
+/** Build the request. */
+- (size_t)prepare;
 
 @end
 
 
-@interface FwiLocation (FwiLocationSingleton)
+@interface FwiRequest (FwiRequestCreation)
 
-/** Get singleton location manager. */
-+ (__autoreleasing FwiLocation *)sharedInstance;
+// Class's static constructors
++ (__autoreleasing FwiRequest *)requestWithURL:(NSURL *)url methodType:(FwiHttpMethod)type;
+
+@end
+
+
+@interface FwiRequest (FwiForm)
+
+/** Like add parameters but will reset the collection. */
+- (void)setFormParam:(FwiFormParam *)param;
+- (void)setFormParams:(NSArray *)params;
+/** Add key-value. */
+- (void)addFormParam:(FwiFormParam *)param;
+- (void)addFormParams:(NSArray *)params;
+
+/** Like add multipart data but will reset the collection. */
+- (void)setMultipartParam:(FwiMultipartParam *)param;
+- (void)setMultipartParams:(NSArray *)params;
+/** Add multipart data. */
+- (void)addMultipartParam:(FwiMultipartParam *)param;
+- (void)addMultipartParams:(NSArray *)params;
+
+@end
+
+
+@interface FwiRequest (FwiRaw)
+
+/** Inject raw data to request. Previous raw data will be replaced. */
+- (void)setDataParameter:(FwiDataParam *)parameter;
 
 @end

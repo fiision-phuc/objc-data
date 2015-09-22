@@ -544,22 +544,6 @@
     [o setBitStringWithDer:der];
     return o;
 }
-+ (__autoreleasing FwiDer *)bitStringWithDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION {
-    __autoreleasing FwiDer *o = [FwiDer bitString];
-    
-    if (der) {
-        __autoreleasing NSMutableArray *array = [NSMutableArray arrayWithObjects:der, nil];
-        
-        va_list args;
-        va_start(args, der);
-        while ((der = va_arg(args, id))) {
-            if ([der isMemberOfClass:[FwiDer class]]) [array addObject:der];
-        }
-        va_end(args);
-        [o setBitStringWithDer:[FwiDer sequenceWithArray:array]];
-    }
-    return o;
-}
 + (__autoreleasing FwiDer *)bitStringWithArray:(NSArray *)array {
     __autoreleasing FwiDer *o = [FwiDer bitString];
     
@@ -570,22 +554,6 @@
 + (__autoreleasing FwiDer *)octetStringWithDer:(FwiDer *)der {
     __autoreleasing FwiDer *o = [FwiDer octetString];
     [o setOctetStringWithDer:der];
-    return o;
-}
-+ (__autoreleasing FwiDer *)octetStringWithDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION {
-    __autoreleasing FwiDer *o = [FwiDer octetString];
-    
-    if (der) {
-        __autoreleasing NSMutableArray *array = [NSMutableArray arrayWithObjects:der, nil];
-        
-        va_list args;
-        va_start(args, der);
-        while ((der = va_arg(args, id))) {
-            if ([der isMemberOfClass:[FwiDer class]]) [array addObject:der];
-        }
-        va_end(args);
-        [o setOctetStringWithDer:[FwiDer sequenceWithArray:array]];
-    }
     return o;
 }
 + (__autoreleasing FwiDer *)octetStringWithArray:(NSArray *)array {
@@ -599,22 +567,6 @@
     __autoreleasing FwiDer *o = [FwiDer derWithIdentifier:(kFwiDerClass_Universal | 0x20 | kFwiDerValue_Sequence)];
     return o;
 }
-+ (__autoreleasing FwiDer *)sequence:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION {
-    __autoreleasing FwiDer *o = [FwiDer sequence];
-    
-    if (der) {
-        __autoreleasing NSMutableArray *array = [NSMutableArray arrayWithObjects:der, nil];
-        
-        va_list args;
-        va_start(args, der);
-        while ((der = va_arg(args, id))) {
-            if ([der isMemberOfClass:[FwiDer class]]) [array addObject:der];
-        }
-        va_end(args);
-        [o setDersWithArray:array];
-    }
-    return o;
-}
 + (__autoreleasing FwiDer *)sequenceWithArray:(NSArray *)array {
     __autoreleasing FwiDer *o = [FwiDer sequence];
     [o setDersWithArray:array];
@@ -623,22 +575,6 @@
 
 + (__autoreleasing FwiDer *)set {
     __autoreleasing FwiDer *o = [FwiDer derWithIdentifier:(kFwiDerClass_Universal | 0x20 | kFwiDerValue_Set)];
-    return o;
-}
-+ (__autoreleasing FwiDer *)set:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION {
-    __autoreleasing FwiDer *o = [FwiDer set];
-    
-    if (der) {
-        __autoreleasing NSMutableArray *array = [NSMutableArray arrayWithObjects:der, nil];
-        
-        va_list args;
-        va_start(args, der);
-        while ((der = va_arg(args, id))) {
-            if ([der isMemberOfClass:[FwiDer class]]) [array addObject:der];
-        }
-        va_end(args);
-        [o setDersWithArray:array];
-    }
     return o;
 }
 + (__autoreleasing FwiDer *)setWithArray:(NSArray *)array {
@@ -650,30 +586,14 @@
 + (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier {
     return FwiAutoRelease([[FwiDer alloc] initWithIdentifier:identifier]);
 }
-+ (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier content:(NSData *)content {
-    __autoreleasing FwiDer *o = [FwiDer derWithIdentifier:identifier];
-    [o setContent:content];
-    return o;
-}
-+ (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier Ders:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION {
-    __autoreleasing FwiDer *o = [FwiDer derWithIdentifier:identifier];
-
-    if (der) {
-        __autoreleasing NSMutableArray *array = [NSMutableArray arrayWithObjects:der, nil];
-        
-        va_list args;
-        va_start(args, der);
-        while ((der = va_arg(args, id))) {
-            if ([der isMemberOfClass:[FwiDer class]]) [array addObject:der];
-        }
-        va_end(args);
-        [o setDersWithArray:array];
-    }
-    return o;
-}
 + (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier array:(NSArray *)array {
     __autoreleasing FwiDer *o = [FwiDer derWithIdentifier:identifier];
     [o setDersWithArray:array];
+    return o;
+}
++ (__autoreleasing FwiDer *)derWithIdentifier:(uint8_t)identifier content:(NSData *)content {
+    __autoreleasing FwiDer *o = [FwiDer derWithIdentifier:identifier];
+    [o setContent:content];
     return o;
 }
 
@@ -736,23 +656,42 @@
 - (__autoreleasing FwiDer *)derWithPath:(NSString *)path {
     /* Condition validation */
     if (![self isStructure] || !_children || [_children count] == 0 || !path || path.length == 0 || ![path matchPattern:@"^\\d+(/\\d+)*$"]) return nil;
-    return [_children _objectWithPath:path];
+    
+    __autoreleasing NSArray *tokens = [path componentsSeparatedByString:@"/"];
+    _weak id o = self;
+    
+    for (NSUInteger i = 0; i < [tokens count]; i++) {
+        _weak NSString *pth = tokens[i];
+        
+        if ([o isKindOfClass:[NSArray class]]) {
+            NSInteger index = [pth integerValue];
+            if (index < 0 || index >= [(NSArray *)o count]) {
+                o = nil;
+            }
+            else {
+                o = ((NSArray *)o)[index];
+            }
+        }
+        else if ([o isKindOfClass:[NSDictionary class]]) {
+            o = ((NSDictionary *)o)[pth];
+        }
+        else if ([o isKindOfClass:[FwiDer class]]) {
+            o = [o derAtIndex:[pth integerValue]];
+        }
+        else {
+            o = nil;
+            break;
+        }
+    }
+    return o;
 }
 
-- (void)setDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION {
+- (void)setDer:(FwiDer *)der {
     /* Condition validation */
     if (![self isStructure] || !der) return;
-    NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:der, nil];
     
-    va_list args;
-    va_start(args, der);
-    while ((der = va_arg(args, id))) {
-        if ([der isMemberOfClass:[FwiDer class]]) [array addObject:der];
-    }
-    va_end(args);
-    
-    [self setDersWithArray:array];
-    FwiRelease(array);
+    FwiRelease(_children);
+    _children = [[NSMutableArray alloc] initWithObjects:der, nil];
 }
 - (void)setDersWithArray:(NSArray *)array {
     /* Condition validation */
@@ -762,19 +701,12 @@
     _children = [[NSMutableArray alloc] initWithArray:array];
 }
 
-- (void)addDers:(FwiDer *)der, ... NS_REQUIRES_NIL_TERMINATION {
+- (void)addDer:(FwiDer *)der {
     /* Condition validation */
     if (![self isStructure] || !der) return;
     
     if (!_children) _children = [[NSMutableArray alloc] initWithCapacity:1];
     [_children addObject:der];
-    
-    va_list args;
-    va_start(args, der);
-    while ((der = va_arg(args, id))) {
-        if ([der isMemberOfClass:[FwiDer class]]) [_children addObject:der];
-    }
-    va_end(args);
 }
 - (void)addDersWithArray:(NSArray *)array {
     /* Condition validation */

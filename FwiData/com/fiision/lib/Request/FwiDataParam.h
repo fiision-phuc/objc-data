@@ -1,8 +1,8 @@
-//  Project name: FwiCore
-//  File name   : NSDictionary+FwiExtension_Private.h
+//  Project name: FwiData
+//  File name   : FwiDataParam.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 9/30/12
+//  Created date: 8/11/13
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -39,9 +39,22 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSDictionary (FwiExtension_Private)
+@interface FwiDataParam : NSObject <NSCoding> {
+}
 
-/** Search for an object at specific path. */
-- (__autoreleasing id)_objectWithPath:(NSString *)path;
+@property (nonatomic, readonly) NSData *data;
+@property (nonatomic, readonly) NSString *contentType;
+
+@end
+
+
+@interface FwiDataParam (FwiDataParamCreation)
+
+// Class's static constructors
++ (__autoreleasing FwiDataParam *)parameterWithString:(NSString *)string;
++ (__autoreleasing FwiDataParam *)parameterWithData:(NSData *)data contentType:(NSString *)contentType;
+
+// Class's constructors
+- (id)initWithData:(NSData *)data contentType:(NSString *)contentType;
 
 @end

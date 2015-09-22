@@ -58,11 +58,6 @@
 
 
 #pragma mark - Class's static constructors
-+ (__autoreleasing FwiDataParam *)parameterWithJson:(FwiJson *)json {
-    /* Condition validation */
-    if (!json) return nil;
-    else return [FwiDataParam parameterWithData:[json encode] contentType:@"application/json; charset=UTF-8"];
-}
 + (__autoreleasing FwiDataParam *)parameterWithString:(NSString *)string {
     /* Condition validation */
     if (!string || string.length == 0) return nil;

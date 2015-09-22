@@ -1,8 +1,8 @@
 //  Project name: FwiData
-//  File name   : FwiJson_Private.h
+//  File name   : FwiCacheFolder.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 9/23/12
+//  Created date: 11/30/13
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -39,37 +39,35 @@
 #import <Foundation/Foundation.h>
 
 
-typedef NS_ENUM(NSInteger, FwiJsonValue) {
-	kJson_Null    = 0x00,
-	kJson_Boolean = 0x01,
-	kJson_Number  = 0x02,
-	kJson_String  = 0x03,
-    // Structure types
-	kJson_Array   = 0x10,
-	kJson_Object  = 0x11
-};
+@interface FwiCacheFolder : NSObject {
 
-
-@interface FwiJson () {
+@private
+	NSString *_pathReady;
+    NSString *_pathLoading;
 }
 
-@property (nonatomic, readonly) FwiJsonValue jsonType;
 
-@property (nonatomic, retain) NSMutableArray *array;
-@property (nonatomic, retain) NSMutableDictionary *dictionary;
+/** Get path to downloaded file. */
+- (__autoreleasing NSString *)readyPathForFilename:(NSString *)filename;
+/** Get path to downloading file. */
+- (__autoreleasing NSString *)loadingPathForFilename:(NSString *)filename;
+/** Get path to downloaded file. */
+- (__autoreleasing NSString *)loadingFinishedForFilename:(NSString *)filename;
 
-
-/** Create array from dynamic array. */
-+ (void)_array:(NSMutableArray *)array arg:(id)arg args:(va_list)args;
-/** Create dictionary from dynamic array. */
-+ (void)_dictionary:(NSMutableDictionary *)dictionary arg:(id)arg args:(va_list)args;
+/** Update modification files. */
+- (void)updateFile:(NSString *)filename;
+/** Delete all files. */
+- (void)clearCache;
 
 @end
 
 
-@interface FwiJson (FwiJsonCreation_Private)
+@interface FwiCacheFolder (FwiCacheCreation)
+
+// Class's static constructors
++ (__autoreleasing FwiCacheFolder *)cacheFolderWithPath:(NSString *)path;
 
 // Class's constructors
-- (id)initWithJsonType:(FwiJsonValue)jsonType;
+- (id)initWithPath:(NSString *)path;
 
 @end

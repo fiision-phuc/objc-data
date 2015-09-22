@@ -83,7 +83,7 @@
             
             // Add object to root
             if (root) {
-                [root addDers:object, nil];
+                [root addDer:object];
             }
             else {
                 root = object;
@@ -95,7 +95,7 @@
             __autoreleasing FwiDer *previousRoot = oStack[oStack.count - 1];
             length = [(NSNumber *)iStack[iStack.count - 1] integerValue];
             
-            [previousRoot addDers:root, nil];
+            [previousRoot addDer:root];
             root = FwiAutoRelease(FwiRetain(previousRoot));
             [oStack removeObjectAtIndex:(oStack.count - 1)];
             [iStack removeObjectAtIndex:(iStack.count - 1)];

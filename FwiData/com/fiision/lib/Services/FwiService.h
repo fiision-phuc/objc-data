@@ -61,9 +61,8 @@
 + (__autoreleasing FwiService *)serviceWithRequest:(FwiRequest *)request;
 
 + (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url;
-+ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method;
-+ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestMessage:(FwiJson *)requestMessage;
-+ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestDictionary:(NSDictionary *)requestDictionary;
++ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiHttpMethod)method;
++ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiHttpMethod)method requestDictionary:(NSDictionary *)requestDictionary;
 
 // Class's constructors
 - (id)initWithRequest:(FwiRequest *)request;

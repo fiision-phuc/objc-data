@@ -1,8 +1,8 @@
 //  Project name: FwiData
-//  File name   : FwiDataParam.h
+//  File name   : FwiQRCode.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 8/11/13
+//  Created date: 9/23/12
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -39,23 +39,52 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FwiDataParam : NSObject <NSCoding> {
+@interface FwiQRCode : NSObject {
+
+@private
+	FwiQRMode _mode;
+	FwiECLevel _level;
+	FwiQRVersion _version;
 }
 
-@property (nonatomic, readonly) NSData *data;
-@property (nonatomic, readonly) NSString *contentType;
+@property (nonatomic, readonly) FwiQRMode mode;
+@property (nonatomic, readonly) FwiECLevel level;
+@property (nonatomic, readonly) FwiQRVersion version;
+
+
+/** Generate QRCode. */
+- (void)encode;
+
+/**
+ * Generate QRCode image with prefer image's size. However, the function will check  if  the  prefer
+ * size is less than the minimun size of QRCode image (1 pixel * 4), the minimum size will be  used.
+ */
+- (__autoreleasing UIImage *)generateImage:(NSUInteger)preferSize transparentBackground:(BOOL)transparent;
 
 @end
 
 
-@interface FwiDataParam (FwiDataParamCreation)
+@interface FwiQRCode (FwiQRCodeCreation)
 
-// Class's static constructors
-+ (__autoreleasing FwiDataParam *)parameterWithJson:(FwiJson *)json;
-+ (__autoreleasing FwiDataParam *)parameterWithString:(NSString *)string;
-+ (__autoreleasing FwiDataParam *)parameterWithData:(NSData *)data contentType:(NSString *)contentType;
+/**
+ * If the text length is greater than 4296, QREncode will not be generated.
+ */
++ (__autoreleasing FwiQRCode *)alphanumeric:(NSString *)text ECLevel:(FwiECLevel)level;
+/**
+ * If the text length is greater than 7089, QREncode will not be generated.
+ */
++ (__autoreleasing FwiQRCode *)numeric:(NSString *)text ECLevel:(FwiECLevel)level;
+/**
+ * If the text length is greater than 2953, QREncode will not be generated.
+ */
++ (__autoreleasing FwiQRCode *)bytes:(NSString *)text ECLevel:(FwiECLevel)level;
+/**
+ * If the text length is greater than 1817, QREncode will not be generated.
+ */
++ (__autoreleasing FwiQRCode *)kanji:(NSString *)text ECLevel:(FwiECLevel)level;
+
 
 // Class's constructors
-- (id)initWithData:(NSData *)data contentType:(NSString *)contentType;
+- (id)initWithString:(NSString *)text Mode:(FwiQRMode)mode ECLevel:(FwiECLevel)level;
 
 @end

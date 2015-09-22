@@ -77,7 +77,7 @@
 
     // Validate model
     if ([model isKindOfClass:[NSArray class]]) {
-        __block NSMutableArray *list = [NSMutableArray arrayWithCapacity:[(NSArray *)model count]];
+        __unsafe_unretained __block NSMutableArray *list = [NSMutableArray arrayWithCapacity:[(NSArray *)model count]];
         [(NSArray *)model enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
             __autoreleasing NSDictionary *record = [self _convertModelToJson:item];
             [list addObject:record];
@@ -87,7 +87,7 @@
         list = nil;
     }
     else if ([model isKindOfClass:[NSSet class]]) {
-        __block NSMutableArray *list = [NSMutableArray arrayWithCapacity:[(NSSet *)model count]];
+        __unsafe_unretained __block NSMutableArray *list = [NSMutableArray arrayWithCapacity:[(NSSet *)model count]];
         [(NSSet *)model enumerateObjectsUsingBlock:^(id item, BOOL *stop) {
             __autoreleasing NSDictionary *record = [self _convertModelToJson:item];
             [list addObject:record];
@@ -127,7 +127,7 @@
 
 #pragma mark - Class's private methods
 - (__autoreleasing NSArray *)_convertJsonArray:(NSArray *)array withModel:(Class)model {
-    __block NSMutableArray *models = [NSMutableArray arrayWithCapacity:array.count];
+    __unsafe_unretained __block NSMutableArray *models = [NSMutableArray arrayWithCapacity:array.count];
 
     [array enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
         if ([item isKindOfClass:[NSDictionary class]]) {

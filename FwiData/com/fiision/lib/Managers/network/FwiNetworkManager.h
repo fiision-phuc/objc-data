@@ -1,8 +1,8 @@
 //  Project name: FwiData
-//  File name   : FwiQRCode.h
+//  File name   : FwiNetworkManager.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 9/23/12
+//  Created date: 4/13/14
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -39,52 +39,29 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FwiQRCode : NSObject {
-
+@interface FwiNetworkManager : NSObject {
+    
 @private
-	FwiQRMode    _mode;
-	FwiECLevel   _level;
-	FwiQRVersion _version;
+    NSURLSession *_session;
+    NSURLSessionConfiguration *_configuration;
 }
 
-@property (nonatomic, readonly) FwiQRMode mode;
-@property (nonatomic, readonly) FwiECLevel level;
-@property (nonatomic, readonly) FwiQRVersion version;
 
+/** Generate generic HTTP Request. */
+- (__autoreleasing NSURLRequest *)prepareRequestWithURL:(NSURL *)url method:(FwiHttpMethod)method;
+- (__autoreleasing NSURLRequest *)prepareRequestWithURL:(NSURL *)url method:(FwiHttpMethod)method params:(NSDictionary *)params;
 
-/** Generate QRCode. */
-- (void)encode;
-
-/**
- * Generate QRCode image with prefer image's size. However, the function will check  if  the  prefer
- * size is less than the minimun size of QRCode image (1 pixel * 4), the minimum size will be  used.
- */
-- (__autoreleasing UIImage *)generateImage:(NSUInteger)preferSize transparentBackground:(BOOL)transparent;
+/** Send request to server. */
+- (void)sendRequest:(NSURLRequest *)request completion:(void(^)(NSData *data, NSError *error, NSInteger statusCode))completion;
+/** Download resource from server. */
+- (void)downloadResource:(NSURLRequest *)request completion:(void(^)(NSURL *location, NSError *error, NSInteger statusCode))completion;
 
 @end
 
 
-@interface FwiQRCode (FwiQRCodeCreation)
+@interface FwiNetworkManager (FwiNetworkManagerSingleton)
 
-/**
- * If the text length is greater than 4296, QREncode will not be generated.
- */
-+ (__autoreleasing FwiQRCode *)alphanumeric:(NSString *)text ECLevel:(FwiECLevel)level;
-/**
- * If the text length is greater than 7089, QREncode will not be generated.
- */
-+ (__autoreleasing FwiQRCode *)numeric:(NSString *)text ECLevel:(FwiECLevel)level;
-/**
- * If the text length is greater than 2953, QREncode will not be generated.
- */
-+ (__autoreleasing FwiQRCode *)bytes:(NSString *)text ECLevel:(FwiECLevel)level;
-/**
- * If the text length is greater than 1817, QREncode will not be generated.
- */
-+ (__autoreleasing FwiQRCode *)kanji:(NSString *)text ECLevel:(FwiECLevel)level;
-
-
-// Class's constructors
-- (id)initWithString:(NSString *)text Mode:(FwiQRMode)mode ECLevel:(FwiECLevel)level;
+/** Get singleton network manager. */
++ (_weak FwiNetworkManager *)sharedInstance;
 
 @end

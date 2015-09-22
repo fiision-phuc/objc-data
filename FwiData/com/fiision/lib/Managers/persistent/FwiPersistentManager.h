@@ -1,8 +1,8 @@
 //  Project name: FwiData
-//  File name   : FwiRESTService.h
+//  File name   : FwiPersistentManager.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 8/11/13
+//  Created date: 2/17/12
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -36,26 +36,50 @@
 //  person or entity with respect to any loss or damage caused, or alleged  to  be
 //  caused, directly or indirectly, by the use of this software.
 
-#import "FwiService.h"
+#import <Foundation/Foundation.h>
 
 
-@interface FwiRESTService : FwiService {
+@protocol FwiPersistentManagerDelegate;
+
+
+@interface FwiPersistentManager : NSObject {
 }
 
+@property (nonatomic, readonly) NSManagedObjectModel *managedModel;
+@property (nonatomic, readonly) NSManagedObjectContext *managedContext;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator *persistentCoordinator;
 
-- (void)executeWithCompletion:(void(^)(FwiJson *responseMessage, NSError *error, NSInteger statusCode))completion;
+
+/** Return a sub managed object context that had been optimized to serve the update data process. */
+- (__autoreleasing NSManagedObjectContext *)importContext;
+
+/** Save current working context. */
+- (__autoreleasing NSError *)saveContext;
 
 @end
 
 
-@interface FwiRESTService (FwiRESTServiceCreation)
+@interface FwiPersistentManager (FwiPersistentManagerCreation)
 
-// Class's static constructors
-+ (__autoreleasing FwiRESTService *)serviceWithRequest:(FwiRequest *)request;
+/** Create persistent manager for specific data model. */
++ (__autoreleasing FwiPersistentManager *)persistentWithDataModel:(NSString *)dataModel;
 
-+ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url;
-+ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method;
-+ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestMessage:(FwiJson *)requestMessage;
-+ (__autoreleasing FwiRESTService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestDictionary:(NSDictionary *)requestDictionary;
+/** Init with data model. */
+- (id)initWithDataModel:(NSString *)dataModel;
+
+@end
+
+
+@protocol FwiPersistentManagerDelegate <NSObject>
+
+@optional
+/** Allow delegate control the reset database process. */
+- (BOOL)shouldResetPersistent:(FwiPersistentManager *)persistent;
+
+/** Notify delegate that database will be reset due to error. */
+- (void)persistent:(FwiPersistentManager *)persistent willResetDatabaseWithError:(NSError *)error;
+
+/** Notify delegate that database had been reset due to error. */
+- (void)persistent:(FwiPersistentManager *)persistent didResetDatabaseWithError:(NSError *)error;
 
 @end

@@ -48,10 +48,10 @@ typedef NS_ENUM(NSInteger, FwiECLevel) {
 };
 
 typedef NS_ENUM(NSInteger, FwiQRMode) {
-    kMode_Numeric      = 0x1,
-    kMode_Alphanumeric = 0x2,
-    kMode_Bytes        = 0x4,
-    kMode_Kanji        = 0x8
+    kNumeric      = 0x1,
+    kAlphanumeric = 0x2,
+    kBytes        = 0x4,
+    kKanji        = 0x8
 };
 
 typedef NS_ENUM(NSInteger, FwiQRVersion) {
@@ -97,69 +97,69 @@ typedef NS_ENUM(NSInteger, FwiQRVersion) {
     kVersion_40 = 40
 };
 
-typedef NS_ENUM(NSInteger, FwiMethodType) {
-    kMethodType_Copy    = 0x00,
-    kMethodType_Delete  = 0x01,
-    kMethodType_Get     = 0x02,
-    kMethodType_Head    = 0x03,
-    kMethodType_Link    = 0x04,
-    kMethodType_Options = 0x05,
-    kMethodType_Patch   = 0x06,
-    kMethodType_Post    = 0x07,
-    kMethodType_Purge   = 0x08,
-    kMethodType_Put     = 0x09,
-    kMethodType_Unlink  = 0x0a
+typedef NS_ENUM(NSInteger, FwiHttpMethod) {
+    kCopy    = 0x00,
+    kDelete  = 0x01,
+    kGet     = 0x02,
+    kHead    = 0x03,
+    kLink    = 0x04,
+    kOptions = 0x05,
+    kPatch   = 0x06,
+    kPost    = 0x07,
+    kPurge   = 0x08,
+    kPut     = 0x09,
+    kUnlink  = 0x0a
 };
 
 typedef NS_ENUM(NSInteger, FwiNetworkStatus) {
-    kNetworkStatus_None                              = -1,
-    kNetworkStatus_Unknown                           = NSURLErrorUnknown,
-    kNetworkStatus_Cancelled                         = NSURLErrorCancelled,
-    kNetworkStatus_BadURL                            = NSURLErrorBadURL,
-    kNetworkStatus_TimedOut                          = NSURLErrorTimedOut,
-    kNetworkStatus_UnsupportedURL                    = NSURLErrorUnsupportedURL,
-    kNetworkStatus_CannotFindHost                    = NSURLErrorCannotFindHost,
-    kNetworkStatus_CannotConnectToHost               = NSURLErrorCannotConnectToHost,
-    kNetworkStatus_NetworkConnectionLost             = NSURLErrorNetworkConnectionLost,
-    kNetworkStatus_DNSLookupFailed                   = NSURLErrorDNSLookupFailed,
-    kNetworkStatus_HTTPTooManyRedirects              = NSURLErrorHTTPTooManyRedirects,
-    kNetworkStatus_ResourceUnavailable               = NSURLErrorResourceUnavailable,
-    kNetworkStatus_NotConnectedToInternet            = NSURLErrorNotConnectedToInternet,
-    kNetworkStatus_RedirectToNonExistentLocation     = NSURLErrorRedirectToNonExistentLocation,
-    kNetworkStatus_BadServerResponse                 = NSURLErrorBadServerResponse,
-    kNetworkStatus_UserCancelledAuthentication       = NSURLErrorUserCancelledAuthentication,
-    kNetworkStatus_UserAuthenticationRequired        = NSURLErrorUserAuthenticationRequired,
-    kNetworkStatus_ZeroByteResource                  = NSURLErrorZeroByteResource,
-    kNetworkStatus_CannotDecodeRawData               = NSURLErrorCannotDecodeRawData,
-    kNetworkStatus_CannotDecodeContentData           = NSURLErrorCannotDecodeContentData,
-    kNetworkStatus_CannotParseResponse               = NSURLErrorCannotParseResponse,
-    kNetworkStatus_FileDoesNotExist                  = NSURLErrorFileDoesNotExist,
-    kNetworkStatus_FileIsDirectory                   = NSURLErrorFileIsDirectory,
-    kNetworkStatus_NoPermissionsToReadFile           = NSURLErrorNoPermissionsToReadFile,
-    kNetworkStatus_DataLengthExceedsMaximum          = NSURLErrorDataLengthExceedsMaximum,
+    kNone                              = -1,
+    kUnknown                           = NSURLErrorUnknown,
+    kCancelled                         = NSURLErrorCancelled,
+    kBadURL                            = NSURLErrorBadURL,
+    kTimedOut                          = NSURLErrorTimedOut,
+    kUnsupportedURL                    = NSURLErrorUnsupportedURL,
+    kCannotFindHost                    = NSURLErrorCannotFindHost,
+    kCannotConnectToHost               = NSURLErrorCannotConnectToHost,
+    kNetworkConnectionLost             = NSURLErrorNetworkConnectionLost,
+    kDNSLookupFailed                   = NSURLErrorDNSLookupFailed,
+    kHTTPTooManyRedirects              = NSURLErrorHTTPTooManyRedirects,
+    kResourceUnavailable               = NSURLErrorResourceUnavailable,
+    kNotConnectedToInternet            = NSURLErrorNotConnectedToInternet,
+    kRedirectToNonExistentLocation     = NSURLErrorRedirectToNonExistentLocation,
+    kBadServerResponse                 = NSURLErrorBadServerResponse,
+    kUserCancelledAuthentication       = NSURLErrorUserCancelledAuthentication,
+    kUserAuthenticationRequired        = NSURLErrorUserAuthenticationRequired,
+    kZeroByteResource                  = NSURLErrorZeroByteResource,
+    kCannotDecodeRawData               = NSURLErrorCannotDecodeRawData,
+    kCannotDecodeContentData           = NSURLErrorCannotDecodeContentData,
+    kCannotParseResponse               = NSURLErrorCannotParseResponse,
+    kFileDoesNotExist                  = NSURLErrorFileDoesNotExist,
+    kFileIsDirectory                   = NSURLErrorFileIsDirectory,
+    kNoPermissionsToReadFile           = NSURLErrorNoPermissionsToReadFile,
+    kDataLengthExceedsMaximum          = NSURLErrorDataLengthExceedsMaximum,
     // SSL errors
-    kNetworkStatus_SecureConnectionFailed            = NSURLErrorSecureConnectionFailed,
-    kNetworkStatus_ServerCertificateHasBadDate       = NSURLErrorServerCertificateHasBadDate,
-    kNetworkStatus_ServerCertificateUntrusted        = NSURLErrorServerCertificateUntrusted,
-    kNetworkStatus_ServerCertificateHasUnknownRoot   = NSURLErrorServerCertificateHasUnknownRoot,
-    kNetworkStatus_ServerCertificateNotYetValid      = NSURLErrorServerCertificateNotYetValid,
-    kNetworkStatus_ClientCertificateRejected         = NSURLErrorClientCertificateRejected,
-    kNetworkStatus_ClientCertificateRequired         = NSURLErrorClientCertificateRequired,
-    kNetworkStatus_CannotLoadFromNetwork             = NSURLErrorCannotLoadFromNetwork,
+    kSecureConnectionFailed            = NSURLErrorSecureConnectionFailed,
+    kServerCertificateHasBadDate       = NSURLErrorServerCertificateHasBadDate,
+    kServerCertificateUntrusted        = NSURLErrorServerCertificateUntrusted,
+    kServerCertificateHasUnknownRoot   = NSURLErrorServerCertificateHasUnknownRoot,
+    kServerCertificateNotYetValid      = NSURLErrorServerCertificateNotYetValid,
+    kClientCertificateRejected         = NSURLErrorClientCertificateRejected,
+    kClientCertificateRequired         = NSURLErrorClientCertificateRequired,
+    kCannotLoadFromNetwork             = NSURLErrorCannotLoadFromNetwork,
     // Download and file I/O errors
-    kNetworkStatus_CannotCreateFile                  = NSURLErrorCannotCreateFile,
-    kNetworkStatus_CannotOpenFile                    = NSURLErrorCannotOpenFile,
-    kNetworkStatus_CannotCloseFile                   = NSURLErrorCannotCloseFile,
-    kNetworkStatus_CannotWriteToFile                 = NSURLErrorCannotWriteToFile,
-    kNetworkStatus_CannotRemoveFile                  = NSURLErrorCannotRemoveFile,
-    kNetworkStatus_CannotMoveFile                    = NSURLErrorCannotMoveFile,
-    kNetworkStatus_DownloadDecodingFailedMidStream   = NSURLErrorDownloadDecodingFailedMidStream,
-    kNetworkStatus_DownloadDecodingFailedToComplete  = NSURLErrorDownloadDecodingFailedToComplete,
+    kCannotCreateFile                  = NSURLErrorCannotCreateFile,
+    kCannotOpenFile                    = NSURLErrorCannotOpenFile,
+    kCannotCloseFile                   = NSURLErrorCannotCloseFile,
+    kCannotWriteToFile                 = NSURLErrorCannotWriteToFile,
+    kCannotRemoveFile                  = NSURLErrorCannotRemoveFile,
+    kCannotMoveFile                    = NSURLErrorCannotMoveFile,
+    kDownloadDecodingFailedMidStream   = NSURLErrorDownloadDecodingFailedMidStream,
+    kDownloadDecodingFailedToComplete  = NSURLErrorDownloadDecodingFailedToComplete,
 
-    kNetworkStatus_InternationalRoamingOff           = NSURLErrorInternationalRoamingOff,
-    kNetworkStatus_CallIsActive                      = NSURLErrorCallIsActive,
-    kNetworkStatus_DataNotAllowed                    = NSURLErrorDataNotAllowed,
-    kNetworkStatus_RequestBodyStreamExhausted        = NSURLErrorRequestBodyStreamExhausted,
+    kInternationalRoamingOff           = NSURLErrorInternationalRoamingOff,
+    kCallIsActive                      = NSURLErrorCallIsActive,
+    kDataNotAllowed                    = NSURLErrorDataNotAllowed,
+    kRequestBodyStreamExhausted        = NSURLErrorRequestBodyStreamExhausted,
 };
 
 
@@ -175,22 +175,18 @@ static inline BOOL FwiNetworkStatusIsSuccces(FwiNetworkStatus statusCode) {
 #import "FwiMutableBitArray.h"
 #import "FwiBitMatrix.h"
 #import "FwiDer.h"
-#import "FwiJson.h"
 #import "FwiJsonMapper.h"
 #import "FwiProperty.h"
 #import "FwiQRCode.h"
 // Codec
 #import "NSData+FwiDer.h"
 #import "NSString+FwiDer.h"
-#import "NSData+FwiJson.h"
-#import "NSString+FwiJson.h"
 // Network
 #import "FwiRequest.h"
 #import "FwiDataParam.h"
 #import "FwiFormParam.h"
 #import "FwiMultipartParam.h"
 #import "FwiService.h"
-#import "FwiRESTService.h"
 // Parser
 #import "FwiCsvParser.h"
 

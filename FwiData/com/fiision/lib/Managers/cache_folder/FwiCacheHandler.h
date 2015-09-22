@@ -1,8 +1,8 @@
 //  Project name: FwiData
-//  File name   : FwiPersistent.h
+//  File name   : FwiCacheFolder.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 2/17/12
+//  Created date: 11/30/13
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -37,54 +37,51 @@
 //  caused, directly or indirectly, by the use of this software.
 
 #import <Foundation/Foundation.h>
+#import "FwiCacheFolder.h"
 
 
-@protocol FwiPersistentDelegate;
+@protocol FwiCacheHandlerDelegate;
 
 
-@interface FwiPersistent : NSObject {
-
+@interface FwiCacheHandler : NSObject  {
+    
 @private
-    NSManagedObjectModel *_managedModel;
-    NSManagedObjectContext *_managedContext;
-    NSPersistentStoreCoordinator *_persistentCoordinator;
+    FwiCacheFolder *_cacheFolder;
 }
 
-@property (nonatomic, readonly) NSManagedObjectModel *managedModel;
-@property (nonatomic, readonly) NSManagedObjectContext *managedContext;
-@property (nonatomic, readonly) NSPersistentStoreCoordinator *persistentCoordinator;
+@property (nonatomic, readonly) FwiCacheFolder *cacheFolder;
 
 
-/** Return a sub managed object context that had been optimized to serve the update data process. */
-- (__autoreleasing NSManagedObjectContext *)importContext;
-
-/** Save current working context. */
-- (__autoreleasing NSError *)saveContext;
+/** Handle delegate object. */
+- (void)handleDelegate:(id<FwiCacheHandlerDelegate>)delegate;
 
 @end
 
 
-@interface FwiPersistent (FwiPersistentCreation)
+@interface FwiCacheHandler (FwiCacheHandlerCreation)
 
-/** Create persistent manager for specific data model. */
-+ (__autoreleasing FwiPersistent *)persistentWithDataModel:(NSString *)dataModel;
+// Class's static constructors
++ (FwiCacheHandler *)cacheHandlerWithCacheFolder:(FwiCacheFolder *)cacheFolder;
 
-/** Init with data model. */
-- (id)initWithDataModel:(NSString *)dataModel;
+// Class's constructors
+- (id)initWithCacheFolder:(FwiCacheFolder *)cacheFolder;
 
 @end
 
 
-@protocol FwiPersistentDelegate <NSObject>
+@protocol FwiCacheHandlerDelegate <NSObject>
+
+@required
+/** Provide image's url. */
+- (NSURL *)urlForHandler:(FwiCacheHandler *)cacheHandler;
 
 @optional
-/** Allow delegate control the reset database process. */
-- (BOOL)shouldResetPersistent:(FwiPersistent *)persistent;
+/** Notify delegate that handler will begin downloading image. */
+- (void)cacheHandlerWillStartDownloading:(FwiCacheHandler *)cacheHandler;
 
-/** Notify delegate that database will be reset due to error. */
-- (void)persistent:(FwiPersistent *)persistent willResetDatabaseWithError:(NSError *)error;
-
-/** Notify delegate that database had been reset due to error. */
-- (void)persistent:(FwiPersistent *)persistent didResetDatabaseWithError:(NSError *)error;
+/** Notify delegate that handler could not download image. */
+- (void)cacheHandler:(FwiCacheHandler *)cacheHandler didFailDownloadingImage:(UIImage *)image atUrl:(NSURL *)url;
+/** Notify delegate that handler did finish download image. */
+- (void)cacheHandler:(FwiCacheHandler *)cacheHandler didFinishDownloadingImage:(UIImage *)image atUrl:(NSURL *)url;
 
 @end

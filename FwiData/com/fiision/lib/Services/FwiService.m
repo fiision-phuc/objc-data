@@ -39,7 +39,7 @@
         
         _error = nil;
         _timer = nil;
-        _statusCode = kNetworkStatus_None;
+        _statusCode = kNone;
     }
     return self;
 }
@@ -128,7 +128,7 @@
 
     // Define error
     _state = kOPState_Error;
-    _statusCode = kNetworkStatus_Cancelled;
+    _statusCode = kCancelled;
     
     __autoreleasing NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:_statusCode userInfo:@{NSURLErrorFailingURLErrorKey:[_req.URL description], NSURLErrorFailingURLStringErrorKey:[_req.URL description], NSLocalizedDescriptionKey:[NSHTTPURLResponse localizedStringForStatusCode:_statusCode]}];
     _error = FwiRetain(error);
@@ -274,23 +274,18 @@
 }
 
 + (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url {
-    return [FwiService serviceWithRequest:[FwiRequest requestWithURL:url methodType:kMethodType_Get]];
+    return [FwiService serviceWithRequest:[FwiRequest requestWithURL:url methodType:kGet]];
 }
-+ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method {
++ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiHttpMethod)method {
     return [FwiService serviceWithRequest:[FwiRequest requestWithURL:url methodType:method]];
 }
-+ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestMessage:(FwiJson *)requestMessage {
-    __autoreleasing FwiRequest *request = [FwiRequest requestWithURL:url methodType:method];
-    [request setDataParameter:[FwiDataParam parameterWithJson:requestMessage]];
-    return [FwiService serviceWithRequest:request];
-}
-+ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiMethodType)method requestDictionary:(NSDictionary *)requestDictionary {
++ (__autoreleasing FwiService *)serviceWithURL:(NSURL *)url method:(FwiHttpMethod)method requestDictionary:(NSDictionary *)requestDictionary {
     __unsafe_unretained __block FwiRequest *request = [FwiRequest requestWithURL:url methodType:method];
     
     // Insert parameters
     [requestDictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
         __autoreleasing FwiFormParam *parameter = [FwiFormParam paramWithKey:key andValue:value];
-        [request addFormParameters:parameter, nil];
+        [request addFormParam:parameter];
     }];
     return [FwiService serviceWithRequest:request];
 }

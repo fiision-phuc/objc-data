@@ -1,8 +1,8 @@
 //  Project name: FwiData
-//  File name   : NSString+FwiJson.h
+//  File name   : FwiRecorder.h
 //
 //  Author      : Phuc, Tran Huu
-//  Created date: 2/2/14
+//  Created date: 8/31/15
 //  Version     : 1.20
 //  --------------------------------------------------------------
 //  Copyright (C) 2012, 2015 Fiision Studio.
@@ -39,11 +39,42 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (FwiJson)
+@protocol FwiRecorderDelegate;
 
-/** Decode base64 string to Json. */
-- (__autoreleasing FwiJson *)decodeBase64Json;
-/** Decode string to Json. */
-- (__autoreleasing FwiJson *)decodeJson;
+
+@interface FwiRecorder : NSObject {
+}
+
+@property (nonatomic, assign) id<FwiRecorderDelegate> delegate;
+
+@property (nonatomic, readonly) BOOL recording;
+@property (nonatomic, readonly) BOOL recordAudio;
+@property (nonatomic, readonly) BOOL recordVideo;
+@property (nonatomic, readonly) NSURL *outputFile;
+@property (nonatomic, readonly) AVCaptureMovieFileOutput *outputMovie;
+
+
+- (void)startRecordingWithOrientation:(AVCaptureVideoOrientation)videoOrientation;
+- (void)stopRecording;
+
+@end
+
+
+@interface FwiRecorder (RecorderCreation)
+
+// Class's static constructors
++ (__autoreleasing FwiRecorder *)recorderWithSession:(AVCaptureSession *)session outputFile:(NSURL *)outputFile;
+
+// Class's constructors
+- (id)initWithSession:(AVCaptureSession *)session outputFile:(NSURL *)outputFile;
+
+@end
+
+
+@protocol FwiRecorderDelegate <NSObject>
+
+@required
+- (void)recorderDidBegin:(FwiRecorder *)recorder;
+- (void)recorder:(FwiRecorder *)recorder writeToFile:(NSURL *)outputFile error:(NSError *)error;
 
 @end

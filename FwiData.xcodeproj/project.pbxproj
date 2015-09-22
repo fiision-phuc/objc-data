@@ -22,41 +22,41 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		BE1D81EA1BB0F34C0036D2A7 /* NSData+FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D81AD1BB0F34C0036D2A7 /* NSData+FwiDer.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D81EB1BB0F34C0036D2A7 /* NSString+FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D81AF1BB0F34C0036D2A7 /* NSString+FwiDer.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D81F91BB0F34C0036D2A7 /* FwiDataParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D81D91BB0F34C0036D2A7 /* FwiDataParam.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D81FA1BB0F34C0036D2A7 /* FwiFormParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D81DB1BB0F34C0036D2A7 /* FwiFormParam.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D81FB1BB0F34C0036D2A7 /* FwiMultipartParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D81DD1BB0F34C0036D2A7 /* FwiMultipartParam.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D81FC1BB0F34C0036D2A7 /* FwiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D81DF1BB0F34C0036D2A7 /* FwiRequest.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D81FD1BB0F34C0036D2A7 /* FwiService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D81E21BB0F34C0036D2A7 /* FwiService.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D821D1BB0F3DE0036D2A7 /* FwiBigInt.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82021BB0F3DE0036D2A7 /* FwiBigInt.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D821E1BB0F3DE0036D2A7 /* FwiBitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82051BB0F3DE0036D2A7 /* FwiBitArray.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D821F1BB0F3DE0036D2A7 /* FwiMutableBitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82071BB0F3DE0036D2A7 /* FwiMutableBitArray.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82201BB0F3DE0036D2A7 /* FwiBitMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D820A1BB0F3DE0036D2A7 /* FwiBitMatrix.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82211BB0F3DE0036D2A7 /* FwiCsvParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D820D1BB0F3DE0036D2A7 /* FwiCsvParser.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82221BB0F3DE0036D2A7 /* FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82101BB0F3DE0036D2A7 /* FwiDer.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82231BB0F3DE0036D2A7 /* FwiJsonMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82141BB0F3DE0036D2A7 /* FwiJsonMapper.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82241BB0F3DE0036D2A7 /* FwiProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82171BB0F3DE0036D2A7 /* FwiProperty.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82251BB0F3DE0036D2A7 /* FwiQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D821A1BB0F3DE0036D2A7 /* FwiQRCode.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82261BB0F3DE0036D2A7 /* FwiRS_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D821C1BB0F3DE0036D2A7 /* FwiRS_Private.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D823A1BB0F6C50036D2A7 /* FwiCacheFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82291BB0F6C50036D2A7 /* FwiCacheFolder.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D823B1BB0F6C50036D2A7 /* FwiCacheHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D822B1BB0F6C50036D2A7 /* FwiCacheHandler.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D823C1BB0F6C50036D2A7 /* FwiCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D822E1BB0F6C50036D2A7 /* FwiCaptureManager.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D823D1BB0F6C50036D2A7 /* FwiRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82301BB0F6C50036D2A7 /* FwiRecorder.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D823E1BB0F6C50036D2A7 /* FwiLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82331BB0F6C50036D2A7 /* FwiLocationManager.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D823F1BB0F6C50036D2A7 /* FwiNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82361BB0F6C50036D2A7 /* FwiNetworkManager.m */; settings = {ASSET_TAGS = (); }; };
+		BE1D82401BB0F6C50036D2A7 /* FwiPersistentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82391BB0F6C50036D2A7 /* FwiPersistentManager.m */; settings = {ASSET_TAGS = (); }; };
 		BE208B7B16E9B0A9004E0F54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208B7A16E9B0A9004E0F54 /* Foundation.framework */; };
 		BE2DEEC61A93242C00AF5F93 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFA8A03191DC1D900696262 /* libz.1.2.5.dylib */; };
 		BE3DB33D1A946701000F44D8 /* libFwiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3DB33C1A946701000F44D8 /* libFwiCore.a */; };
 		BE4EA2CC1A9325F500538870 /* libFwiData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208B7716E9B0A9004E0F54 /* libFwiData.a */; };
 		BE4EA2CE1A93260600538870 /* FwiPropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */; };
 		BE619C531A95D12D00014F78 /* FwiJsonMapperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */; };
-		BE78591C1AF89ACF00EC9A47 /* NSData+FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858D81AF89ACE00EC9A47 /* NSData+FwiDer.m */; };
-		BE78591D1AF89ACF00EC9A47 /* NSData+FwiJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858DA1AF89ACE00EC9A47 /* NSData+FwiJson.m */; };
-		BE78591E1AF89ACF00EC9A47 /* NSString+FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858DC1AF89ACE00EC9A47 /* NSString+FwiDer.m */; };
-		BE78591F1AF89ACF00EC9A47 /* NSString+FwiJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858DE1AF89ACE00EC9A47 /* NSString+FwiJson.m */; };
-		BE7859201AF89ACF00EC9A47 /* FwiBigInt.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858E21AF89ACE00EC9A47 /* FwiBigInt.m */; };
-		BE7859211AF89ACF00EC9A47 /* FwiBitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858E51AF89ACE00EC9A47 /* FwiBitArray.m */; };
-		BE7859221AF89ACF00EC9A47 /* FwiMutableBitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858E71AF89ACE00EC9A47 /* FwiMutableBitArray.m */; };
-		BE7859231AF89ACF00EC9A47 /* FwiBitMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858EA1AF89ACE00EC9A47 /* FwiBitMatrix.m */; };
-		BE7859241AF89ACF00EC9A47 /* FwiCsvParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858ED1AF89ACE00EC9A47 /* FwiCsvParser.m */; };
-		BE7859251AF89ACF00EC9A47 /* FwiDer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858F01AF89ACE00EC9A47 /* FwiDer.m */; };
-		BE7859261AF89ACF00EC9A47 /* FwiJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858F41AF89ACE00EC9A47 /* FwiJson.m */; };
-		BE7859271AF89ACF00EC9A47 /* FwiJsonMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858F81AF89ACE00EC9A47 /* FwiJsonMapper.m */; };
-		BE7859281AF89ACF00EC9A47 /* FwiProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858FB1AF89ACE00EC9A47 /* FwiProperty.m */; };
-		BE7859291AF89ACF00EC9A47 /* FwiQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7858FE1AF89ACE00EC9A47 /* FwiQRCode.m */; };
-		BE78592A1AF89ACF00EC9A47 /* FwiRS_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7859001AF89ACE00EC9A47 /* FwiRS_Private.m */; };
-		BE78592B1AF89ACF00EC9A47 /* NSArray+FwiExtension_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7859031AF89ACE00EC9A47 /* NSArray+FwiExtension_Private.m */; };
-		BE78592C1AF89ACF00EC9A47 /* NSDictionary+FwiExtension_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7859051AF89ACE00EC9A47 /* NSDictionary+FwiExtension_Private.m */; };
-		BE78592D1AF89ACF00EC9A47 /* FwiLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78590A1AF89ACE00EC9A47 /* FwiLocation.m */; };
-		BE78592E1AF89ACF00EC9A47 /* FwiPersistent.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78590C1AF89ACE00EC9A47 /* FwiPersistent.m */; };
-		BE78592F1AF89ACF00EC9A47 /* FwiService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78590F1AF89ACF00EC9A47 /* FwiService.m */; };
-		BE7859331AF89ACF00EC9A47 /* FwiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7859181AF89ACF00EC9A47 /* FwiRequest.m */; };
-		BE7859341AF89ACF00EC9A47 /* FwiRESTService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78591B1AF89ACF00EC9A47 /* FwiRESTService.m */; };
-		BE7867A21B11A62400C64942 /* FwiDataParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78679D1B11A62400C64942 /* FwiDataParam.m */; };
-		BE7867A31B11A62400C64942 /* FwiFormParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78679F1B11A62400C64942 /* FwiFormParam.m */; };
-		BE7867A41B11A62400C64942 /* FwiMultipartParam.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7867A11B11A62400C64942 /* FwiMultipartParam.m */; };
+		BE8EA8ED1B94A40100B9B08E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8EA8EC1B94A40100B9B08E /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BE9FECDE16EA469400C29A10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDD16EA469400C29A10 /* UIKit.framework */; };
 		BE9FECE016EA469E00C29A10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDF16EA469E00C29A10 /* CoreGraphics.framework */; };
-		BEF2DFD017046E9D0006DD71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF2DFCF17046E9D0006DD71 /* CoreData.framework */; };
-		BEF2DFD217046EA40006DD71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF2DFD117046EA40006DD71 /* CoreLocation.framework */; };
+		BEF2DFD017046E9D0006DD71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF2DFCF17046E9D0006DD71 /* CoreData.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BEF2DFD217046EA40006DD71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF2DFD117046EA40006DD71 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BEF95CD41A650AE600183E43 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF95CD31A650AE600183E43 /* XCTest.framework */; };
 		BEF95CD51A650AE600183E43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE208B7A16E9B0A9004E0F54 /* Foundation.framework */; };
 		BEF95CD61A650AE600183E43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDD16EA469400C29A10 /* UIKit.framework */; };
@@ -95,66 +95,64 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BE1D81AC1BB0F34C0036D2A7 /* NSData+FwiDer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FwiDer.h"; sourceTree = "<group>"; };
+		BE1D81AD1BB0F34C0036D2A7 /* NSData+FwiDer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FwiDer.m"; sourceTree = "<group>"; };
+		BE1D81AE1BB0F34C0036D2A7 /* NSString+FwiDer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FwiDer.h"; sourceTree = "<group>"; };
+		BE1D81AF1BB0F34C0036D2A7 /* NSString+FwiDer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FwiDer.m"; sourceTree = "<group>"; };
+		BE1D81CE1BB0F34C0036D2A7 /* FwiData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiData.h; sourceTree = "<group>"; };
+		BE1D81CF1BB0F34C0036D2A7 /* FwiData_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiData_Private.h; sourceTree = "<group>"; };
+		BE1D81D81BB0F34C0036D2A7 /* FwiDataParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiDataParam.h; sourceTree = "<group>"; };
+		BE1D81D91BB0F34C0036D2A7 /* FwiDataParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiDataParam.m; sourceTree = "<group>"; };
+		BE1D81DA1BB0F34C0036D2A7 /* FwiFormParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiFormParam.h; sourceTree = "<group>"; };
+		BE1D81DB1BB0F34C0036D2A7 /* FwiFormParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiFormParam.m; sourceTree = "<group>"; };
+		BE1D81DC1BB0F34C0036D2A7 /* FwiMultipartParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiMultipartParam.h; sourceTree = "<group>"; };
+		BE1D81DD1BB0F34C0036D2A7 /* FwiMultipartParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiMultipartParam.m; sourceTree = "<group>"; };
+		BE1D81DE1BB0F34C0036D2A7 /* FwiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRequest.h; sourceTree = "<group>"; };
+		BE1D81DF1BB0F34C0036D2A7 /* FwiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRequest.m; sourceTree = "<group>"; };
+		BE1D81E11BB0F34C0036D2A7 /* FwiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiService.h; sourceTree = "<group>"; };
+		BE1D81E21BB0F34C0036D2A7 /* FwiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiService.m; sourceTree = "<group>"; };
+		BE1D82011BB0F3DE0036D2A7 /* FwiBigInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiBigInt.h; sourceTree = "<group>"; };
+		BE1D82021BB0F3DE0036D2A7 /* FwiBigInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiBigInt.m; sourceTree = "<group>"; };
+		BE1D82041BB0F3DE0036D2A7 /* FwiBitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiBitArray.h; sourceTree = "<group>"; };
+		BE1D82051BB0F3DE0036D2A7 /* FwiBitArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiBitArray.m; sourceTree = "<group>"; };
+		BE1D82061BB0F3DE0036D2A7 /* FwiMutableBitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiMutableBitArray.h; sourceTree = "<group>"; };
+		BE1D82071BB0F3DE0036D2A7 /* FwiMutableBitArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiMutableBitArray.m; sourceTree = "<group>"; };
+		BE1D82091BB0F3DE0036D2A7 /* FwiBitMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiBitMatrix.h; sourceTree = "<group>"; };
+		BE1D820A1BB0F3DE0036D2A7 /* FwiBitMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiBitMatrix.m; sourceTree = "<group>"; };
+		BE1D820C1BB0F3DE0036D2A7 /* FwiCsvParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCsvParser.h; sourceTree = "<group>"; };
+		BE1D820D1BB0F3DE0036D2A7 /* FwiCsvParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCsvParser.m; sourceTree = "<group>"; };
+		BE1D820F1BB0F3DE0036D2A7 /* FwiDer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiDer.h; sourceTree = "<group>"; };
+		BE1D82101BB0F3DE0036D2A7 /* FwiDer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiDer.m; sourceTree = "<group>"; };
+		BE1D82111BB0F3DE0036D2A7 /* FwiDer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiDer_Private.h; sourceTree = "<group>"; };
+		BE1D82131BB0F3DE0036D2A7 /* FwiJsonMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiJsonMapper.h; sourceTree = "<group>"; };
+		BE1D82141BB0F3DE0036D2A7 /* FwiJsonMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJsonMapper.m; sourceTree = "<group>"; };
+		BE1D82161BB0F3DE0036D2A7 /* FwiProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiProperty.h; sourceTree = "<group>"; };
+		BE1D82171BB0F3DE0036D2A7 /* FwiProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiProperty.m; sourceTree = "<group>"; };
+		BE1D82191BB0F3DE0036D2A7 /* FwiQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiQRCode.h; sourceTree = "<group>"; };
+		BE1D821A1BB0F3DE0036D2A7 /* FwiQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiQRCode.m; sourceTree = "<group>"; };
+		BE1D821B1BB0F3DE0036D2A7 /* FwiRS_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRS_Private.h; sourceTree = "<group>"; };
+		BE1D821C1BB0F3DE0036D2A7 /* FwiRS_Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRS_Private.m; sourceTree = "<group>"; };
+		BE1D82281BB0F6C50036D2A7 /* FwiCacheFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCacheFolder.h; sourceTree = "<group>"; };
+		BE1D82291BB0F6C50036D2A7 /* FwiCacheFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCacheFolder.m; sourceTree = "<group>"; };
+		BE1D822A1BB0F6C50036D2A7 /* FwiCacheHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCacheHandler.h; sourceTree = "<group>"; };
+		BE1D822B1BB0F6C50036D2A7 /* FwiCacheHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCacheHandler.m; sourceTree = "<group>"; };
+		BE1D822D1BB0F6C50036D2A7 /* FwiCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCaptureManager.h; sourceTree = "<group>"; };
+		BE1D822E1BB0F6C50036D2A7 /* FwiCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCaptureManager.m; sourceTree = "<group>"; };
+		BE1D822F1BB0F6C50036D2A7 /* FwiRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRecorder.h; sourceTree = "<group>"; };
+		BE1D82301BB0F6C50036D2A7 /* FwiRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRecorder.m; sourceTree = "<group>"; };
+		BE1D82321BB0F6C50036D2A7 /* FwiLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiLocationManager.h; sourceTree = "<group>"; };
+		BE1D82331BB0F6C50036D2A7 /* FwiLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiLocationManager.m; sourceTree = "<group>"; };
+		BE1D82351BB0F6C50036D2A7 /* FwiNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiNetworkManager.h; sourceTree = "<group>"; };
+		BE1D82361BB0F6C50036D2A7 /* FwiNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiNetworkManager.m; sourceTree = "<group>"; };
+		BE1D82381BB0F6C50036D2A7 /* FwiPersistentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiPersistentManager.h; sourceTree = "<group>"; };
+		BE1D82391BB0F6C50036D2A7 /* FwiPersistentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiPersistentManager.m; sourceTree = "<group>"; };
 		BE208B7716E9B0A9004E0F54 /* libFwiData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFwiData.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE208B7A16E9B0A9004E0F54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE208B7E16E9B0A9004E0F54 /* FwiData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FwiData-Prefix.pch"; sourceTree = "<group>"; };
 		BE3DB33C1A946701000F44D8 /* libFwiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFwiCore.a; path = "../FwiCore/build/Debug-iphoneos/libFwiCore.a"; sourceTree = "<group>"; };
 		BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiPropertyTest.m; sourceTree = "<group>"; };
 		BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJsonMapperTest.m; sourceTree = "<group>"; };
-		BE7858D71AF89ACE00EC9A47 /* NSData+FwiDer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FwiDer.h"; sourceTree = "<group>"; };
-		BE7858D81AF89ACE00EC9A47 /* NSData+FwiDer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FwiDer.m"; sourceTree = "<group>"; };
-		BE7858D91AF89ACE00EC9A47 /* NSData+FwiJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FwiJson.h"; sourceTree = "<group>"; };
-		BE7858DA1AF89ACE00EC9A47 /* NSData+FwiJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FwiJson.m"; sourceTree = "<group>"; };
-		BE7858DB1AF89ACE00EC9A47 /* NSString+FwiDer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FwiDer.h"; sourceTree = "<group>"; };
-		BE7858DC1AF89ACE00EC9A47 /* NSString+FwiDer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FwiDer.m"; sourceTree = "<group>"; };
-		BE7858DD1AF89ACE00EC9A47 /* NSString+FwiJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FwiJson.h"; sourceTree = "<group>"; };
-		BE7858DE1AF89ACE00EC9A47 /* NSString+FwiJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FwiJson.m"; sourceTree = "<group>"; };
-		BE7858E11AF89ACE00EC9A47 /* FwiBigInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiBigInt.h; sourceTree = "<group>"; };
-		BE7858E21AF89ACE00EC9A47 /* FwiBigInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiBigInt.m; sourceTree = "<group>"; };
-		BE7858E41AF89ACE00EC9A47 /* FwiBitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiBitArray.h; sourceTree = "<group>"; };
-		BE7858E51AF89ACE00EC9A47 /* FwiBitArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiBitArray.m; sourceTree = "<group>"; };
-		BE7858E61AF89ACE00EC9A47 /* FwiMutableBitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiMutableBitArray.h; sourceTree = "<group>"; };
-		BE7858E71AF89ACE00EC9A47 /* FwiMutableBitArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiMutableBitArray.m; sourceTree = "<group>"; };
-		BE7858E91AF89ACE00EC9A47 /* FwiBitMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiBitMatrix.h; sourceTree = "<group>"; };
-		BE7858EA1AF89ACE00EC9A47 /* FwiBitMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiBitMatrix.m; sourceTree = "<group>"; };
-		BE7858EC1AF89ACE00EC9A47 /* FwiCsvParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCsvParser.h; sourceTree = "<group>"; };
-		BE7858ED1AF89ACE00EC9A47 /* FwiCsvParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCsvParser.m; sourceTree = "<group>"; };
-		BE7858EF1AF89ACE00EC9A47 /* FwiDer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiDer.h; sourceTree = "<group>"; };
-		BE7858F01AF89ACE00EC9A47 /* FwiDer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiDer.m; sourceTree = "<group>"; };
-		BE7858F11AF89ACE00EC9A47 /* FwiDer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiDer_Private.h; sourceTree = "<group>"; };
-		BE7858F31AF89ACE00EC9A47 /* FwiJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiJson.h; sourceTree = "<group>"; };
-		BE7858F41AF89ACE00EC9A47 /* FwiJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJson.m; sourceTree = "<group>"; };
-		BE7858F51AF89ACE00EC9A47 /* FwiJson_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiJson_Private.h; sourceTree = "<group>"; };
-		BE7858F71AF89ACE00EC9A47 /* FwiJsonMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiJsonMapper.h; sourceTree = "<group>"; };
-		BE7858F81AF89ACE00EC9A47 /* FwiJsonMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJsonMapper.m; sourceTree = "<group>"; };
-		BE7858FA1AF89ACE00EC9A47 /* FwiProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiProperty.h; sourceTree = "<group>"; };
-		BE7858FB1AF89ACE00EC9A47 /* FwiProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiProperty.m; sourceTree = "<group>"; };
-		BE7858FD1AF89ACE00EC9A47 /* FwiQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiQRCode.h; sourceTree = "<group>"; };
-		BE7858FE1AF89ACE00EC9A47 /* FwiQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiQRCode.m; sourceTree = "<group>"; };
-		BE7858FF1AF89ACE00EC9A47 /* FwiRS_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRS_Private.h; sourceTree = "<group>"; };
-		BE7859001AF89ACE00EC9A47 /* FwiRS_Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRS_Private.m; sourceTree = "<group>"; };
-		BE7859021AF89ACE00EC9A47 /* NSArray+FwiExtension_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FwiExtension_Private.h"; sourceTree = "<group>"; };
-		BE7859031AF89ACE00EC9A47 /* NSArray+FwiExtension_Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FwiExtension_Private.m"; sourceTree = "<group>"; };
-		BE7859041AF89ACE00EC9A47 /* NSDictionary+FwiExtension_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FwiExtension_Private.h"; sourceTree = "<group>"; };
-		BE7859051AF89ACE00EC9A47 /* NSDictionary+FwiExtension_Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FwiExtension_Private.m"; sourceTree = "<group>"; };
-		BE7859061AF89ACE00EC9A47 /* FwiData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiData.h; sourceTree = "<group>"; };
-		BE7859071AF89ACE00EC9A47 /* FwiData_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiData_Private.h; sourceTree = "<group>"; };
-		BE7859091AF89ACE00EC9A47 /* FwiLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiLocation.h; sourceTree = "<group>"; };
-		BE78590A1AF89ACE00EC9A47 /* FwiLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiLocation.m; sourceTree = "<group>"; };
-		BE78590B1AF89ACE00EC9A47 /* FwiPersistent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiPersistent.h; sourceTree = "<group>"; };
-		BE78590C1AF89ACE00EC9A47 /* FwiPersistent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiPersistent.m; sourceTree = "<group>"; };
-		BE78590E1AF89ACF00EC9A47 /* FwiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiService.h; sourceTree = "<group>"; };
-		BE78590F1AF89ACF00EC9A47 /* FwiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiService.m; sourceTree = "<group>"; };
-		BE7859171AF89ACF00EC9A47 /* FwiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRequest.h; sourceTree = "<group>"; };
-		BE7859181AF89ACF00EC9A47 /* FwiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRequest.m; sourceTree = "<group>"; };
-		BE78591A1AF89ACF00EC9A47 /* FwiRESTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRESTService.h; sourceTree = "<group>"; };
-		BE78591B1AF89ACF00EC9A47 /* FwiRESTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRESTService.m; sourceTree = "<group>"; };
-		BE78679C1B11A62400C64942 /* FwiDataParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiDataParam.h; sourceTree = "<group>"; };
-		BE78679D1B11A62400C64942 /* FwiDataParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiDataParam.m; sourceTree = "<group>"; };
-		BE78679E1B11A62400C64942 /* FwiFormParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiFormParam.h; sourceTree = "<group>"; };
-		BE78679F1B11A62400C64942 /* FwiFormParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiFormParam.m; sourceTree = "<group>"; };
-		BE7867A01B11A62400C64942 /* FwiMultipartParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiMultipartParam.h; sourceTree = "<group>"; };
-		BE7867A11B11A62400C64942 /* FwiMultipartParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiMultipartParam.m; sourceTree = "<group>"; };
+		BE8EA8EC1B94A40100B9B08E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BE9FECDD16EA469400C29A10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE9FECDF16EA469E00C29A10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BEEFA4C618A795E6002BCF21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -176,11 +174,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF2DFD217046EA40006DD71 /* CoreLocation.framework in Frameworks */,
-				BEF2DFD017046E9D0006DD71 /* CoreData.framework in Frameworks */,
 				BE9FECDE16EA469400C29A10 /* UIKit.framework in Frameworks */,
 				BE208B7B16E9B0A9004E0F54 /* Foundation.framework in Frameworks */,
 				BE9FECE016EA469E00C29A10 /* CoreGraphics.framework in Frameworks */,
+				BE8EA8ED1B94A40100B9B08E /* AVFoundation.framework in Frameworks */,
+				BEF2DFD017046E9D0006DD71 /* CoreData.framework in Frameworks */,
+				BEF2DFD217046EA40006DD71 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +199,208 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE1D81A51BB0F34C0036D2A7 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D81CE1BB0F34C0036D2A7 /* FwiData.h */,
+				BE1D81CF1BB0F34C0036D2A7 /* FwiData_Private.h */,
+				BE1D81AB1BB0F34C0036D2A7 /* codec */,
+				BE1D81B01BB0F34C0036D2A7 /* data */,
+				BE1D81D01BB0F34C0036D2A7 /* managers */,
+				BE1D81D71BB0F34C0036D2A7 /* request */,
+				BE1D81E01BB0F34C0036D2A7 /* services */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		BE1D81AB1BB0F34C0036D2A7 /* codec */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D81AC1BB0F34C0036D2A7 /* NSData+FwiDer.h */,
+				BE1D81AD1BB0F34C0036D2A7 /* NSData+FwiDer.m */,
+				BE1D81AE1BB0F34C0036D2A7 /* NSString+FwiDer.h */,
+				BE1D81AF1BB0F34C0036D2A7 /* NSString+FwiDer.m */,
+			);
+			path = codec;
+			sourceTree = "<group>";
+		};
+		BE1D81B01BB0F34C0036D2A7 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82001BB0F3DE0036D2A7 /* big_int */,
+				BE1D82031BB0F3DE0036D2A7 /* bit_array */,
+				BE1D82081BB0F3DE0036D2A7 /* bit_matrix */,
+				BE1D820B1BB0F3DE0036D2A7 /* csv */,
+				BE1D820E1BB0F3DE0036D2A7 /* der */,
+				BE1D82121BB0F3DE0036D2A7 /* JsonMapper */,
+				BE1D82151BB0F3DE0036D2A7 /* property */,
+				BE1D82181BB0F3DE0036D2A7 /* qr_code */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		BE1D81D01BB0F34C0036D2A7 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82271BB0F6C50036D2A7 /* cache_folder */,
+				BE1D822C1BB0F6C50036D2A7 /* capture */,
+				BE1D82311BB0F6C50036D2A7 /* location */,
+				BE1D82341BB0F6C50036D2A7 /* network */,
+				BE1D82371BB0F6C50036D2A7 /* persistent */,
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
+		BE1D81D71BB0F34C0036D2A7 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D81D81BB0F34C0036D2A7 /* FwiDataParam.h */,
+				BE1D81D91BB0F34C0036D2A7 /* FwiDataParam.m */,
+				BE1D81DA1BB0F34C0036D2A7 /* FwiFormParam.h */,
+				BE1D81DB1BB0F34C0036D2A7 /* FwiFormParam.m */,
+				BE1D81DC1BB0F34C0036D2A7 /* FwiMultipartParam.h */,
+				BE1D81DD1BB0F34C0036D2A7 /* FwiMultipartParam.m */,
+				BE1D81DE1BB0F34C0036D2A7 /* FwiRequest.h */,
+				BE1D81DF1BB0F34C0036D2A7 /* FwiRequest.m */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		BE1D81E01BB0F34C0036D2A7 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D81E11BB0F34C0036D2A7 /* FwiService.h */,
+				BE1D81E21BB0F34C0036D2A7 /* FwiService.m */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		BE1D82001BB0F3DE0036D2A7 /* big_int */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82011BB0F3DE0036D2A7 /* FwiBigInt.h */,
+				BE1D82021BB0F3DE0036D2A7 /* FwiBigInt.m */,
+			);
+			path = big_int;
+			sourceTree = "<group>";
+		};
+		BE1D82031BB0F3DE0036D2A7 /* bit_array */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82041BB0F3DE0036D2A7 /* FwiBitArray.h */,
+				BE1D82051BB0F3DE0036D2A7 /* FwiBitArray.m */,
+				BE1D82061BB0F3DE0036D2A7 /* FwiMutableBitArray.h */,
+				BE1D82071BB0F3DE0036D2A7 /* FwiMutableBitArray.m */,
+			);
+			path = bit_array;
+			sourceTree = "<group>";
+		};
+		BE1D82081BB0F3DE0036D2A7 /* bit_matrix */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82091BB0F3DE0036D2A7 /* FwiBitMatrix.h */,
+				BE1D820A1BB0F3DE0036D2A7 /* FwiBitMatrix.m */,
+			);
+			path = bit_matrix;
+			sourceTree = "<group>";
+		};
+		BE1D820B1BB0F3DE0036D2A7 /* csv */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D820C1BB0F3DE0036D2A7 /* FwiCsvParser.h */,
+				BE1D820D1BB0F3DE0036D2A7 /* FwiCsvParser.m */,
+			);
+			path = csv;
+			sourceTree = "<group>";
+		};
+		BE1D820E1BB0F3DE0036D2A7 /* der */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D820F1BB0F3DE0036D2A7 /* FwiDer.h */,
+				BE1D82101BB0F3DE0036D2A7 /* FwiDer.m */,
+				BE1D82111BB0F3DE0036D2A7 /* FwiDer_Private.h */,
+			);
+			path = der;
+			sourceTree = "<group>";
+		};
+		BE1D82121BB0F3DE0036D2A7 /* JsonMapper */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82131BB0F3DE0036D2A7 /* FwiJsonMapper.h */,
+				BE1D82141BB0F3DE0036D2A7 /* FwiJsonMapper.m */,
+			);
+			path = JsonMapper;
+			sourceTree = "<group>";
+		};
+		BE1D82151BB0F3DE0036D2A7 /* property */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82161BB0F3DE0036D2A7 /* FwiProperty.h */,
+				BE1D82171BB0F3DE0036D2A7 /* FwiProperty.m */,
+			);
+			path = property;
+			sourceTree = "<group>";
+		};
+		BE1D82181BB0F3DE0036D2A7 /* qr_code */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82191BB0F3DE0036D2A7 /* FwiQRCode.h */,
+				BE1D821A1BB0F3DE0036D2A7 /* FwiQRCode.m */,
+				BE1D821B1BB0F3DE0036D2A7 /* FwiRS_Private.h */,
+				BE1D821C1BB0F3DE0036D2A7 /* FwiRS_Private.m */,
+			);
+			path = qr_code;
+			sourceTree = "<group>";
+		};
+		BE1D82271BB0F6C50036D2A7 /* cache_folder */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82281BB0F6C50036D2A7 /* FwiCacheFolder.h */,
+				BE1D82291BB0F6C50036D2A7 /* FwiCacheFolder.m */,
+				BE1D822A1BB0F6C50036D2A7 /* FwiCacheHandler.h */,
+				BE1D822B1BB0F6C50036D2A7 /* FwiCacheHandler.m */,
+			);
+			path = cache_folder;
+			sourceTree = "<group>";
+		};
+		BE1D822C1BB0F6C50036D2A7 /* capture */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D822D1BB0F6C50036D2A7 /* FwiCaptureManager.h */,
+				BE1D822E1BB0F6C50036D2A7 /* FwiCaptureManager.m */,
+				BE1D822F1BB0F6C50036D2A7 /* FwiRecorder.h */,
+				BE1D82301BB0F6C50036D2A7 /* FwiRecorder.m */,
+			);
+			path = capture;
+			sourceTree = "<group>";
+		};
+		BE1D82311BB0F6C50036D2A7 /* location */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82321BB0F6C50036D2A7 /* FwiLocationManager.h */,
+				BE1D82331BB0F6C50036D2A7 /* FwiLocationManager.m */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
+		BE1D82341BB0F6C50036D2A7 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82351BB0F6C50036D2A7 /* FwiNetworkManager.h */,
+				BE1D82361BB0F6C50036D2A7 /* FwiNetworkManager.m */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		BE1D82371BB0F6C50036D2A7 /* persistent */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D82381BB0F6C50036D2A7 /* FwiPersistentManager.h */,
+				BE1D82391BB0F6C50036D2A7 /* FwiPersistentManager.m */,
+			);
+			path = persistent;
+			sourceTree = "<group>";
+		};
 		BE208B6E16E9B0A9004E0F54 = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +428,7 @@
 				BEEFA4D318A7965F002BCF21 /* Test */,
 				BE9FECDD16EA469400C29A10 /* UIKit.framework */,
 				BE208B7A16E9B0A9004E0F54 /* Foundation.framework */,
+				BE8EA8EC1B94A40100B9B08E /* AVFoundation.framework */,
 				BEEFA4C818A795ED002BCF21 /* Accelerate.framework */,
 				BEFA8A03191DC1D900696262 /* libz.1.2.5.dylib */,
 				BE3DB33C1A946701000F44D8 /* libFwiCore.a */,
@@ -262,206 +464,9 @@
 		BE7858D41AF89ACE00EC9A47 /* fiision */ = {
 			isa = PBXGroup;
 			children = (
-				BE7858D51AF89ACE00EC9A47 /* lib */,
+				BE1D81A51BB0F34C0036D2A7 /* lib */,
 			);
 			path = fiision;
-			sourceTree = "<group>";
-		};
-		BE7858D51AF89ACE00EC9A47 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				BE7859061AF89ACE00EC9A47 /* FwiData.h */,
-				BE7859071AF89ACE00EC9A47 /* FwiData_Private.h */,
-				BE7858D61AF89ACE00EC9A47 /* Codec */,
-				BE7858DF1AF89ACE00EC9A47 /* Data */,
-				BE7859011AF89ACE00EC9A47 /* Extension */,
-				BE7859081AF89ACE00EC9A47 /* Managers */,
-				BE78590D1AF89ACF00EC9A47 /* Services */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		BE7858D61AF89ACE00EC9A47 /* Codec */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858D71AF89ACE00EC9A47 /* NSData+FwiDer.h */,
-				BE7858D81AF89ACE00EC9A47 /* NSData+FwiDer.m */,
-				BE7858D91AF89ACE00EC9A47 /* NSData+FwiJson.h */,
-				BE7858DA1AF89ACE00EC9A47 /* NSData+FwiJson.m */,
-				BE7858DB1AF89ACE00EC9A47 /* NSString+FwiDer.h */,
-				BE7858DC1AF89ACE00EC9A47 /* NSString+FwiDer.m */,
-				BE7858DD1AF89ACE00EC9A47 /* NSString+FwiJson.h */,
-				BE7858DE1AF89ACE00EC9A47 /* NSString+FwiJson.m */,
-			);
-			path = Codec;
-			sourceTree = "<group>";
-		};
-		BE7858DF1AF89ACE00EC9A47 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858E01AF89ACE00EC9A47 /* BigInt */,
-				BE7858E31AF89ACE00EC9A47 /* BitArray */,
-				BE7858E81AF89ACE00EC9A47 /* BitMatrix */,
-				BE7858EB1AF89ACE00EC9A47 /* Csv */,
-				BE7858EE1AF89ACE00EC9A47 /* Der */,
-				BE7858F21AF89ACE00EC9A47 /* Json */,
-				BE7858F61AF89ACE00EC9A47 /* JsonMapper */,
-				BE7858F91AF89ACE00EC9A47 /* Property */,
-				BE7858FC1AF89ACE00EC9A47 /* QRCode */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		BE7858E01AF89ACE00EC9A47 /* BigInt */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858E11AF89ACE00EC9A47 /* FwiBigInt.h */,
-				BE7858E21AF89ACE00EC9A47 /* FwiBigInt.m */,
-			);
-			path = BigInt;
-			sourceTree = "<group>";
-		};
-		BE7858E31AF89ACE00EC9A47 /* BitArray */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858E41AF89ACE00EC9A47 /* FwiBitArray.h */,
-				BE7858E51AF89ACE00EC9A47 /* FwiBitArray.m */,
-				BE7858E61AF89ACE00EC9A47 /* FwiMutableBitArray.h */,
-				BE7858E71AF89ACE00EC9A47 /* FwiMutableBitArray.m */,
-			);
-			path = BitArray;
-			sourceTree = "<group>";
-		};
-		BE7858E81AF89ACE00EC9A47 /* BitMatrix */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858E91AF89ACE00EC9A47 /* FwiBitMatrix.h */,
-				BE7858EA1AF89ACE00EC9A47 /* FwiBitMatrix.m */,
-			);
-			path = BitMatrix;
-			sourceTree = "<group>";
-		};
-		BE7858EB1AF89ACE00EC9A47 /* Csv */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858EC1AF89ACE00EC9A47 /* FwiCsvParser.h */,
-				BE7858ED1AF89ACE00EC9A47 /* FwiCsvParser.m */,
-			);
-			path = Csv;
-			sourceTree = "<group>";
-		};
-		BE7858EE1AF89ACE00EC9A47 /* Der */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858EF1AF89ACE00EC9A47 /* FwiDer.h */,
-				BE7858F01AF89ACE00EC9A47 /* FwiDer.m */,
-				BE7858F11AF89ACE00EC9A47 /* FwiDer_Private.h */,
-			);
-			path = Der;
-			sourceTree = "<group>";
-		};
-		BE7858F21AF89ACE00EC9A47 /* Json */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858F31AF89ACE00EC9A47 /* FwiJson.h */,
-				BE7858F41AF89ACE00EC9A47 /* FwiJson.m */,
-				BE7858F51AF89ACE00EC9A47 /* FwiJson_Private.h */,
-			);
-			path = Json;
-			sourceTree = "<group>";
-		};
-		BE7858F61AF89ACE00EC9A47 /* JsonMapper */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858F71AF89ACE00EC9A47 /* FwiJsonMapper.h */,
-				BE7858F81AF89ACE00EC9A47 /* FwiJsonMapper.m */,
-			);
-			path = JsonMapper;
-			sourceTree = "<group>";
-		};
-		BE7858F91AF89ACE00EC9A47 /* Property */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858FA1AF89ACE00EC9A47 /* FwiProperty.h */,
-				BE7858FB1AF89ACE00EC9A47 /* FwiProperty.m */,
-			);
-			path = Property;
-			sourceTree = "<group>";
-		};
-		BE7858FC1AF89ACE00EC9A47 /* QRCode */ = {
-			isa = PBXGroup;
-			children = (
-				BE7858FD1AF89ACE00EC9A47 /* FwiQRCode.h */,
-				BE7858FE1AF89ACE00EC9A47 /* FwiQRCode.m */,
-				BE7858FF1AF89ACE00EC9A47 /* FwiRS_Private.h */,
-				BE7859001AF89ACE00EC9A47 /* FwiRS_Private.m */,
-			);
-			path = QRCode;
-			sourceTree = "<group>";
-		};
-		BE7859011AF89ACE00EC9A47 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				BE7859021AF89ACE00EC9A47 /* NSArray+FwiExtension_Private.h */,
-				BE7859031AF89ACE00EC9A47 /* NSArray+FwiExtension_Private.m */,
-				BE7859041AF89ACE00EC9A47 /* NSDictionary+FwiExtension_Private.h */,
-				BE7859051AF89ACE00EC9A47 /* NSDictionary+FwiExtension_Private.m */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		BE7859081AF89ACE00EC9A47 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				BE7859091AF89ACE00EC9A47 /* FwiLocation.h */,
-				BE78590A1AF89ACE00EC9A47 /* FwiLocation.m */,
-				BE78590B1AF89ACE00EC9A47 /* FwiPersistent.h */,
-				BE78590C1AF89ACE00EC9A47 /* FwiPersistent.m */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		BE78590D1AF89ACF00EC9A47 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				BE78590E1AF89ACF00EC9A47 /* FwiService.h */,
-				BE78590F1AF89ACF00EC9A47 /* FwiService.m */,
-				BE78679B1B11A62400C64942 /* Params */,
-				BE7859101AF89ACF00EC9A47 /* Request */,
-				BE7859191AF89ACF00EC9A47 /* RESTful */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		BE7859101AF89ACF00EC9A47 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				BE7859171AF89ACF00EC9A47 /* FwiRequest.h */,
-				BE7859181AF89ACF00EC9A47 /* FwiRequest.m */,
-			);
-			path = Request;
-			sourceTree = "<group>";
-		};
-		BE7859191AF89ACF00EC9A47 /* RESTful */ = {
-			isa = PBXGroup;
-			children = (
-				BE78591A1AF89ACF00EC9A47 /* FwiRESTService.h */,
-				BE78591B1AF89ACF00EC9A47 /* FwiRESTService.m */,
-			);
-			path = RESTful;
-			sourceTree = "<group>";
-		};
-		BE78679B1B11A62400C64942 /* Params */ = {
-			isa = PBXGroup;
-			children = (
-				BE78679C1B11A62400C64942 /* FwiDataParam.h */,
-				BE78679D1B11A62400C64942 /* FwiDataParam.m */,
-				BE78679E1B11A62400C64942 /* FwiFormParam.h */,
-				BE78679F1B11A62400C64942 /* FwiFormParam.m */,
-				BE7867A01B11A62400C64942 /* FwiMultipartParam.h */,
-				BE7867A11B11A62400C64942 /* FwiMultipartParam.m */,
-			);
-			path = Params;
 			sourceTree = "<group>";
 		};
 		BE9FECE116EA46AD00C29A10 /* Core */ = {
@@ -557,7 +562,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Fwi;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Fiision Studio";
 				TargetAttributes = {
 					BEF95CD11A650AE600183E43 = {
@@ -617,31 +622,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE7859341AF89ACF00EC9A47 /* FwiRESTService.m in Sources */,
-				BE7859201AF89ACF00EC9A47 /* FwiBigInt.m in Sources */,
-				BE7867A41B11A62400C64942 /* FwiMultipartParam.m in Sources */,
-				BE78592B1AF89ACF00EC9A47 /* NSArray+FwiExtension_Private.m in Sources */,
-				BE78591F1AF89ACF00EC9A47 /* NSString+FwiJson.m in Sources */,
-				BE78592E1AF89ACF00EC9A47 /* FwiPersistent.m in Sources */,
-				BE7859291AF89ACF00EC9A47 /* FwiQRCode.m in Sources */,
-				BE7859221AF89ACF00EC9A47 /* FwiMutableBitArray.m in Sources */,
-				BE7859241AF89ACF00EC9A47 /* FwiCsvParser.m in Sources */,
-				BE7859251AF89ACF00EC9A47 /* FwiDer.m in Sources */,
-				BE7859231AF89ACF00EC9A47 /* FwiBitMatrix.m in Sources */,
-				BE7859261AF89ACF00EC9A47 /* FwiJson.m in Sources */,
-				BE78592A1AF89ACF00EC9A47 /* FwiRS_Private.m in Sources */,
-				BE78592C1AF89ACF00EC9A47 /* NSDictionary+FwiExtension_Private.m in Sources */,
-				BE78591E1AF89ACF00EC9A47 /* NSString+FwiDer.m in Sources */,
-				BE7859331AF89ACF00EC9A47 /* FwiRequest.m in Sources */,
-				BE78591C1AF89ACF00EC9A47 /* NSData+FwiDer.m in Sources */,
-				BE78592F1AF89ACF00EC9A47 /* FwiService.m in Sources */,
-				BE7859281AF89ACF00EC9A47 /* FwiProperty.m in Sources */,
-				BE7859211AF89ACF00EC9A47 /* FwiBitArray.m in Sources */,
-				BE78592D1AF89ACF00EC9A47 /* FwiLocation.m in Sources */,
-				BE7867A31B11A62400C64942 /* FwiFormParam.m in Sources */,
-				BE78591D1AF89ACF00EC9A47 /* NSData+FwiJson.m in Sources */,
-				BE7867A21B11A62400C64942 /* FwiDataParam.m in Sources */,
-				BE7859271AF89ACF00EC9A47 /* FwiJsonMapper.m in Sources */,
+				BE1D821F1BB0F3DE0036D2A7 /* FwiMutableBitArray.m in Sources */,
+				BE1D823B1BB0F6C50036D2A7 /* FwiCacheHandler.m in Sources */,
+				BE1D821D1BB0F3DE0036D2A7 /* FwiBigInt.m in Sources */,
+				BE1D82211BB0F3DE0036D2A7 /* FwiCsvParser.m in Sources */,
+				BE1D81EB1BB0F34C0036D2A7 /* NSString+FwiDer.m in Sources */,
+				BE1D82221BB0F3DE0036D2A7 /* FwiDer.m in Sources */,
+				BE1D823A1BB0F6C50036D2A7 /* FwiCacheFolder.m in Sources */,
+				BE1D823D1BB0F6C50036D2A7 /* FwiRecorder.m in Sources */,
+				BE1D82241BB0F3DE0036D2A7 /* FwiProperty.m in Sources */,
+				BE1D82401BB0F6C50036D2A7 /* FwiPersistentManager.m in Sources */,
+				BE1D823E1BB0F6C50036D2A7 /* FwiLocationManager.m in Sources */,
+				BE1D81F91BB0F34C0036D2A7 /* FwiDataParam.m in Sources */,
+				BE1D81FB1BB0F34C0036D2A7 /* FwiMultipartParam.m in Sources */,
+				BE1D81FA1BB0F34C0036D2A7 /* FwiFormParam.m in Sources */,
+				BE1D823F1BB0F6C50036D2A7 /* FwiNetworkManager.m in Sources */,
+				BE1D82201BB0F3DE0036D2A7 /* FwiBitMatrix.m in Sources */,
+				BE1D81EA1BB0F34C0036D2A7 /* NSData+FwiDer.m in Sources */,
+				BE1D82231BB0F3DE0036D2A7 /* FwiJsonMapper.m in Sources */,
+				BE1D81FC1BB0F34C0036D2A7 /* FwiRequest.m in Sources */,
+				BE1D81FD1BB0F34C0036D2A7 /* FwiService.m in Sources */,
+				BE1D821E1BB0F3DE0036D2A7 /* FwiBitArray.m in Sources */,
+				BE1D82251BB0F3DE0036D2A7 /* FwiQRCode.m in Sources */,
+				BE1D82261BB0F3DE0036D2A7 /* FwiRS_Private.m in Sources */,
+				BE1D823C1BB0F6C50036D2A7 /* FwiCaptureManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +698,7 @@
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -716,7 +721,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../FwiCore/FwiCore/com/fiision/lib/**";
-				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				VALID_ARCHS = "$(ARCHS_STANDARD) armv7s";
 			};
 			name = Debug;
 		};
@@ -754,7 +759,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../FwiCore/FwiCore/com/fiision/lib/**";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				VALID_ARCHS = "$(ARCHS_STANDARD) armv7s";
 			};
 			name = Release;
 		};
@@ -816,6 +821,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.monstergroup.lib.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../FwiCore/FwiCore/com/fiision/lib/** ../FwiData/FwiData/com/fiision/lib/**";
 				WRAPPER_EXTENSION = xctest;
@@ -839,6 +845,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.monstergroup.lib.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../FwiCore/FwiCore/com/fiision/lib/** ../FwiData/FwiData/com/fiision/lib/**";
 				WRAPPER_EXTENSION = xctest;

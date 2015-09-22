@@ -109,7 +109,7 @@
     self = [super init];
     if (self) {
         // Initial global public variables
-        _mode    = kMode_Bytes;
+        _mode    = kBytes;
         _level   = kECLevel_L;
         _version = kVersion_1;
         
@@ -360,7 +360,7 @@
 	
 	// Encode input text (Default mode encoding is: kMode_Bytes)
 	switch (_mode) {
-		case kMode_Numeric: {
+		case kNumeric: {
 			NSUInteger r = [text length] % 3;
 			NSUInteger counter = [text length] - r;
 			
@@ -392,7 +392,7 @@
 			}
 			break;
 		}
-		case kMode_Alphanumeric: {
+		case kAlphanumeric: {
 			NSUInteger r = [text length] % 2;
 			
 			// Handle 2 chars at a time
@@ -410,7 +410,7 @@
 			}
 			break;
 		}
-		case kMode_Kanji: {
+		case kKanji: {
             NSData *d = [text dataUsingEncoding:Kanji_DefaultEncoding];
 			// Validate 2 bytes length
 			if (([d length] % 2) != 0) return;
@@ -462,19 +462,19 @@
 }
 - (NSUInteger)_calculateBitCountForLengthInfo {
 	switch (_mode) {
-		case kMode_Numeric: {
+		case kNumeric: {
 			if (_version >= kVersion_1 && _version <= kVersion_9) return 10;
 			else if (_version >= kVersion_10 && _version <= kVersion_26) return 12;
 			else return 14;
 			break;
 		}
-		case kMode_Alphanumeric: {
+		case kAlphanumeric: {
 			if (_version >= kVersion_1 && _version <= kVersion_9) return 9;
 			else if (_version >= kVersion_10 && _version <= kVersion_26) return 11;
 			else return 13;
 			break;
 		}
-		case kMode_Kanji: {
+		case kKanji: {
 			if (_version >= kVersion_1 && _version <= kVersion_9) return 8;
 			else if (_version >= kVersion_10 && _version <= kVersion_26) return 10;
 			else return 12;
@@ -492,21 +492,21 @@
 	NSUInteger length = 0;
 	
 	switch (_mode) {
-		case kMode_Numeric: {
+		case kNumeric: {
 			NSUInteger r = [text length] % 3;
 			NSUInteger counter = [text length] - r;
 			
 			length = ((counter / 3) * 10) + ((r == 2) ? 7 : 4);
 			break;
 		}
-		case kMode_Alphanumeric: {
+		case kAlphanumeric: {
 			NSUInteger r = [text length] % 2;
 			NSUInteger counter = [text length] - r;
 			
 			length = ((counter / 2) * 11) + ((r == 1) ? 6 : 0);
 			break;
 		}
-		case kMode_Kanji: {
+		case kKanji: {
 			length = [text length] * 13;
 			break;
 		}
@@ -984,28 +984,28 @@
     /* Condition validation */
 	if ([text length] > 4296) return nil;
 
-    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kMode_Alphanumeric ECLevel:level];
+    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kAlphanumeric ECLevel:level];
     return FwiAutoRelease(encode);
 }
 + (__autoreleasing FwiQRCode *)numeric:(NSString *)text ECLevel:(FwiECLevel)level {
     /* Condition validation */
 	if ([text length] > 7089) return nil;
 
-    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kMode_Numeric ECLevel:level];
+    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kNumeric ECLevel:level];
     return FwiAutoRelease(encode);
 }
 + (__autoreleasing FwiQRCode *)bytes:(NSString *)text ECLevel:(FwiECLevel)level {
     /* Condition validation */
 	if ([text length] > 2953) return nil;
 
-    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kMode_Bytes ECLevel:level];
+    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kBytes ECLevel:level];
     return FwiAutoRelease(encode);
 }
 + (__autoreleasing FwiQRCode *)kanji:(NSString *)text ECLevel:(FwiECLevel)level {
     /* Condition validation */
 	if ([text length] > 1817) return nil;
 
-    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kMode_Kanji ECLevel:level];
+    __autoreleasing FwiQRCode *encode = [[FwiQRCode alloc] initWithString:text Mode:kKanji ECLevel:level];
     return FwiAutoRelease(encode);
 }
 
