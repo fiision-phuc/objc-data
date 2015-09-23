@@ -40,17 +40,17 @@
 
 
 @interface FwiCacheFolder : NSObject {
-
-@private
-	NSString *_pathReady;
-    NSString *_pathLoading;
 }
 
+@property (nonatomic, strong, readonly) NSString *pathLoading;
+@property (nonatomic, strong, readonly) NSString *pathReady;
 
-/** Get path to downloaded file. */
-- (__autoreleasing NSString *)readyPathForFilename:(NSString *)filename;
+
 /** Get path to downloading file. */
-- (__autoreleasing NSString *)loadingPathForFilename:(NSString *)filename;
+- (__autoreleasing NSString *)pathForLoadingFile:(NSString *)filename;
+/** Get path to downloaded file. */
+- (__autoreleasing NSString *)pathForReadyFile:(NSString *)filename;
+
 /** Get path to downloaded file. */
 - (__autoreleasing NSString *)loadingFinishedForFilename:(NSString *)filename;
 

@@ -1,10 +1,12 @@
 #import "FwiCacheHandler.h"
+#import "FwiNetworkManager.h"
 
 
 @interface FwiCacheHandler () {
     
-    NSFileManager  *_manager;
+    NSFileManager *_manager;
     NSMutableArray *_placeHolder;
+    FwiNetworkManager *_networkManager;
 }
 
 @end
@@ -21,8 +23,10 @@
     self = [super init];
     if (self) {
         _cacheFolder = nil;
-        _manager     = [NSFileManager defaultManager];
-        _placeHolder = [[NSMutableArray alloc] initWithCapacity:20];
+        _manager = [NSFileManager defaultManager];
+        _placeHolder = [[NSMutableArray alloc] initWithCapacity:50];
+
+        _networkManager = [FwiNetworkManager sharedInstance];
     }
     return self;
 }
@@ -44,10 +48,10 @@
 
 #pragma mark - Class's public methods
 - (void)handleDelegate:(id<FwiCacheHandlerDelegate>)delegate {
-//    NSURL    *imageUrl    = [delegate urlForHandler:self];
-//    NSString *readyFile   = [_cacheFolder readyPathForFilename:[imageUrl description]];
-//    NSString *loadingFile = [_cacheFolder loadingPathForFilename:[imageUrl description]];
-//    
+    __autoreleasing NSURL *imageUrl = [delegate urlForHandler:self];
+    __autoreleasing NSString *readyFile = [_cacheFolder pathForReadyFile:[imageUrl description]];
+    __autoreleasing NSString *loadingFile = [_cacheFolder pathForLoadingFile:[imageUrl description]];
+    
 //    if ([_manager fileExistsAtPath:readyFile]) {
 //        [_cacheFolder updateFile:readyFile];
 //        
@@ -72,7 +76,7 @@
 //        }
 //    
 //        // Perform download file from server
-//        FwiRequest *request = [kNetController prepareRequestWithURL:imageUrl method:kMethodType_Get request:nil];
+//        FwiRequest *request = [_networkManager prepareRequestWithURL:imageUrl method:kMethodType_Get request:nil];
 //        FwiService *service = [FwiService serviceWithRequest:request];
 //        [service executeWithCompletion:^(NSURL *locationPath, NSError *error, NSInteger statusCode) {
 //            if (200 <= statusCode && statusCode <= 299) {
@@ -114,7 +118,7 @@
 //                
 //                @synchronized (_placeHolder) {
 //                    // Notify all waiting delegates
-//                    NSPredicate *p   = [NSPredicate predicateWithFormat:@"SELF.url == %@", imageUrl];
+//                    NSPredicate *p = [NSPredicate predicateWithFormat:@"SELF.url == %@", imageUrl];
 //                    NSArray *filters = [_placeHolder filteredArrayUsingPredicate:p];
 //                    [filters enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
 //                        NSURL *u = [item objectForKey:@"url"];

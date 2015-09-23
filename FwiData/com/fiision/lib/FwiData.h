@@ -181,6 +181,9 @@ static inline BOOL FwiNetworkStatusIsSuccces(FwiNetworkStatus statusCode) {
 // Codec
 #import "NSData+FwiDer.h"
 #import "NSString+FwiDer.h"
+// Managers
+#import "FwiCacheFolder.h"
+#import "FwiCacheHandler.h"
 // Network
 #import "FwiRequest.h"
 #import "FwiDataParam.h"

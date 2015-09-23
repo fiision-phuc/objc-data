@@ -1,15 +1,12 @@
 #import "FwiCacheFolder.h"
 
 
-#define kSeconds_Per1day                    86400   // 1 day  = 24 * 60 * 60
-#define kSeconds_Per7days                   604800  // 7 days = 7 * 24 * 60 * 60
-
-
 @interface FwiCacheFolder () {
     
-    NSFileManager  *_manager;
-    NSTimeInterval _ageLimit;
+    NSFileManager *_manager;
 }
+
+@property (nonatomic, assign) NSTimeInterval ageLimit;
 
 
 /** Validate filename. */
@@ -26,14 +23,16 @@
 @implementation FwiCacheFolder
 
 
+@synthesize pathLoading=_pathLoading, pathReady=_pathReady;
+
+
 #pragma mark - Class's constructors
 - (id)init {
     self = [super init];
     if (self) {
-        _pathReady   = nil;
-        _pathLoading = nil;
-        _ageLimit    = kSeconds_Per7days;
-        _manager     = [NSFileManager defaultManager];
+        _pathReady = nil;
+        _ageLimit = 604800;                                                                         // 7 days = 7 * 24 * 60 * 60
+        _manager = [NSFileManager defaultManager];
     }
     return self;
 }
@@ -41,9 +40,9 @@
 
 #pragma mark - Cleanup memory
 -(void)dealloc {
-    FwiRelease(_pathReady);
     FwiRelease(_pathLoading);
-	
+    FwiRelease(_pathReady);
+
 #if !__has_feature(objc_arc)
     [super dealloc];
 #endif
@@ -54,32 +53,33 @@
 
 
 #pragma mark - Class's public methods
-- (__autoreleasing NSString *)readyPathForFilename:(NSString *)filename {
+- (__autoreleasing NSString *)pathForLoadingFile:(NSString *)filename {
+    /* Condition validation */
+    if (!filename || filename.length == 0) return nil;
+
+    filename = [self _validateFilename:filename];
+    return [NSString stringWithFormat:@"%@%@", _pathLoading, filename];
+}
+- (__autoreleasing NSString *)pathForReadyFile:(NSString *)filename {
     /* Condition validation */
     if (!filename || filename.length == 0) return nil;
     
     filename = [self _validateFilename:filename];
 	return [NSString stringWithFormat:@"%@%@", _pathReady, filename];
 }
-- (__autoreleasing NSString *)loadingPathForFilename:(NSString *)filename {
-    /* Condition validation */
-    if (!filename || filename.length == 0) return nil;
-    
-    filename = [self _validateFilename:filename];
-	return [NSString stringWithFormat:@"%@%@", _pathLoading, filename];
-}
+
 - (__autoreleasing NSString *)loadingFinishedForFilename:(NSString *)filename {
     /* Condition validation */
     if (!filename || filename.length == 0) return nil;
-	__autoreleasing NSString *loadingFile = [self loadingPathForFilename:filename];
-	__autoreleasing NSString *readyFile = [self readyPathForFilename:filename];
+	__autoreleasing NSString *loadingFile = [self pathForLoadingFile:filename];
+	__autoreleasing NSString *readyFile = [self pathForReadyFile:filename];
     
     // Move file to ready folder
-	__autoreleasing NSError  *error = nil;
+	__autoreleasing NSError *error = nil;
 	[_manager moveItemAtPath:loadingFile toPath:readyFile error:&error];
     
     // Apply exclude backup attribute
-    NSURL *readyURL = [NSURL fileURLWithPath:readyFile];
+    __autoreleasing NSURL *readyURL = [NSURL fileURLWithPath:readyFile];
     [readyURL setResourceValues:@{NSURLIsExcludedFromBackupKey:@YES} error:&error];
     
     // Destroy file if it could not exclude from backup
@@ -89,20 +89,20 @@
 
 - (void)updateFile:(NSString *)filename {
     /* Condition validation */
-	NSDictionary *attributes = [_manager attributesOfItemAtPath:filename error:nil];
+	__autoreleasing NSDictionary *attributes = [_manager attributesOfItemAtPath:filename error:nil];
     if (!attributes) return;
     
     /* Condition validation: */
     NSTimeInterval seconds = -1 * [[attributes objectForKey:NSFileModificationDate] timeIntervalSinceNow];
     if (seconds < (_ageLimit / 2)) return;
     
-    NSMutableDictionary *newAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
+    __autoreleasing NSMutableDictionary *newAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
     [newAttributes setObject:[NSDate date] forKey:NSFileModificationDate];
     [_manager setAttributes:newAttributes ofItemAtPath:filename error:nil];
 }
 - (void)clearCache {
+    [self _clearAllFilesAtPath:_pathLoading];
 	[self _clearAllFilesAtPath:_pathReady];
-	[self _clearAllFilesAtPath:_pathLoading];
 }
 
 
@@ -120,8 +120,8 @@
 }
 
 - (void)_clearFolder {
-    NSDirectoryEnumerator *enumerator = [_manager enumeratorAtPath:_pathReady];
-    NSString *filename = [enumerator nextObject];
+    __autoreleasing NSDirectoryEnumerator *enumerator = [_manager enumeratorAtPath:_pathReady];
+    __autoreleasing NSString *filename = [enumerator nextObject];
     
     while (filename) {
         filename = [NSString stringWithFormat:@"%@%@", _pathReady, filename];
@@ -130,22 +130,22 @@
         NSDictionary *attributes = [_manager attributesOfItemAtPath:filename error:nil];
         NSTimeInterval seconds = -1 * [[attributes fileModificationDate] timeIntervalSinceNow];
         
-        if (seconds > _ageLimit) {
+        if (seconds >= _ageLimit) {
             [_manager removeItemAtPath:filename error:nil];
         }
         filename = [enumerator nextObject];
     }
 }
 - (void)_clearAllFilesAtPath:(NSString *)path {
-	NSError *error = nil;
+	__autoreleasing NSError *error = nil;
     
     /* Condition validation: Validate path */
-	NSArray *files = [_manager contentsOfDirectoryAtPath:path error:&error];
+	__autoreleasing NSArray *files = [_manager contentsOfDirectoryAtPath:path error:&error];
 	if (error != nil) return;
     
     // Delete files
 	for (NSString *file in files) {
-		NSString *filepath = [NSString stringWithFormat:@"%@%@", path, file];
+		__autoreleasing NSString *filepath = [NSString stringWithFormat:@"%@%@", path, file];
 		[_manager removeItemAtPath:filepath error:&error];
 	}
 }
@@ -167,7 +167,7 @@
 - (id)initWithPath:(NSString *)path {
 	self = [self init];
     if (self) {
-        _pathReady   = [[NSString alloc] initWithFormat:@"%@/%@/", [[NSURL documentDirectory] path], path];
+        _pathReady = [[NSString alloc] initWithFormat:@"%@/%@/", [[NSURL documentDirectory] path], path];
         _pathLoading = FwiRetain(NSTemporaryDirectory());
         
         /* Condition validation: Validate paths */
@@ -177,7 +177,7 @@
             [_manager createDirectoryAtPath:_pathReady withIntermediateDirectories:YES attributes:nil error:&error];
             
             // Apply exclude backup attribute
-            NSURL *readyURL = [NSURL fileURLWithPath:_pathReady];
+            __autoreleasing NSURL *readyURL = [NSURL fileURLWithPath:_pathReady];
             [readyURL setResourceValues:@{NSURLIsExcludedFromBackupKey:@YES} error:&error];
             
             // If error, delete folder

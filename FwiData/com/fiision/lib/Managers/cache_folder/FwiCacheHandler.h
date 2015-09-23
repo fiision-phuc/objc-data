@@ -44,12 +44,9 @@
 
 
 @interface FwiCacheHandler : NSObject  {
-    
-@private
-    FwiCacheFolder *_cacheFolder;
 }
 
-@property (nonatomic, readonly) FwiCacheFolder *cacheFolder;
+@property (nonatomic, strong, readonly) FwiCacheFolder *cacheFolder;
 
 
 /** Handle delegate object. */
