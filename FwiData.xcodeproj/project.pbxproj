@@ -53,6 +53,7 @@
 		BE4EA2CE1A93260600538870 /* FwiPropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */; };
 		BE619C531A95D12D00014F78 /* FwiJsonMapperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */; };
 		BE8EA8ED1B94A40100B9B08E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8EA8EC1B94A40100B9B08E /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BE92C1C61BBD97B700E7335C /* FwiNetworkManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE92C1C51BBD97B700E7335C /* FwiNetworkManagerTest.m */; settings = {ASSET_TAGS = (); }; };
 		BE9FECDE16EA469400C29A10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDD16EA469400C29A10 /* UIKit.framework */; };
 		BE9FECE016EA469E00C29A10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9FECDF16EA469E00C29A10 /* CoreGraphics.framework */; };
 		BEF2DFD017046E9D0006DD71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEF2DFCF17046E9D0006DD71 /* CoreData.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -153,6 +154,7 @@
 		BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiPropertyTest.m; sourceTree = "<group>"; };
 		BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJsonMapperTest.m; sourceTree = "<group>"; };
 		BE8EA8EC1B94A40100B9B08E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BE92C1C51BBD97B700E7335C /* FwiNetworkManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiNetworkManagerTest.m; sourceTree = "<group>"; };
 		BE9FECDD16EA469400C29A10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE9FECDF16EA469E00C29A10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BEEFA4C618A795E6002BCF21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -503,6 +505,7 @@
 				BEF95CD81A650AE600183E43 /* Supporting Files */,
 				BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */,
 				BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */,
+				BE92C1C51BBD97B700E7335C /* FwiNetworkManagerTest.m */,
 			);
 			path = FwiDataTests;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE92C1C61BBD97B700E7335C /* FwiNetworkManagerTest.m in Sources */,
 				BE4EA2CE1A93260600538870 /* FwiPropertyTest.m in Sources */,
 				BE619C531A95D12D00014F78 /* FwiJsonMapperTest.m in Sources */,
 			);

@@ -52,91 +52,92 @@
     __autoreleasing NSString *readyFile = [_cacheFolder pathForReadyFile:[imageUrl description]];
     __autoreleasing NSString *loadingFile = [_cacheFolder pathForLoadingFile:[imageUrl description]];
     
-//    if ([_manager fileExistsAtPath:readyFile]) {
-//        [_cacheFolder updateFile:readyFile];
-//        
-//        if (delegate && [delegate respondsToSelector:@selector(cacheHandler:didFinishDownloadingImage:atUrl:)]) {
-//            UIImage *image = [UIImage imageWithContentsOfFile:readyFile];
-//            [delegate cacheHandler:self didFinishDownloadingImage:image atUrl:imageUrl];
-//        }
-//    }
-//    else {
-//        // Add to place holder
-//        @synchronized (_placeHolder) {
-//            [_placeHolder addObject:@{@"url":imageUrl, @"delegate":delegate}];
-//        }
-//        
-//        /* Condition validation: Validate if loading file is exited or not */
-//        if (![_manager fileExistsAtPath:loadingFile]) {
-//            [_manager createFileAtPath:loadingFile contents:nil attributes:nil];
-//        }
-//        
-//        if (delegate && [delegate respondsToSelector:@selector(cacheHandlerWillStartDownloading:)]) {
-//            [delegate cacheHandlerWillStartDownloading:self];
-//        }
-//    
-//        // Perform download file from server
-//        FwiRequest *request = [_networkManager prepareRequestWithURL:imageUrl method:kMethodType_Get request:nil];
-//        FwiService *service = [FwiService serviceWithRequest:request];
-//        [service executeWithCompletion:^(NSURL *locationPath, NSError *error, NSInteger statusCode) {
-//            if (200 <= statusCode && statusCode <= 299) {
-//                NSData *responseData = [NSData dataWithContentsOfURL:locationPath];
-//                NSString *readyFile1 = nil;
-//                
-//                if (responseData && responseData.length > 0) {
-//                    NSFileHandle *output = [NSFileHandle fileHandleForWritingAtPath:loadingFile];
-//                    [output writeData:responseData];
-//                    [output closeFile];
-//                    
-//                    // Move downloaded file from loading folder to ready folder
-//                    readyFile1 = [_cacheFolder loadingFinishedForFilename:[imageUrl description]];
-//                }
-//                
-//                @synchronized (_placeHolder) {
-//                    // Notify all waiting delegates
-//                    NSPredicate *p   = [NSPredicate predicateWithFormat:@"SELF.url == %@", imageUrl];
-//                    NSArray *filters = [_placeHolder filteredArrayUsingPredicate:p];
-//                    [filters enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
-//                        NSURL *u = [item objectForKey:@"url"];
-//                        id<FwiCacheHandlerDelegate> d = [item objectForKey:@"delegate"];
-//                        
-//                        if (d && [d respondsToSelector:@selector(cacheHandler:didFinishDownloadingImage:atUrl:)]) {
-//                            UIImage *image = [UIImage imageWithContentsOfFile:readyFile1];
-//                            [d cacheHandler:self didFinishDownloadingImage:image atUrl:u];
-//                        }
-//                    }];
-//                    
-//                    // Update place holder
-//                    [filters enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id item, NSUInteger idx, BOOL *stop) {
-//                        [_placeHolder removeObject:item];
-//                    }];
-//                }
-//            }
-//            else {
-//                NSError *fileError = nil;
-//                [_manager removeItemAtPath:loadingFile error:&fileError];
-//                
-//                @synchronized (_placeHolder) {
-//                    // Notify all waiting delegates
-//                    NSPredicate *p = [NSPredicate predicateWithFormat:@"SELF.url == %@", imageUrl];
-//                    NSArray *filters = [_placeHolder filteredArrayUsingPredicate:p];
-//                    [filters enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
-//                        NSURL *u = [item objectForKey:@"url"];
-//                        id<FwiCacheHandlerDelegate> d = [item objectForKey:@"delegate"];
-//                        
-//                        if (d && [d respondsToSelector:@selector(cacheHandler:didFailDownloadingImage:atUrl:)]) {
-//                            [d cacheHandler:self didFailDownloadingImage:nil atUrl:u];
-//                        }
-//                    }];
-//                    
-//                    // Update place holder
-//                    [filters enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id item, NSUInteger idx, BOOL *stop) {
-//                        [_placeHolder removeObject:item];
-//                    }];
-//                }
-//            }
-//        }];
-//    }
+    if ([_manager fileExistsAtPath:readyFile]) {
+        [_cacheFolder updateFile:readyFile];
+        
+        if (delegate && [delegate respondsToSelector:@selector(cacheHandler:didFinishDownloadingImage:atUrl:)]) {
+            UIImage *image = [UIImage imageWithContentsOfFile:readyFile];
+            [delegate cacheHandler:self didFinishDownloadingImage:image atUrl:imageUrl];
+        }
+    }
+    else {
+        // Add to place holder
+        @synchronized (_placeHolder) {
+            [_placeHolder addObject:@{@"url":imageUrl, @"delegate":delegate}];
+        }
+        
+        /* Condition validation: Validate if loading file is exited or not */
+        if (![_manager fileExistsAtPath:loadingFile]) {
+            [_manager createFileAtPath:loadingFile contents:nil attributes:nil];
+        }
+        
+        if (delegate && [delegate respondsToSelector:@selector(cacheHandlerWillStartDownloading:)]) {
+            [delegate cacheHandlerWillStartDownloading:self];
+        }
+    
+        // Perform download file from server
+        FwiRequest *request = (FwiRequest*) [[FwiNetworkManager sharedInstance] prepareRequestWithURL:imageUrl method:kGet];
+        FwiService *service = [FwiService serviceWithRequest:request];
+        
+        [service executeWithCompletion:^(NSURL *locationPath, NSError *error, NSInteger statusCode) {
+            if (200 <= statusCode && statusCode <= 299) {
+                NSData *responseData = [NSData dataWithContentsOfURL:locationPath];
+                NSString *readyFile1 = nil;
+                
+                if (responseData && responseData.length > 0) {
+                    NSFileHandle *output = [NSFileHandle fileHandleForWritingAtPath:loadingFile];
+                    [output writeData:responseData];
+                    [output closeFile];
+                    
+                    // Move downloaded file from loading folder to ready folder
+                    readyFile1 = [_cacheFolder loadingFinishedForFilename:[imageUrl description]];
+                }
+                
+                @synchronized (_placeHolder) {
+                    // Notify all waiting delegates
+                    NSPredicate *p   = [NSPredicate predicateWithFormat:@"SELF.url == %@", imageUrl];
+                    NSArray *filters = [_placeHolder filteredArrayUsingPredicate:p];
+                    [filters enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+                        NSURL *u = [item objectForKey:@"url"];
+                        id<FwiCacheHandlerDelegate> d = [item objectForKey:@"delegate"];
+                        
+                        if (d && [d respondsToSelector:@selector(cacheHandler:didFinishDownloadingImage:atUrl:)]) {
+                            UIImage *image = [UIImage imageWithContentsOfFile:readyFile1];
+                            [d cacheHandler:self didFinishDownloadingImage:image atUrl:u];
+                        }
+                    }];
+                    
+                    // Update place holder
+                    [filters enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+                        [_placeHolder removeObject:item];
+                    }];
+                }
+            }
+            else {
+                NSError *fileError = nil;
+                [_manager removeItemAtPath:loadingFile error:&fileError];
+                
+                @synchronized (_placeHolder) {
+                    // Notify all waiting delegates
+                    NSPredicate *p = [NSPredicate predicateWithFormat:@"SELF.url == %@", imageUrl];
+                    NSArray *filters = [_placeHolder filteredArrayUsingPredicate:p];
+                    [filters enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+                        NSURL *u = [item objectForKey:@"url"];
+                        id<FwiCacheHandlerDelegate> d = [item objectForKey:@"delegate"];
+                        
+                        if (d && [d respondsToSelector:@selector(cacheHandler:didFailDownloadingImage:atUrl:)]) {
+                            [d cacheHandler:self didFailDownloadingImage:nil atUrl:u];
+                        }
+                    }];
+                    
+                    // Update place holder
+                    [filters enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+                        [_placeHolder removeObject:item];
+                    }];
+                }
+            }
+        }];
+    }
 }
 
 

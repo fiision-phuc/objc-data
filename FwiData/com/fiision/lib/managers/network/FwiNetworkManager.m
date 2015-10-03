@@ -2,6 +2,8 @@
 
 
 @interface FwiNetworkManager () <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate/*, NSURLSessionDownloadDelegate (Should be implemented by receiver)*/> {
+
+    NSUInteger _counter;
 }
 
 
@@ -20,7 +22,7 @@
     if (self) {
         _configuration = FwiRetain([NSURLSessionConfiguration defaultSessionConfiguration]);
         _configuration.allowsCellularAccess = YES;
-        _configuration.timeoutIntervalForRequest  = 30.0f;
+        _configuration.timeoutIntervalForRequest = 30.0f;
         _configuration.timeoutIntervalForResource = 60.0f;
         _configuration.networkServiceType = NSURLNetworkServiceTypeBackground;
         _configuration.requestCachePolicy = NSURLRequestReloadIgnoringCacheData;
@@ -64,9 +66,44 @@
         _weak FwiRequest *customRequest = (FwiRequest *)request;
         [customRequest prepare];
     }
-    
+
+    @synchronized(self) {
+        _counter++;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    }
     __autoreleasing NSURLSessionDataTask *task = [_session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (completion) completion(data, error, 200);
+        NSInteger statusCode = kNone;
+        if (error) {
+            statusCode = error.code;
+        }
+        else if (response) {
+            statusCode = ((NSHTTPURLResponse *)response).statusCode;
+
+            if (!FwiNetworkStatusIsSuccces(statusCode)) {
+                error = [NSError errorWithDomain:NSURLErrorDomain code:statusCode userInfo:@{NSURLErrorFailingURLErrorKey:[request.URL description], NSURLErrorFailingURLStringErrorKey:[request.URL description], NSLocalizedDescriptionKey:[NSHTTPURLResponse localizedStringForStatusCode:statusCode]}];
+            }
+        }
+
+        // Console log error
+        if (error) {
+            __autoreleasing NSMutableString *errorMessage = [NSMutableString string];
+            [errorMessage appendFormat:@"Domain     : %@\n", request.URL.host];
+            [errorMessage appendFormat:@"HTTP Url   : %@\n", request.URL];
+            [errorMessage appendFormat:@"HTTP Method: %@\n", request.HTTPMethod];
+            [errorMessage appendFormat:@"HTTP Status: %li (%@)\n", (unsigned long) statusCode, error.localizedDescription];
+            [errorMessage appendFormat:@"%@", [data toString]];
+
+            NSLog(@"\n\n%@\n\n", errorMessage);
+        }
+
+        // Turn off activity indicator if neccessary
+        @synchronized(self) {
+            _counter--;
+            if (_counter == 0) [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        }
+
+        // Return result
+        if (completion) completion(data, error, statusCode);
     }];
     [task resume];
 }
@@ -287,16 +324,73 @@
     DLog(@"");
 }
 - (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler {
-    DLog(@"");
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        SecTrustRef serverTrust = challenge.protectionSpace.serverTrust;
+        SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrust, 0);
+
+        // Verify certificate
+        __autoreleasing NSData *crtData = (NSData *)CFBridgingRelease(SecCertificateCopyData(certificate));
+//        __autoreleasing NSArray *paths = [[NSBundle bundleForClass:[self class]] pathsForResourcesOfType:@"cer" inDirectory:@"."];
+//
+//        // Load all accepted certificates
+//        __autoreleasing NSMutableArray *crts = [NSMutableArray arrayWithCapacity:paths.count];
+//        for (NSString *path in paths) {
+//            __autoreleasing NSData *data = [NSData dataWithContentsOfFile:path];
+//            [crts addObject:data];
+//        }
+//
+//        // Validate the received certificate
+//        if ([crts containsObject:crtData]) {
+//            __autoreleasing NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrust];
+//            [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
+//        }
+//        else {
+        __autoreleasing FwiDer *cert = [crtData decodeDer];
+        __autoreleasing NSDate *today = [NSDate date];
+
+        FwiDer *issuer = [cert derWithPath:@"0/3"];
+        FwiDer *subject = [cert derWithPath:@"0/5"];
+        NSUInteger version = [[cert derWithPath:@"0/0/0"] getInt];
+        NSDate *notBefor = [[cert derWithPath:@"0/4/0"] getTime];
+        NSDate *notAfter = [[cert derWithPath:@"0/4/1"] getTime];
+
+        /* Condition validation */
+        if (version != 2) {
+            if (completionHandler) completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+            return;
+        }
+        if (!issuer || !subject) {
+            if (completionHandler) completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+            return;
+        }
+        if (!notBefor || !notAfter || !(([today compare:notBefor] >= 0 && [today compare:notAfter] < 0))) {
+            if (completionHandler) completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+            return;
+        }
+
+//            BOOL shouldAllow = NO;
+//            if (self.delegate && [self.delegate respondsToSelector:@selector(service:authenticationChallenge:)])
+//                shouldAllow = [(id<FwiServiceDelegate>)self.delegate service:self authenticationChallenge:certificate];
+
+//            if (!shouldAllow) {
+//                [[challenge sender] cancelAuthenticationChallenge:challenge];
+//                if (completionHandler) completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+//            }
+//            else {
+        __autoreleasing NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrust];
+        if (completionHandler) completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+//            }
+//        }
+    }
+    else {
+        if (completionHandler) completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+    }
 }
 
 
 #pragma mark - NSURLSessionTaskDelegate's members
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task willPerformHTTPRedirection:(NSHTTPURLResponse *)response newRequest:(NSURLRequest *)request completionHandler:(void (^)(NSURLRequest *))completionHandler {
-    DLog(@"");
-}
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler {
-    DLog(@"");
+    if (completionHandler) completionHandler(request);
 }
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task needNewBodyStream:(void (^)(NSInputStream *bodyStream))completionHandler {
     DLog(@"");
