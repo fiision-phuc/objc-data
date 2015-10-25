@@ -42,6 +42,8 @@
 @interface FwiJsonMapper : NSObject {
 }
 
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
+
 
 /** Convert json to object. */
 - (id)decodeJsonData:(NSData *)jsonData model:(Class)model;

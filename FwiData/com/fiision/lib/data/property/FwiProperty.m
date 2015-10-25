@@ -180,12 +180,12 @@
 #pragma mark - Class's public methods
 - (BOOL)canAssignValue:(id)value {
     /* Condition validation */
-    if (!value) return false;
+    if (self.isReadonly || !value) return false;
 
     if (self.isId) {
         return YES;
     }
-    else if (self.isObject) {
+    else if (self.isObject && !self.isWeak) {
         return [value isKindOfClass:[self propertyClass]];
     }
     else if (self.isPrimitive) {

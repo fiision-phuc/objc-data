@@ -23,6 +23,8 @@
 - (id)init {
     self = [super init];
     if (self) {
+        _numberFormatter = [[NSNumberFormatter alloc] init];
+        _numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     }
     return self;
 }
@@ -30,6 +32,8 @@
 
 #pragma mark - Cleanup memory
 - (void)dealloc {
+    self.numberFormatter = nil;
+    
 #if !__has_feature(objc_arc)
     [super dealloc];
 #endif
@@ -164,7 +168,19 @@
     if (!instance) return nil;
 
     for (_weak FwiProperty *property in propertiesList) {
-        _weak id value = properties[property.name];
+        __autoreleasing id value = properties[property.name];
+        
+        // Try to parse value to the right type before asign
+        if ([value isKindOfClass:[NSDictionary class]] && property.isObject && !property.isCollection && !property.isReadonly && !property.isWeak) {
+            value = [self _injectValues:value intoModel:property.propertyClass];
+        }
+        else if ([value isKindOfClass:[NSString class]] && property.isPrimitive) {
+            value = [_numberFormatter numberFromString:value];
+        }
+//        else {
+//            DLog(@"Found unsupported type: %@", property);
+//        }
+        
         if ([property canAssignValue:value]) [instance setValue:value forKey:property.name];
     }
     return instance;
