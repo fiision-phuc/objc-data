@@ -73,14 +73,14 @@
     __autoreleasing SimpleModel *model1 = [_jsonMapper decodeJsonString:_json1 model:[SimpleModel class]];
     XCTAssertNotNil(model1, @"Model should not be nil.");
     XCTAssertNotNil(model1.name, @"Model's name should not be nil.");
-    XCTAssertEqualObjects(model1.name, @"A green door", "Model's name should be A green door, but found %@.", model1.name);
-    XCTAssertEqual(model1.idNo, 1, @"Model's id should be 1, but found \(model1?.id)");
-    XCTAssertEqual(model1.price, 12.50f, "Model's id should be 12.50, but found \(model1?.price)");
+    XCTAssertEqualObjects(model1.name, @"A green door", "Model's name should be \"A green door\", but found \"%@\".", model1.name);
+    XCTAssertEqual(model1.idNo, 1, @"Model's id should be 1, but found %i", model1.idNo);
+    XCTAssertEqual(model1.price, 12.50f, "Model's id should be 12.50, but found %.2f", model1.price);
 
     __autoreleasing NSArray *modelList = (NSArray *)[_jsonMapper decodeJsonString:_json2 model:[SimpleModel class]];
     XCTAssertNotNil(modelList, @"Mapper should return a list of defined model.");
     XCTAssertEqual(modelList.count, 3, @"List should have 3 items.");
-    XCTAssertEqualObjects([modelList[0] name], @"A green door", @"Model's name should be A green door, but found %@.", [modelList[0] name]);
+    XCTAssertEqualObjects([modelList[0] name], @"A green door", "Model's name should be \"A green door\", but found \"%@\".", [modelList[0] name]);
     XCTAssertEqual([modelList[0] idNo], 0, @"Model's id should be 1, but found %li.", (unsigned long)[modelList[0] idNo]);
     XCTAssertEqual([modelList[0] price], 12.50f, @"Model's id should be 12.50, but found %f.", [modelList[0] price]);
 

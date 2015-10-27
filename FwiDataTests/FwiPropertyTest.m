@@ -204,7 +204,7 @@
     XCTAssertEqualObjects(_assignProperty.name, @"assignProperty", @"Name should be assignProperty, but found %@.", _assignProperty.name);
     XCTAssertEqualObjects(_assignProperty.ivarName, @"_assignProperty", @"ivarName should be assignProperty, but found %@.", _assignProperty.ivarName);
     XCTAssertNil(_assignProperty.propertyClass, @"Property should not have a propertyClass.");
-    XCTAssertEqualObjects(_assignProperty.typeEncoding, @"q", @"Type encoding should be q, but found %@.", _assignProperty.typeEncoding);
+    XCTAssertEqualObjects(_assignProperty.typeEncoding, @"i", @"Type encoding should be i, but found %@.", _assignProperty.typeEncoding);
 
     XCTAssertTrue(_boolProperty.isAssign, @"Setter semantics should be assign.");
     XCTAssertFalse(_boolProperty.isCopy, @"Setter semantics should not be copied.");
@@ -221,7 +221,7 @@
     XCTAssertEqualObjects(_boolProperty.name, @"boolProperty", @"Name should be boolProperty, but found %@.", _boolProperty.name);
     XCTAssertEqualObjects(_boolProperty.ivarName, @"_boolProperty", @"ivarName should be boolProperty, but found %@.", _boolProperty.ivarName);
     XCTAssertNil(_boolProperty.propertyClass, @"Property should not have a propertyClass.");
-    XCTAssertEqualObjects(_boolProperty.typeEncoding, @"B", @"Type encoding should be B, but found %@.", _boolProperty.typeEncoding);
+    XCTAssertEqualObjects(_boolProperty.typeEncoding, @"c", @"Type encoding should be c, but found %@.", _boolProperty.typeEncoding);
 }
 
 - (void)testRetainProperty {

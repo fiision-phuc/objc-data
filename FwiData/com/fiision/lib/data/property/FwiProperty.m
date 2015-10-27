@@ -92,7 +92,7 @@
 }
 - (BOOL)isCollection {
     Class propClass = [self propertyClass];
-    return (propClass && ([propClass isKindOfClass:[NSArray class]] || [propClass isKindOfClass:[NSSet class]] || [propClass isKindOfClass:[NSDictionary class]]));
+    return ([propClass isSubclassOfClass:[NSArray class]] || [propClass isSubclassOfClass:[NSSet class]] || [propClass isSubclassOfClass:[NSDictionary class]]);
 }
 - (BOOL)isId {
     return [[self typeEncoding] isEqualToString:@"@"];
