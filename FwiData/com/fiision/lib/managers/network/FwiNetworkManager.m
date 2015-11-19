@@ -1,7 +1,7 @@
 #import "FwiNetworkManager.h"
 
 
-@interface FwiNetworkManager () <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate/*, NSURLSessionDownloadDelegate (Should be implemented by receiver)*/> {
+@interface FwiNetworkManager () {
 
     NSUInteger _counter;
 }

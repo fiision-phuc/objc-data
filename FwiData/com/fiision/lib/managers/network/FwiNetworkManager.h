@@ -39,7 +39,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FwiNetworkManager : NSObject {
+@interface FwiNetworkManager : NSObject <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate/*, NSURLSessionDownloadDelegate (Should be implemented by receiver)*/> {
     
 @private
     NSURLSession *_session;
