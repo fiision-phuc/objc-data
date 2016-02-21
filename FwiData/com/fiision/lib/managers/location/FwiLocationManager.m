@@ -24,7 +24,7 @@ CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLL
 };
 
 
-@interface FwiLocationManager () <FwiServiceDelegate> {
+@interface FwiLocationManager () {
 }
 
 @property (atomic, assign) BOOL isLookup;

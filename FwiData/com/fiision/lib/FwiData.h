@@ -97,77 +97,6 @@ typedef NS_ENUM(NSInteger, FwiQRVersion) {
     kVersion_40 = 40
 };
 
-typedef NS_ENUM(NSInteger, FwiHttpMethod) {
-    kCopy    = 0x00,
-    kDelete  = 0x01,
-    kGet     = 0x02,
-    kHead    = 0x03,
-    kLink    = 0x04,
-    kOptions = 0x05,
-    kPatch   = 0x06,
-    kPost    = 0x07,
-    kPurge   = 0x08,
-    kPut     = 0x09,
-    kUnlink  = 0x0a
-};
-
-typedef NS_ENUM(NSInteger, FwiNetworkStatus) {
-    kNone                              = -1,
-    kUnknown                           = NSURLErrorUnknown,
-    kCancelled                         = NSURLErrorCancelled,
-    kBadURL                            = NSURLErrorBadURL,
-    kTimedOut                          = NSURLErrorTimedOut,
-    kUnsupportedURL                    = NSURLErrorUnsupportedURL,
-    kCannotFindHost                    = NSURLErrorCannotFindHost,
-    kCannotConnectToHost               = NSURLErrorCannotConnectToHost,
-    kNetworkConnectionLost             = NSURLErrorNetworkConnectionLost,
-    kDNSLookupFailed                   = NSURLErrorDNSLookupFailed,
-    kHTTPTooManyRedirects              = NSURLErrorHTTPTooManyRedirects,
-    kResourceUnavailable               = NSURLErrorResourceUnavailable,
-    kNotConnectedToInternet            = NSURLErrorNotConnectedToInternet,
-    kRedirectToNonExistentLocation     = NSURLErrorRedirectToNonExistentLocation,
-    kBadServerResponse                 = NSURLErrorBadServerResponse,
-    kUserCancelledAuthentication       = NSURLErrorUserCancelledAuthentication,
-    kUserAuthenticationRequired        = NSURLErrorUserAuthenticationRequired,
-    kZeroByteResource                  = NSURLErrorZeroByteResource,
-    kCannotDecodeRawData               = NSURLErrorCannotDecodeRawData,
-    kCannotDecodeContentData           = NSURLErrorCannotDecodeContentData,
-    kCannotParseResponse               = NSURLErrorCannotParseResponse,
-    kFileDoesNotExist                  = NSURLErrorFileDoesNotExist,
-    kFileIsDirectory                   = NSURLErrorFileIsDirectory,
-    kNoPermissionsToReadFile           = NSURLErrorNoPermissionsToReadFile,
-    kDataLengthExceedsMaximum          = NSURLErrorDataLengthExceedsMaximum,
-    // SSL errors
-    kSecureConnectionFailed            = NSURLErrorSecureConnectionFailed,
-    kServerCertificateHasBadDate       = NSURLErrorServerCertificateHasBadDate,
-    kServerCertificateUntrusted        = NSURLErrorServerCertificateUntrusted,
-    kServerCertificateHasUnknownRoot   = NSURLErrorServerCertificateHasUnknownRoot,
-    kServerCertificateNotYetValid      = NSURLErrorServerCertificateNotYetValid,
-    kClientCertificateRejected         = NSURLErrorClientCertificateRejected,
-    kClientCertificateRequired         = NSURLErrorClientCertificateRequired,
-    kCannotLoadFromNetwork             = NSURLErrorCannotLoadFromNetwork,
-    // Download and file I/O errors
-    kCannotCreateFile                  = NSURLErrorCannotCreateFile,
-    kCannotOpenFile                    = NSURLErrorCannotOpenFile,
-    kCannotCloseFile                   = NSURLErrorCannotCloseFile,
-    kCannotWriteToFile                 = NSURLErrorCannotWriteToFile,
-    kCannotRemoveFile                  = NSURLErrorCannotRemoveFile,
-    kCannotMoveFile                    = NSURLErrorCannotMoveFile,
-    kDownloadDecodingFailedMidStream   = NSURLErrorDownloadDecodingFailedMidStream,
-    kDownloadDecodingFailedToComplete  = NSURLErrorDownloadDecodingFailedToComplete,
-
-    kInternationalRoamingOff           = NSURLErrorInternationalRoamingOff,
-    kCallIsActive                      = NSURLErrorCallIsActive,
-    kDataNotAllowed                    = NSURLErrorDataNotAllowed,
-    kRequestBodyStreamExhausted        = NSURLErrorRequestBodyStreamExhausted,
-};
-
-
-// Validate network status
-static inline BOOL FwiNetworkStatusIsSuccces(NSInteger statusCode) {
-    return (200 <= statusCode && statusCode <= 299);
-}
-
 
 // Data structures
 #import "FwiBigInt.h"
@@ -184,12 +113,6 @@ static inline BOOL FwiNetworkStatusIsSuccces(NSInteger statusCode) {
 // Managers
 #import "FwiCacheFolder.h"
 #import "FwiCacheHandler.h"
-// Network
-#import "FwiRequest.h"
-#import "FwiDataParam.h"
-#import "FwiFormParam.h"
-#import "FwiMultipartParam.h"
-#import "FwiService.h"
 // Parser
 #import "FwiCsvParser.h"
 

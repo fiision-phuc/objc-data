@@ -169,19 +169,5 @@ static const uint16_t VERSION_INFO_POLY		 = 0x1f25;
 static const uint16_t TYPE_INFO_POLY		 = 0x0537;
 static const uint16_t TYPE_INFO_MASK_PATTERN = 0x5412;
 
-// Define private macro functions
-static inline NSString* FwiGenerateUserAgent() {
-    __autoreleasing NSDictionary *bundleInfo   = [[NSBundle mainBundle] infoDictionary];
-    __autoreleasing UIDevice *deviceInfo       = [UIDevice currentDevice];
-    __autoreleasing NSString *bundleExecutable = [bundleInfo objectForKey:(NSString *)kCFBundleExecutableKey];
-    __autoreleasing NSString *bundleIdentifier = [bundleInfo objectForKey:(NSString *)kCFBundleIdentifierKey];
-    __autoreleasing NSString *bundleVersion    = [bundleInfo objectForKey:(NSString *)kCFBundleVersionKey];
-    __autoreleasing NSString *systemVersion    = [deviceInfo systemVersion];
-    __autoreleasing NSString *model            = [deviceInfo model];
-
-    // Define user-agent
-    return [NSString stringWithFormat:@"%@/%@ (%@; iOS %@; Scale/%0.2f)", (bundleExecutable ? bundleExecutable : bundleIdentifier), bundleVersion, model, systemVersion, [[UIScreen mainScreen] scale]];
-}
-
 
 #endif
