@@ -57,11 +57,11 @@
 
     // Map Json: Currently, only NSArray or NSDictionary is being supported from NSJSONSerialization
     if ([decodedJson isKindOfClass:[NSArray class]]) {
-        _weak NSArray *array = (NSArray *)decodedJson;
+        NSArray *array = (NSArray *)decodedJson;
         return [self _convertJsonArray:array withModel:model];
     }
     else if ([decodedJson isKindOfClass:[NSDictionary class]]) {
-        _weak NSDictionary *properties = (NSDictionary *)decodedJson;
+        NSDictionary *properties = (NSDictionary *)decodedJson;
         return [self _injectValues:properties intoModel:model];
     }
     else {
@@ -135,7 +135,7 @@
 
     [array enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
         if ([item isKindOfClass:[NSDictionary class]]) {
-            _weak NSDictionary *properties = (NSDictionary *)item;
+            NSDictionary *properties = (NSDictionary *)item;
 
             __autoreleasing id objectModel = [self _injectValues:properties intoModel:model];
             if (objectModel) [models addObject:objectModel];
@@ -151,7 +151,7 @@
     __autoreleasing NSArray *properties = [FwiProperty propertiesWithClass:[model class]];
     __autoreleasing NSMutableDictionary *json = [NSMutableDictionary dictionaryWithCapacity:properties.count];
 
-    for (_weak FwiProperty *property in properties) {
+    for (FwiProperty *property in properties) {
         __autoreleasing id value = [model valueForKey:property.name];
         if (!value) value = [NSNull null];
 
@@ -167,7 +167,7 @@
     /* Condition validation */
     if (!instance) return nil;
 
-    for (_weak FwiProperty *property in propertiesList) {
+    for (FwiProperty *property in propertiesList) {
         __autoreleasing id value = properties[property.name];
         
         // Try to parse value to the right type before asign

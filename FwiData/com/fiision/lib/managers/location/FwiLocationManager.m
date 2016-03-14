@@ -35,8 +35,6 @@ CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLL
 //- (void)lookupAddress:(NSString *)address;
 ///** Manual lookup address. */
 //- (void)_parseResults:(FwiJson *)results;
-///** Lookup address base on location. */
-//- (void)_revertLocation:(CLLocation *)location;
 
 @end
 
@@ -103,6 +101,55 @@ CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLL
 
     self.isStarted = YES;
     [_locationManager startUpdatingLocation];
+}
+
+- (void)revertLocation:(CLLocation *)location completion:(void(^)(NSString *address))completion {
+    CLLocationCoordinate2D coord = location.coordinate;
+    
+    // Lookup address for current location
+    FwiNetworkManager *networkManager = [FwiNetworkManager sharedInstance];
+    __autoreleasing NSString *urlLocation = @"http://maps.googleapis.com/maps/api/geocode/json";
+    __autoreleasing NSURLRequest *request = [networkManager prepareRequestWithURL:[NSURL URLWithString:urlLocation]
+                                                                           method:kGet
+                                                                           params:@{@"latlng":[NSString stringWithFormat:@"%f,%f", coord.latitude, coord.longitude],
+                                                                                    @"sensor":@"true"}];
+
+    [networkManager sendRequest:request completion:^(NSData *data, NSError *error, NSInteger statusCode, NSHTTPURLResponse *response) {
+        if (FwiNetworkStatusIsSuccces(statusCode)) {
+            // Decode json
+            __autoreleasing NSError *error = nil;
+            __autoreleasing id decodedJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            
+            if (!error && decodedJson && [decodedJson isKindOfClass:[NSDictionary class]] && [decodedJson[@"status"] isEqualToStringIgnoreCase:@"ok"]) {
+                NSDictionary *info = (NSDictionary *) decodedJson;
+                NSArray *results = info[@"results"];
+                
+                // Look for street type result
+                for (NSDictionary *result in results) {
+                    NSArray *types = result[@"types"];
+                    
+                    if (types.count > 0) {
+                        __block BOOL isStreetAddress = NO;
+                        
+                        [types enumerateObjectsUsingBlock:^(NSString *type, NSUInteger idx, BOOL * _Nonnull stop) {
+                            if ([type isEqualToStringIgnoreCase:@"street_address"] || [type isEqualToStringIgnoreCase:@"route"]) {
+                                isStreetAddress = YES;
+                                *stop = YES;
+                            }
+                        }];
+                        
+                        if (isStreetAddress) {
+                            if (completion) completion(result[@"formatted_address"]);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        
+        if (completion) completion(nil);
+    }];
+    
 }
 
 //- (void)lookupAddress:(NSString *)address {
@@ -183,28 +230,6 @@ CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(double bearing, CLL
 //    }
 //}
 //
-//- (void)_revertLocation:(CLLocation *)location {
-//    CLLocationCoordinate2D coord = location.coordinate;
-//    NSString *urlLocation = @"http://maps.googleapis.com/maps/api/geocode/json";
-//
-//    // Lookup address for current location
-//    FwiService *locationRequest = [FwiService serviceWithURL:[NSURL URLWithString:urlLocation]
-//                                          method:kHTTPRequest_MethodGET
-//                               requestDictionary:@{@"latlng" : [NSString stringWithFormat:@"%f,%f", coord.latitude, coord.longitude],
-//                                                   @"sensor" : @"true"}];
-//    [locationRequest setDelegate:self];
-//    [locationRequest execute];
-//
-//    // Lookup GMT value for current location
-//    NSString *urlTimezone = @"http://api.geonames.org/timezoneJSON";
-//    FwiService *gmtRequest = [FwiService serviceWithURL:[NSURL URLWithString:urlTimezone]
-//                                     method:kHTTPRequest_MethodGET
-//                          requestDictionary:@{@"lat" : [NSString stringWithFormat:@"%f", coord.latitude],
-//                                              @"lng" : [NSString stringWithFormat:@"%f", coord.longitude],
-//                                              @"username" : @"ipayment"}];
-//    [gmtRequest setDelegate:self];
-//    [gmtRequest execute];
-//}
 
 
 #pragma mark - CLLocationManagerDelegate's members
@@ -317,7 +342,7 @@ static FwiLocationManager *_LocationManager;
 
 
 #pragma mark - Class's static constructors
-+ (_weak FwiLocationManager *)sharedInstance {
++ (__weak FwiLocationManager *)sharedInstance {
     if (_LocationManager) return _LocationManager;
 
     @synchronized (self) {

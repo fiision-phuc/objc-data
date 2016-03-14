@@ -107,8 +107,8 @@
     if ([der isStructure] && [der count] > 0) {
         if ([self count] == [der count]) {
             for (NSUInteger i = 0; i < [der count]; i++) {
-                _weak FwiDer *o1 = [self derAtIndex:i];
-                _weak FwiDer *o2 = [der derAtIndex:i];
+                FwiDer *o1 = [self derAtIndex:i];
+                FwiDer *o2 = [der derAtIndex:i];
                 
                 isLike &= [o1 isLike:o2];
                 if (!isLike) break;
@@ -658,10 +658,10 @@
     if (![self isStructure] || !_children || [_children count] == 0 || !path || path.length == 0 || ![path matchPattern:@"^\\d+(/\\d+)*$"]) return nil;
     
     __autoreleasing NSArray *tokens = [path componentsSeparatedByString:@"/"];
-    _weak id o = self;
+    id o = self;
     
     for (NSUInteger i = 0; i < [tokens count]; i++) {
-        _weak NSString *pth = tokens[i];
+        NSString *pth = tokens[i];
         
         if ([o isKindOfClass:[NSArray class]]) {
             NSInteger index = [pth integerValue];

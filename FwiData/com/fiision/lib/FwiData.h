@@ -110,9 +110,6 @@ typedef NS_ENUM(NSInteger, FwiQRVersion) {
 // Codec
 #import "NSData+FwiDer.h"
 #import "NSString+FwiDer.h"
-// Managers
-#import "FwiCacheFolder.h"
-#import "FwiCacheHandler.h"
 // Parser
 #import "FwiCsvParser.h"
 

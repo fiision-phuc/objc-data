@@ -72,12 +72,15 @@ FOUNDATION_EXPORT CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(d
 /** Start location service. */
 - (void)startLocation;
 
+/** Lookup address base on location. */
+- (void)revertLocation:(CLLocation *)location completion:(void(^)(NSString *address))completion;
+
 @end
 
 
 @interface FwiLocationManager (FwiLocationManagerSingleton)
 
 /** Get singleton location manager. */
-+ (_weak FwiLocationManager *)sharedInstance;
++ (__weak FwiLocationManager *)sharedInstance;
 
 @end

@@ -34,8 +34,6 @@
 		BE1D82241BB0F3DE0036D2A7 /* FwiProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82171BB0F3DE0036D2A7 /* FwiProperty.m */; };
 		BE1D82251BB0F3DE0036D2A7 /* FwiQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D821A1BB0F3DE0036D2A7 /* FwiQRCode.m */; };
 		BE1D82261BB0F3DE0036D2A7 /* FwiRS_Private.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D821C1BB0F3DE0036D2A7 /* FwiRS_Private.m */; };
-		BE1D823A1BB0F6C50036D2A7 /* FwiCacheFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82291BB0F6C50036D2A7 /* FwiCacheFolder.m */; };
-		BE1D823B1BB0F6C50036D2A7 /* FwiCacheHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D822B1BB0F6C50036D2A7 /* FwiCacheHandler.m */; };
 		BE1D823C1BB0F6C50036D2A7 /* FwiCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D822E1BB0F6C50036D2A7 /* FwiCaptureManager.m */; };
 		BE1D823D1BB0F6C50036D2A7 /* FwiRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82301BB0F6C50036D2A7 /* FwiRecorder.m */; };
 		BE1D823E1BB0F6C50036D2A7 /* FwiLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D82331BB0F6C50036D2A7 /* FwiLocationManager.m */; };
@@ -117,10 +115,6 @@
 		BE1D821A1BB0F3DE0036D2A7 /* FwiQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiQRCode.m; sourceTree = "<group>"; };
 		BE1D821B1BB0F3DE0036D2A7 /* FwiRS_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRS_Private.h; sourceTree = "<group>"; };
 		BE1D821C1BB0F3DE0036D2A7 /* FwiRS_Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiRS_Private.m; sourceTree = "<group>"; };
-		BE1D82281BB0F6C50036D2A7 /* FwiCacheFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCacheFolder.h; sourceTree = "<group>"; };
-		BE1D82291BB0F6C50036D2A7 /* FwiCacheFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCacheFolder.m; sourceTree = "<group>"; };
-		BE1D822A1BB0F6C50036D2A7 /* FwiCacheHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCacheHandler.h; sourceTree = "<group>"; };
-		BE1D822B1BB0F6C50036D2A7 /* FwiCacheHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCacheHandler.m; sourceTree = "<group>"; };
 		BE1D822D1BB0F6C50036D2A7 /* FwiCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiCaptureManager.h; sourceTree = "<group>"; };
 		BE1D822E1BB0F6C50036D2A7 /* FwiCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiCaptureManager.m; sourceTree = "<group>"; };
 		BE1D822F1BB0F6C50036D2A7 /* FwiRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FwiRecorder.h; sourceTree = "<group>"; };
@@ -134,6 +128,7 @@
 		BE208B7E16E9B0A9004E0F54 /* FwiData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FwiData-Prefix.pch"; sourceTree = "<group>"; };
 		BE3DB33C1A946701000F44D8 /* libFwiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFwiCore.a; path = "../FwiCore/build/Debug-iphoneos/libFwiCore.a"; sourceTree = "<group>"; };
 		BE4EA2CD1A93260600538870 /* FwiPropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiPropertyTest.m; sourceTree = "<group>"; };
+		BE5D61971C9478E000D637A5 /* libFwiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFwiCore.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/Box-cohsahpgrehqamakubgnxusjqdxy/Build/Products/Debug-iphoneos/libFwiCore.a"; sourceTree = "<group>"; };
 		BE619C521A95D12D00014F78 /* FwiJsonMapperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiJsonMapperTest.m; sourceTree = "<group>"; };
 		BE8EA8EC1B94A40100B9B08E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BE92C1C51BBD97B700E7335C /* FwiNetworkManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FwiNetworkManagerTest.m; sourceTree = "<group>"; };
@@ -224,7 +219,6 @@
 		BE1D81D01BB0F34C0036D2A7 /* managers */ = {
 			isa = PBXGroup;
 			children = (
-				BE1D82271BB0F6C50036D2A7 /* cache_folder */,
 				BE1D822C1BB0F6C50036D2A7 /* capture */,
 				BE1D82311BB0F6C50036D2A7 /* location */,
 				BE1D82371BB0F6C50036D2A7 /* persistent */,
@@ -309,17 +303,6 @@
 			path = qr_code;
 			sourceTree = "<group>";
 		};
-		BE1D82271BB0F6C50036D2A7 /* cache_folder */ = {
-			isa = PBXGroup;
-			children = (
-				BE1D82281BB0F6C50036D2A7 /* FwiCacheFolder.h */,
-				BE1D82291BB0F6C50036D2A7 /* FwiCacheFolder.m */,
-				BE1D822A1BB0F6C50036D2A7 /* FwiCacheHandler.h */,
-				BE1D822B1BB0F6C50036D2A7 /* FwiCacheHandler.m */,
-			);
-			path = cache_folder;
-			sourceTree = "<group>";
-		};
 		BE1D822C1BB0F6C50036D2A7 /* capture */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +354,7 @@
 		BE208B7916E9B0A9004E0F54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE5D61971C9478E000D637A5 /* libFwiCore.a */,
 				BE9FECE116EA46AD00C29A10 /* Core */,
 				BEEFA4D218A79659002BCF21 /* Security */,
 				BEEFA4D318A7965F002BCF21 /* Test */,
@@ -572,12 +556,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1D821F1BB0F3DE0036D2A7 /* FwiMutableBitArray.m in Sources */,
-				BE1D823B1BB0F6C50036D2A7 /* FwiCacheHandler.m in Sources */,
 				BE1D821D1BB0F3DE0036D2A7 /* FwiBigInt.m in Sources */,
 				BE1D82211BB0F3DE0036D2A7 /* FwiCsvParser.m in Sources */,
 				BE1D81EB1BB0F34C0036D2A7 /* NSString+FwiDer.m in Sources */,
 				BE1D82221BB0F3DE0036D2A7 /* FwiDer.m in Sources */,
-				BE1D823A1BB0F6C50036D2A7 /* FwiCacheFolder.m in Sources */,
 				BE1D823D1BB0F6C50036D2A7 /* FwiRecorder.m in Sources */,
 				BE1D82241BB0F3DE0036D2A7 /* FwiProperty.m in Sources */,
 				BE1D82401BB0F6C50036D2A7 /* FwiPersistentManager.m in Sources */,
@@ -642,7 +624,6 @@
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -688,7 +669,6 @@
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FwiData/FwiData-Prefix.pch";
