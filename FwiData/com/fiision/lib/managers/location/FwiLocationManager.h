@@ -81,6 +81,6 @@ FOUNDATION_EXPORT CLLocationCoordinate2D (^FwiCalculateCoordinateWithDistance)(d
 @interface FwiLocationManager (FwiLocationManagerSingleton)
 
 /** Get singleton location manager. */
-+ (__weak FwiLocationManager *)sharedInstance;
++ (FwiLocationManager *)sharedInstance;
 
 @end

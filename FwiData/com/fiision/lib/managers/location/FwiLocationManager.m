@@ -342,7 +342,7 @@ static FwiLocationManager *_LocationManager;
 
 
 #pragma mark - Class's static constructors
-+ (__weak FwiLocationManager *)sharedInstance {
++ (FwiLocationManager *)sharedInstance {
     if (_LocationManager) return _LocationManager;
 
     @synchronized (self) {
